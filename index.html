@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Codifyit — Practical courses in code, data &amp; AI</title>
+<meta name="description" content="Courses built by a quant. Excel to Python for finance professionals, and a parent's guide to data, coding and AI." />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #14141f;
+    --paper:   #f6f1e7;
+    --cream:   #ede4d2;
+    --rule:    #d6cbb3;
+    --muted:   #5c5648;
+    --gold:    #b8963e;
+    --teal:    #2b7a78;
+    --mono:    'IBM Plex Mono', monospace;
+    --serif:   'Fraunces', Georgia, serif;
+    --sans:    'IBM Plex Sans', sans-serif;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .masthead {
+    border-bottom: 3px double var(--ink);
+    padding: 12px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .masthead-title { color: var(--ink); font-weight: 500; }
+
+  .hero {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 88px 48px 56px;
+    text-align: center;
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5.4vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  .cards {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 8px 48px 96px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 720px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(20, 20, 31, 0.12);
+  }
+
+  .card-top {
+    padding: 36px 32px 0;
+    border-top: 4px solid var(--accent, var(--gold));
+  }
+
+  .card-kicker {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent, var(--gold));
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .card h2 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .card p {
+    color: var(--muted);
+    font-size: 0.94rem;
+    margin-bottom: 24px;
+  }
+
+  .card-body { padding: 0 32px 32px; flex: 1; display: flex; flex-direction: column; }
+
+  .card-meta {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .card-price { color: var(--ink); font-weight: 500; }
+  .card-cta { color: var(--accent, var(--gold)); }
+
+  .card.finance { --accent: var(--gold); }
+  .card.parents { --accent: var(--teal); }
+
+  footer {
+    border-top: 3px double var(--ink);
+    padding: 24px 48px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <span>Built by a Quant</span>
+  <span class="masthead-title">Codifyit</span>
+  <span>Practical Courses in Code, Data &amp; AI</span>
+</div>
+
+<section class="hero">
+  <span class="kicker">codifyit.co.uk</span>
+  <h1>Practical courses, built by a quant.</h1>
+  <p class="hero-sub">Two self-paced courses that turn complex, technical subjects into something you can actually use — whether you're modelling in Excel or just trying to understand what your kids are learning.</p>
+</section>
+
+<div class="cards">
+
+  <a class="card finance" href="/excel-to-python/">
+    <div class="card-top">
+      <span class="card-kicker">For Finance Professionals</span>
+      <h2>Excel to Python for Finance Professionals</h2>
+    </div>
+    <div class="card-body">
+      <p>Replace your spreadsheets with cleaner, faster, more powerful financial models. Six notebook-based modules covering P&amp;L modelling, DCF valuation, and full reporting automation — runs in Google Colab, no install required.</p>
+      <div class="card-meta">
+        <span class="card-price">£249</span>
+        <span class="card-cta">View course →</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="card parents" href="/parents-guide/">
+    <div class="card-top">
+      <span class="card-kicker">For Parents</span>
+      <h2>What Is My Child Actually Learning?</h2>
+    </div>
+    <div class="card-body">
+      <p>A parent's guide to data, coding and AI — written in plain English, with no technical background needed. Seven short modules covering what's on the curriculum, the AI-and-homework question, and how to support your child.</p>
+      <div class="card-meta">
+        <span class="card-price">£35</span>
+        <span class="card-cta">View course →</span>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Practical courses, built by a practitioner
+</footer>
+
+</body>
+</html>

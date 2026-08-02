@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Excel to Python for Finance Professionals</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #0f0f0f;
+    --paper:   #f5f0e8;
+    --cream:   #ede7d9;
+    --gold:    #b8963e;
+    --gold-lt: #d4af6a;
+    --rule:    #c8bfad;
+    --muted:   #6b6357;
+    --mono:    'IBM Plex Mono', monospace;
+    --serif:   'Playfair Display', Georgia, serif;
+    --sans:    'IBM Plex Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    border-bottom: 3px double var(--ink);
+    padding: 12px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .masthead-title { color: var(--ink); font-weight: 500; }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 48px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 20px auto 0;
+    font-weight: 300;
+  }
+
+  .hero-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px auto;
+    max-width: 400px;
+  }
+  .hero-rule::before, .hero-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .hero-rule span {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── CTA BUTTON ── */
+  .cta-wrap { text-align: center; margin: 0 0 16px; }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 48px;
+    border: 2px solid var(--ink);
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+
+  .price-note {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── SECTION LAYOUT ── */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 48px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  p { margin-bottom: 16px; color: var(--muted); }
+  p strong { color: var(--ink); font-weight: 500; }
+
+  /* ── FOR WHO ── */
+  .for-who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-top: 32px;
+  }
+  @media (max-width: 600px) {
+    .for-who-grid { grid-template-columns: 1fr; }
+  }
+
+  .for-who-col { padding: 32px; }
+  .for-who-col:first-child { border-right: 1px solid var(--rule); }
+
+  .for-who-col h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+
+  .for-who-col ul { list-style: none; }
+  .for-who-col ul li {
+    font-size: 0.92rem;
+    color: var(--muted);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--cream);
+    display: flex;
+    gap: 10px;
+  }
+  .for-who-col ul li:last-child { border-bottom: none; }
+  .for-who-col ul li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .for-who-col.not li::before { content: '✗'; color: #c0392b; }
+
+  /* ── MODULES ── */
+  .modules { margin-top: 32px; }
+
+  .module-item {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-bottom: -1px;
+    transition: background 0.15s;
+  }
+  .module-item:hover { background: var(--cream); }
+
+  .module-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+    padding: 20px 0;
+  }
+
+  .module-body { padding: 20px 24px; }
+
+  .module-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .module-desc {
+    font-size: 0.87rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── BEFORE / AFTER ── */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  @media (max-width: 600px) { .ba-grid { grid-template-columns: 1fr; } }
+
+  .ba-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 28px;
+  }
+
+  .ba-card h3 {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ba-card.after h3 { color: var(--gold); }
+  .ba-card.before h3 { color: var(--muted); }
+
+  .ba-card ul { list-style: none; }
+  .ba-card ul li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 6px 0;
+    display: flex;
+    gap: 10px;
+  }
+  .ba-card.after ul li { color: var(--ink); }
+
+  /* ── CODE BLOCK ── */
+  .code-showcase {
+    background: var(--ink);
+    color: #e8e0d0;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    padding: 32px 36px;
+    margin-top: 32px;
+    overflow-x: auto;
+    position: relative;
+  }
+  .code-showcase::before {
+    content: 'Python';
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .code-comment { color: #7a7060; }
+  .code-keyword { color: var(--gold-lt); }
+  .code-string  { color: #a8c49a; }
+  .code-func    { color: #8ec8d8; }
+
+  /* ── AUTHOR ── */
+  .author-block {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 32px;
+    padding: 32px;
+    border: 1px solid var(--rule);
+    background: var(--cream);
+  }
+  @media (max-width: 600px) { .author-block { flex-direction: column; } }
+
+  .author-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--ink);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--paper);
+    font-style: italic;
+  }
+
+  .author-text h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .author-text p { font-size: 0.9rem; margin: 0; }
+
+  /* ── WHAT YOU GET ── */
+  .get-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-top: 32px;
+  }
+  @media (max-width: 600px) { .get-grid { grid-template-columns: 1fr; } }
+
+  .get-item {
+    padding: 28px 24px;
+    border-right: 1px solid var(--rule);
+    text-align: center;
+  }
+  .get-item:last-child { border-right: none; }
+
+  .get-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .get-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── PRICING ── */
+  .pricing-card {
+    border: 2px solid var(--ink);
+    max-width: 420px;
+    margin: 32px auto 0;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .pricing-card::before {
+    content: 'One-time purchase · Yours forever';
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--paper);
+    padding: 0 12px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .price-big {
+    font-family: var(--serif);
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .pricing-includes {
+    list-style: none;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+  .pricing-includes li {
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--cream);
+    display: flex;
+    gap: 10px;
+    color: var(--muted);
+  }
+  .pricing-includes li:last-child { border-bottom: none; }
+  .pricing-includes li::before { content: '—'; color: var(--gold); }
+
+  /* ── FAQ ── */
+  .faq { margin-top: 32px; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--rule);
+    padding: 24px 0;
+  }
+  .faq-q {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .faq-a { font-size: 0.92rem; color: var(--muted); margin: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 3px double var(--ink);
+    padding: 24px 48px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1, .hero-sub, .cta-wrap {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-sub { animation-delay: 0.15s; }
+  .cta-wrap { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <span>A Course for Finance Professionals</span>
+  <span class="masthead-title">Excel → Python</span>
+  <span>Notebook-Based · Self-Paced</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="kicker">Built by an Investment Banking Quant</span>
+  <h1>Stop rebuilding the<br/><em>same model</em> every month.</h1>
+  <p class="hero-sub">A practical, notebook-based course that teaches you to replace your most painful Excel workflows with clean, automated Python — using real finance examples.</p>
+
+  <div class="hero-rule"><span>six modules · fully self-paced</span></div>
+
+  <div class="cta-wrap">
+    <a href="#pricing" class="btn-primary">Get the Course</a>
+  </div>
+  <p class="price-note">£249 · One-time purchase · Lifetime access</p>
+</section>
+
+<!-- WHAT YOU GET (stats) -->
+<section class="section">
+  <div class="get-grid">
+    <div class="get-item">
+      <span class="get-num">6</span>
+      <span class="get-label">Jupyter Notebooks</span>
+    </div>
+    <div class="get-item">
+      <span class="get-num">0</span>
+      <span class="get-label">Setup Required<br/>(runs in browser)</span>
+    </div>
+    <div class="get-item">
+      <span class="get-num">∞</span>
+      <span class="get-label">Lifetime Access &amp;<br/>Future Updates</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="section">
+  <span class="section-label">Who this is for</span>
+  <h2>Made for finance professionals.<br/>Not data scientists.</h2>
+  <p>Most Python courses teach you to classify iris flowers and predict house prices. This one teaches you to build DCF models, automate monthly P&L reports, and replace VLOOKUPs — because that's what you actually do at work.</p>
+
+  <div class="for-who-grid">
+    <div class="for-who-col">
+      <h3>You'll get a lot from this if you…</h3>
+      <ul>
+        <li>Work in FP&amp;A, corporate finance, or investment banking</li>
+        <li>Build financial models or P&amp;Ls regularly in Excel</li>
+        <li>Spend hours updating the same report every month</li>
+        <li>Have tried learning Python but found it irrelevant to your work</li>
+        <li>Want to automate without needing a data engineering background</li>
+      </ul>
+    </div>
+    <div class="for-who-col not">
+      <h3>This probably isn't for you if…</h3>
+      <ul>
+        <li>You already code in Python regularly</li>
+        <li>You're looking for machine learning or statistics</li>
+        <li>Your role doesn't involve financial modelling</li>
+        <li>You want video lectures (this is notebooks only)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="section">
+  <span class="section-label">The transformation</span>
+  <h2>Before and after.</h2>
+
+  <div class="ba-grid">
+    <div class="ba-card before">
+      <h3>Your Excel workflow today</h3>
+      <ul>
+        <li>Open last month's model, save as "model_v2_FINAL.xlsx"</li>
+        <li>Manually update 12 assumption cells across 3 tabs</li>
+        <li>Drag formulas down, hope nothing breaks</li>
+        <li>Rebuild the charts because the data range shifted</li>
+        <li>Export to PDF, email to stakeholders</li>
+        <li>Repeat in 30 days</li>
+      </ul>
+    </div>
+    <div class="ba-card after">
+      <h3>After this course</h3>
+      <ul>
+        <li>Drop in the updated data file</li>
+        <li>Run one function: <code style="font-family:var(--mono);font-size:0.85em">run_monthly_report()</code></li>
+        <li>Formatted Excel report and charts generated automatically</li>
+        <li>Model validated — errors caught before they reach stakeholders</li>
+        <li>Full version history in Git — no more filename suffixes</li>
+        <li>Done in under 10 seconds</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CODE SAMPLE -->
+<section class="section">
+  <span class="section-label">A taste of what you'll write</span>
+  <h2>Real code. Real finance.</h2>
+  <p>Every notebook builds something you'd actually use at work. Here's a slice from Module 4 — a DCF sensitivity table that used to take an afternoon in Excel.</p>
+
+  <div class="code-showcase">
+<span class="code-comment"># Sensitivity: implied share price vs WACC and terminal growth</span>
+waccs    = [0.08, 0.09, 0.10, 0.11, 0.12]
+tgrowths = [0.015, 0.020, 0.025, 0.030, 0.035]
+
+<span class="code-keyword">for</span> w <span class="code-keyword">in</span> waccs:
+    <span class="code-keyword">for</span> tg <span class="code-keyword">in</span> tgrowths:
+        tv    = (fcfs[-1] * (1 + tg)) / (w - tg)
+        ev    = pv_fcfs + tv * discount_factor(w, n=5)
+        price = (ev - net_debt) / shares_outstanding
+        sensitivity.loc[w, tg] = <span class="code-func">round</span>(price, 2)
+
+<span class="code-comment"># Output: a colour-coded heatmap, automatically</span>
+<span class="code-func">plot_heatmap</span>(sensitivity, title=<span class="code-string">"Implied Share Price (£)"</span>)
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="section">
+  <span class="section-label">Course contents</span>
+  <h2>Six modules. All practical.</h2>
+  <p>No fluff. No toy examples. Every module is a Jupyter notebook with working code and a real financial deliverable at the end.</p>
+
+  <div class="modules">
+    <div class="module-item">
+      <div class="module-num">01</div>
+      <div class="module-body">
+        <div class="module-title">Why Python? Setting Up &amp; Your First P&amp;L</div>
+        <p class="module-desc">The honest Excel vs Python comparison. Environment setup (Colab or local). Load a P&L from Excel, calculate margins, produce a dual-axis chart — in 20 lines of code.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-num">02</div>
+      <div class="module-body">
+        <div class="module-title">Finance Fundamentals: The Excel-to-Python Translation</div>
+        <p class="module-desc">VLOOKUP → merge(). SUMIF → groupby(). Pivot tables, date handling, month-over-month growth, rolling averages, and conditional logic. Every function you use daily, translated.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-num">03</div>
+      <div class="module-body">
+        <div class="module-title">P&amp;L Modelling with Dynamic Assumptions</div>
+        <p class="module-desc">Build a full 3-year income statement. All assumptions in one place. Sensitivity tables (no Excel Data Tables). Bear / base / bull scenario analysis with a single function call.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-num">04</div>
+      <div class="module-body">
+        <div class="module-title">DCF Valuation: End-to-End in Python</div>
+        <p class="module-desc">5-year FCF projection, WACC calculation, Gordon Growth terminal value, equity bridge to implied share price. Sensitivity heatmap: price vs WACC and terminal growth rate.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-num">05</div>
+      <div class="module-body">
+        <div class="module-title">Best Practices: Build Models That Last</div>
+        <p class="module-desc">The three-layer model structure (inputs / engine / outputs). Validation functions that catch errors automatically. Git version control — no more filename suffixes. Reusable templates across companies.</p>
+      </div>
+    </div>
+    <div class="module-item">
+      <div class="module-num">06</div>
+      <div class="module-body">
+        <div class="module-title">Automation: The Monthly Report Pipeline</div>
+        <p class="module-desc">The payoff module. Build a pipeline that ingests raw data, runs the model, validates outputs, generates a formatted Excel report, and produces a dashboard chart. One command. Every month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="section">
+  <span class="section-label">About the author</span>
+  <h2>Built by a practitioner,<br/>for practitioners.</h2>
+
+  <div class="author-block">
+    <div class="author-avatar">Q</div>
+    <div class="author-text">
+      <h3>Quantitative Analyst, Tier 1 Investment Bank</h3>
+      <p>I've spent years building pricing models, risk analytics, and financial reports — first in Excel, then in Python. I built this course because every Python tutorial I found assumed you wanted to become a software engineer. You don't. You want to do your finance job faster and more reliably. That's what this course teaches.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <span class="section-label">Common questions</span>
+  <h2>FAQ</h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">Do I need any Python experience?</div>
+      <p class="faq-a">None. The course assumes you're comfortable in Excel but have never written Python. Module 1 starts from absolute zero and every concept is explained from the Excel equivalent you already know.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do I need to install anything?</div>
+      <p class="faq-a">No. Every notebook runs in Google Colab — free, in your browser, with no installation. All you need is a Google account. If you prefer a local setup, Module 1 includes instructions for Anaconda.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long will it take?</div>
+      <p class="faq-a">Each module takes 1–2 hours to work through properly. The full course is designed to be completed over 6–8 weekends at a comfortable pace. You can also dip in and out — each notebook is self-contained.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Why notebooks instead of video?</div>
+      <p class="faq-a">Finance professionals don't have time to watch a 4-hour video course. Notebooks are denser, faster to work through, and you can run the code yourself as you go. They're also easy to adapt to your own models immediately.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Will this work on my corporate laptop?</div>
+      <p class="faq-a">Yes — because it runs in Google Colab (a browser tab), it doesn't require any software installation that might be blocked by IT. You just need internet access and a personal Google account.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if I get stuck?</div>
+      <p class="faq-a">Every notebook is fully self-contained and runs top-to-bottom without errors. If you hit an issue, email the course address included in your purchase confirmation and you'll get a reply within 48 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <span class="section-label">Pricing</span>
+  <h2>One price. Everything included.</h2>
+
+  <div class="pricing-card">
+    <div class="price-big">£249</div>
+    <span class="price-sub">One-time · No subscription</span>
+
+    <ul class="pricing-includes">
+      <li>6 complete Jupyter notebooks</li>
+      <li>All code runs in Google Colab — no setup</li>
+      <li>Real finance examples throughout (P&amp;L, DCF, reporting)</li>
+      <li>Lifetime access including future module updates</li>
+      <li>Email support if you get stuck</li>
+    </ul>
+
+    <div class="cta-wrap" style="margin:0">
+      <a href="#" class="btn-primary">Buy Now — £249</a>
+    </div>
+    <p class="price-note" style="margin-top:16px">Secure checkout via Gumroad</p>
+  </div>
+</section>
+
+<footer>
+  © 2024 Excel to Python for Finance Professionals &nbsp;·&nbsp; All rights reserved &nbsp;·&nbsp; Built by a quant, for finance professionals
+</footer>
+
+</body>
+</html>
