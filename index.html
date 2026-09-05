@@ -157,6 +157,21 @@
   .card.finance { --accent: var(--gold); }
   .card.parents { --accent: var(--teal); }
 
+  .card.more {
+    grid-column: 1 / -1;
+    background: transparent;
+    border: 1px dashed var(--rule);
+    align-items: center;
+    text-align: center;
+    padding: 34px 32px;
+  }
+  .card.more:hover { transform: none; box-shadow: none; }
+  .card.more .card-kicker { color: var(--muted); margin-bottom: 12px; }
+  .card.more h2 { font-size: 1.35rem; margin-bottom: 8px; }
+  .card.more p { font-size: 0.9rem; margin-bottom: 0; max-width: 480px; }
+  .card.more a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+  .card.more a:hover { color: var(--ink); }
+
   footer {
     border-top: 3px double var(--ink);
     padding: 24px 48px;
@@ -180,7 +195,7 @@
 <section class="hero">
   <span class="kicker">codifyit.co.uk</span>
   <h1>Practical courses, built by a quant.</h1>
-  <p class="hero-sub">Two self-paced courses that turn complex, technical subjects into something you can actually use — whether you're trying to understand what your kids are learning or modelling in Excel.</p>
+  <p class="hero-sub">Self-paced courses that turn complex, technical subjects into something you can actually use — whether you're trying to understand what your kids are learning or modelling in Excel.</p>
 </section>
 
 <div class="cards">
@@ -212,6 +227,12 @@
       </div>
     </div>
   </a>
+
+  <div class="card more">
+    <span class="card-kicker">More on the way</span>
+    <h2>New courses in development</h2>
+    <p>More practical courses in code, data and AI are in the works. Is there one you'd like to see? Email <a href="mailto:hello@codifyit.co.uk?subject=Course%20suggestion">hello@codifyit.co.uk</a>.</p>
+  </div>
 
 </div>
 
