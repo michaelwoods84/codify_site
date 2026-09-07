@@ -1,0 +1,4 @@
+# Interactive course (React SPA under /course/). Real files are served first;
+# unknown /course/ paths (deep links like /course/module/2) fall back to the
+# app's index.html so client-side routing can take over.
+/course/*  /course/index.html  200
