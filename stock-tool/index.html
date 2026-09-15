@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stock Price Lookup — Codifyit</title>
+<meta name="description" content="A small demo tool that queries Alpha Vantage for live stock quotes, built alongside the Excel to Python for Finance course." />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #14141f;
+    --paper:   #f6f1e7;
+    --cream:   #ede4d2;
+    --rule:    #d6cbb3;
+    --muted:   #5c5648;
+    --gold:    #b8963e;
+    --teal:    #2b7a78;
+    --red:     #a33b2e;
+    --green:   #2f7a4d;
+    --mono:    'IBM Plex Mono', monospace;
+    --serif:   'Fraunces', Georgia, serif;
+    --sans:    'IBM Plex Sans', sans-serif;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .masthead {
+    border-bottom: 3px double var(--ink);
+    padding: 12px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .masthead a { color: var(--muted); text-decoration: none; }
+  .masthead a:hover { color: var(--ink); }
+  .masthead-title { color: var(--ink); font-weight: 500; }
+
+  .hero {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 32px;
+    text-align: center;
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 4.6vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+
+  .hero-sub {
+    font-size: 1.02rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  .panel {
+    max-width: 640px;
+    margin: 0 auto 96px;
+    padding: 0 24px;
+  }
+
+  .card {
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+
+  .card h2 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .card .hint {
+    font-size: 0.86rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    outline: 2px solid var(--teal);
+    outline-offset: 1px;
+  }
+
+  .row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+  .row .field { flex: 1; min-width: 180px; margin-bottom: 0; }
+
+  button {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  button:hover { opacity: 0.85; }
+  button.secondary {
+    background: transparent;
+    color: var(--ink);
+  }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .key-row { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 8px; }
+  .key-row .field { flex: 1; margin-bottom: 0; }
+  .key-status { font-size: 0.82rem; color: var(--muted); margin-top: 10px; }
+  .key-status.saved { color: var(--green); }
+
+  .lookup-row { margin-top: 24px; }
+
+  .note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+  .note a { color: var(--teal); }
+
+  #result { margin-top: 24px; }
+
+  .quote-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .quote-symbol {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  .quote-price {
+    font-family: var(--mono);
+    font-size: 1.6rem;
+  }
+  .quote-change {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+  }
+  .quote-change.up { color: var(--green); }
+  .quote-change.down { color: var(--red); }
+
+  .quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+    font-family: var(--mono);
+    font-size: 0.86rem;
+  }
+  .quote-grid dt { color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.72rem; }
+  .quote-grid dd { margin-bottom: 8px; }
+
+  .message {
+    padding: 16px 18px;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--gold);
+    background: var(--paper);
+  }
+  .message.error { border-left-color: var(--red); color: var(--red); }
+
+  footer {
+    border-top: 3px double var(--ink);
+    padding: 24px 48px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <a href="/">← Codifyit</a>
+  <span class="masthead-title">Stock Price Lookup</span>
+  <span>Powered by Alpha Vantage</span>
+</div>
+
+<section class="hero">
+  <span class="kicker">Demo tool</span>
+  <h1>Look up a live stock quote</h1>
+  <p class="hero-sub">A small companion tool for the Excel to Python for Finance course — enter a ticker to pull a live quote via the Alpha Vantage API.</p>
+</section>
+
+<div class="panel">
+
+  <div class="card">
+    <h2>Your Alpha Vantage API key</h2>
+    <p class="hint">Free keys are available at <a href="https://www.alphavantage.co/support/#api-key" target="_blank" rel="noopener">alphavantage.co</a>. Your key is stored only in this browser (localStorage) — it is never sent anywhere except directly to Alpha Vantage, and it is not part of this site's source code.</p>
+    <div class="key-row">
+      <div class="field">
+        <label for="apiKey">API key</label>
+        <input type="password" id="apiKey" placeholder="Paste your Alpha Vantage API key" autocomplete="off" />
+      </div>
+      <button type="button" class="secondary" id="saveKeyBtn">Save</button>
+    </div>
+    <div class="key-status" id="keyStatus"></div>
+  </div>
+
+  <div class="card">
+    <h2>Get a quote</h2>
+    <p class="hint">Enter a ticker symbol, e.g. AAPL, MSFT, TSLA, VOD.L.</p>
+    <div class="row lookup-row">
+      <div class="field">
+        <label for="symbol">Ticker symbol</label>
+        <input type="text" id="symbol" placeholder="AAPL" autocomplete="off" />
+      </div>
+      <button type="button" id="lookupBtn">Get Quote</button>
+    </div>
+
+    <div id="result"></div>
+
+    <p class="note">Free-tier Alpha Vantage keys are limited to 25 requests per day and roughly 5 per minute. If a lookup fails, wait a moment and try again.</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Practical courses, built by a practitioner
+</footer>
+
+<script>
+  const KEY_STORAGE = 'codifyit_alphavantage_key';
+  const apiKeyInput = document.getElementById('apiKey');
+  const keyStatus = document.getElementById('keyStatus');
+  const saveKeyBtn = document.getElementById('saveKeyBtn');
+  const symbolInput = document.getElementById('symbol');
+  const lookupBtn = document.getElementById('lookupBtn');
+  const resultEl = document.getElementById('result');
+
+  function loadKey() {
+    const saved = localStorage.getItem(KEY_STORAGE);
+    if (saved) {
+      apiKeyInput.value = saved;
+      keyStatus.textContent = 'Using a saved key from this browser.';
+      keyStatus.classList.add('saved');
+    }
+  }
+
+  function saveKey() {
+    const value = apiKeyInput.value.trim();
+    if (!value) {
+      localStorage.removeItem(KEY_STORAGE);
+      keyStatus.textContent = 'Key cleared.';
+      keyStatus.classList.remove('saved');
+      return;
+    }
+    localStorage.setItem(KEY_STORAGE, value);
+    keyStatus.textContent = 'Key saved to this browser.';
+    keyStatus.classList.add('saved');
+  }
+
+  function showMessage(text, isError) {
+    resultEl.innerHTML = '';
+    const div = document.createElement('div');
+    div.className = 'message' + (isError ? ' error' : '');
+    div.textContent = text;
+    resultEl.appendChild(div);
+  }
+
+  function formatNumber(n, decimals) {
+    const num = Number(n);
+    if (Number.isNaN(num)) return n;
+    return num.toLocaleString('en-US', { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+  }
+
+  function renderQuote(quote) {
+    const price = parseFloat(quote['05. price']);
+    const change = parseFloat(quote['09. change']);
+    const changePct = quote['10. change percent'];
+    const direction = change > 0 ? 'up' : (change < 0 ? 'down' : '');
+    const sign = change > 0 ? '+' : '';
+
+    resultEl.innerHTML = `
+      <div class="quote-head">
+        <span class="quote-symbol">${quote['01. symbol']}</span>
+        <span class="quote-price">$${formatNumber(price, 2)}</span>
+      </div>
+      <div class="quote-change ${direction}">${sign}${formatNumber(change, 2)} (${changePct})</div>
+      <dl class="quote-grid" style="margin-top:18px;">
+        <div><dt>Open</dt><dd>${formatNumber(quote['02. open'], 2)}</dd></div>
+        <div><dt>Previous close</dt><dd>${formatNumber(quote['08. previous close'], 2)}</dd></div>
+        <div><dt>Day high</dt><dd>${formatNumber(quote['03. high'], 2)}</dd></div>
+        <div><dt>Day low</dt><dd>${formatNumber(quote['04. low'], 2)}</dd></div>
+        <div><dt>Volume</dt><dd>${formatNumber(quote['06. volume'], 0)}</dd></div>
+        <div><dt>Latest trading day</dt><dd>${quote['07. latest trading day']}</dd></div>
+      </dl>
+    `;
+  }
+
+  async function lookupQuote() {
+    const apiKey = apiKeyInput.value.trim();
+    const symbol = symbolInput.value.trim().toUpperCase();
+
+    if (!apiKey) {
+      showMessage('Enter and save your Alpha Vantage API key first.', true);
+      return;
+    }
+    if (!symbol) {
+      showMessage('Enter a ticker symbol.', true);
+      return;
+    }
+
+    lookupBtn.disabled = true;
+    lookupBtn.textContent = 'Loading…';
+    showMessage('Fetching quote…', false);
+
+    try {
+      const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${encodeURIComponent(symbol)}&apikey=${encodeURIComponent(apiKey)}`;
+      const res = await fetch(url);
+      if (!res.ok) {
+        showMessage(`Request failed (HTTP ${res.status}).`, true);
+        return;
+      }
+      const data = await res.json();
+
+      if (data['Note']) {
+        showMessage('Alpha Vantage rate limit reached. Wait a minute and try again.', true);
+        return;
+      }
+      if (data['Information']) {
+        showMessage(data['Information'], true);
+        return;
+      }
+      if (data['Error Message']) {
+        showMessage(data['Error Message'], true);
+        return;
+      }
+
+      const quote = data['Global Quote'];
+      if (!quote || !quote['05. price']) {
+        showMessage(`No data found for "${symbol}". Check the ticker symbol and try again.`, true);
+        return;
+      }
+
+      renderQuote(quote);
+    } catch (err) {
+      showMessage('Could not reach Alpha Vantage. Check your connection and try again.', true);
+    } finally {
+      lookupBtn.disabled = false;
+      lookupBtn.textContent = 'Get Quote';
+    }
+  }
+
+  saveKeyBtn.addEventListener('click', saveKey);
+  lookupBtn.addEventListener('click', lookupQuote);
+  symbolInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') lookupQuote(); });
+  apiKeyInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') saveKey(); });
+
+  loadKey();
+</script>
+
+</body>
+</html>
