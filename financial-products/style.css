@@ -1,0 +1,268 @@
+/* Financial Products in 5 Minutes — shared course styles */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:     #14141f;
+  --paper:   #f6f1e7;
+  --cream:   #ede4d2;
+  --rule:    #d6cbb3;
+  --muted:   #5c5648;
+  --gold:    #b8963e;
+  --teal:    #2b7a78;
+  --mono:    'IBM Plex Mono', monospace;
+  --serif:   'Fraunces', Georgia, serif;
+  --sans:    'IBM Plex Sans', sans-serif;
+  --hand:    'Caveat', cursive;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+a { color: inherit; }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  border-bottom: 3px double var(--ink);
+  padding: 12px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.masthead-title { color: var(--ink); font-weight: 500; text-decoration: none; }
+.masthead a { text-decoration: none; }
+.masthead a:hover { color: var(--ink); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 48px 8px;
+  text-align: center;
+}
+.kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0 0 8px;
+}
+.hero .subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  display: block;
+}
+.hero .dek {
+  color: var(--muted);
+  font-size: 1.05rem;
+  font-weight: 300;
+  text-wrap: balance;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+main { max-width: 900px; margin: 0 auto; padding: 0 24px 64px; }
+
+/* ---------- diagram ---------- */
+
+.diagram-wrap {
+  margin: 40px 0 8px;
+  padding: 28px clamp(12px, 4vw, 36px) 22px;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+}
+.diagram-wrap + .diagram-wrap { margin-top: 20px; }
+figure { margin: 0; }
+svg.sketch-figure { display: block; width: 100%; height: auto; overflow: visible; }
+figcaption {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-align: center;
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+/* ---------- narrative ---------- */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 56px 0 40px;
+}
+@media (max-width: 720px) {
+  .story-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+.story-grid h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+}
+.story-grid p { margin: 0 0 12px; font-size: 0.95rem; }
+.story-grid p:last-child { margin-bottom: 0; }
+.story-grid ul { margin: 0; padding-left: 18px; font-size: 0.95rem; }
+.story-grid li { margin-bottom: 8px; }
+.story-grid li:last-child { margin-bottom: 0; }
+.eyebrow-num {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* ---------- quickfacts ---------- */
+
+.quickfacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 0 8px;
+  border-top: 1px solid var(--rule);
+}
+.chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 7px 14px;
+}
+.chip b { color: var(--ink); font-weight: 500; }
+
+/* ---------- course nav ---------- */
+
+.course-nav {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 3px double var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.nav-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+.nav-link:hover { color: var(--gold); }
+.module-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 100%;
+  order: 3;
+  text-align: center;
+  padding-top: 12px;
+}
+
+footer.site-footer {
+  border-top: 3px double var(--ink);
+  padding: 24px 48px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- course index grid ---------- */
+
+.module-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8px 24px 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 720px) {
+  .module-list { grid-template-columns: 1fr; padding: 8px 20px 72px; }
+}
+.module-card {
+  border: 1px solid var(--rule);
+  background: var(--cream);
+  text-decoration: none;
+  color: inherit;
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.module-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(20, 20, 31, 0.1);
+}
+.module-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+.module-card h2 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+.module-card p { color: var(--muted); font-size: 0.9rem; }
+.module-card .go {
+  margin-top: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  padding-top: 6px;
+}

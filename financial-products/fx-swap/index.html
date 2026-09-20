@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FX Swap — Financial Products in 5 Minutes</title>
+<meta name="description" content="A 5-minute, hand-drawn visual guide to FX swaps — a spot trade and a forward trade glued together into a funding tool."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/financial-products/style.css"/>
+</head>
+<body>
+
+<div class="masthead">
+  <a href="/">Codifyit</a>
+  <a class="masthead-title" href="/financial-products/">Financial Products in 5 Minutes</a>
+  <span>Module 05 of 09</span>
+</div>
+
+<main>
+  <section class="hero">
+    <span class="kicker">Module 05 · Financial Products in 5 Minutes</span>
+    <h1>FX Swap</h1>
+    <span class="subtitle">Two trades, glued together</span>
+    <p class="dek">You exchange currencies now, and agree — in the very same contract — to swap them straight back on a set date later.</p>
+  </section>
+
+  <section class="diagram-wrap">
+    <figure>
+      <svg class="sketch-figure" viewBox="0 0 900 440" role="img" aria-label="Diagram comparing the near leg and far leg of an FX swap. Near leg, today: you give 1,000,000 dollars and get 920,000 euros at the spot rate. Far leg, in three months: you give back 920,000 euros and get back 1,003,000 dollars at the forward rate, the extra 3,000 dollars reflecting the interest rate gap between the two currencies.">
+        <defs>
+          <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="31" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <marker id="arrowGoldS" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--gold)"/>
+          </marker>
+          <marker id="arrowTealS" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--teal)"/>
+          </marker>
+        </defs>
+
+        <g class="sketch" filter="url(#sketchy)" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- near leg boxes -->
+          <path d="M116,66 L234,63 L236,114 L114,117 Z"/>
+          <path d="M116,346 L234,343 L236,394 L114,397 Z"/>
+          <!-- far leg boxes -->
+          <path d="M666,66 L784,63 L786,114 L664,117 Z"/>
+          <path d="M666,346 L784,343 L786,394 L664,397 Z"/>
+          <!-- divider -->
+          <line x1="450" y1="58" x2="450" y2="402" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="2 8"/>
+        </g>
+
+        <path d="M150,120 C145,190 145,270 150,336" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowGoldS)"/>
+        <path d="M200,336 C205,270 205,190 200,120" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowTealS)"/>
+
+        <path d="M700,120 C695,190 695,270 700,336" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowGoldS)"/>
+        <path d="M750,336 C755,270 755,190 750,120" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowTealS)"/>
+
+        <text x="175" y="40" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--ink)" letter-spacing="0.03em">NEAR LEG — TODAY (SPOT)</text>
+        <text x="725" y="40" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--ink)" letter-spacing="0.03em">FAR LEG — IN 3 MONTHS (FORWARD)</text>
+
+        <text x="175" y="93" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">YOU</text>
+        <text x="175" y="373" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">THE BANK</text>
+        <text x="725" y="93" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">YOU</text>
+        <text x="725" y="373" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">THE BANK</text>
+
+        <text x="60" y="205" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" font-weight="600" fill="var(--gold)" letter-spacing="0.01em" transform="rotate(-90 60 205)">GIVE $1,000,000</text>
+        <text x="290" y="255" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" font-weight="600" fill="var(--teal)" letter-spacing="0.01em" transform="rotate(-90 290 255)">GET €920,000 — SPOT 0.9200</text>
+
+        <text x="610" y="205" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" font-weight="600" fill="var(--gold)" letter-spacing="0.01em" transform="rotate(-90 610 205)">GIVE BACK €920,000</text>
+        <text x="840" y="255" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" font-weight="600" fill="var(--teal)" letter-spacing="0.01em" transform="rotate(-90 840 255)">GET BACK $1,003,000 — FWD 0.9330</text>
+
+        <text x="450" y="225" text-anchor="middle" font-family="'Caveat', cursive" font-weight="600" font-size="19" fill="var(--muted)" transform="rotate(-90 450 225)">3 months later →</text>
+      </svg>
+    </figure>
+    <figcaption>An FX swap: a spot exchange today (near leg) paired with the exact reverse at a forward rate later (far leg). The two legs cancel the currency risk out — this is a funding trade, not a bet on where the currency goes.</figcaption>
+  </section>
+
+  <section class="story-grid">
+    <article>
+      <span class="eyebrow-num">1</span>
+      <h2>What it actually is</h2>
+      <p>An FX swap bundles two trades into one: you exchange currencies today at the spot rate (the "near leg"), and simultaneously agree to swap them back on a future date at a pre-agreed forward rate (the "far leg").</p>
+      <p>Nobody is making a directional bet on the currency — the whole point is that the two legs cancel each other's currency exposure out.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">2</span>
+      <h2>Why someone would do this</h2>
+      <p>A bank that needs euros for three months but doesn't want to hold euro risk borrows dollars, swaps them into euros now, uses the euros, then swaps back to dollars in three months exactly as agreed.</p>
+      <p>It's really a funding tool dressed up as an FX trade — a way to borrow one currency using another as collateral.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">3</span>
+      <h2>Who's actually doing this</h2>
+      <p>Banks and central banks use FX swaps constantly to manage short-term funding across currencies.</p>
+      <p>It's one of the largest corners of the entire FX market by volume, even though almost none of it is directional currency speculation.</p>
+    </article>
+  </section>
+
+  <div class="quickfacts">
+    <span class="chip">Two legs: <b>near + far date</b></span>
+    <span class="chip">Near leg: <b>spot rate</b></span>
+    <span class="chip">Far leg: <b>forward rate</b></span>
+    <span class="chip">Mainly a <b>funding tool</b>, not a currency bet</span>
+  </div>
+
+  <footer class="course-nav">
+    <a class="nav-link" href="/financial-products/fx-forward/">◂ fx forward</a>
+    <span class="module-count">Module 05 of 09</span>
+    <a class="nav-link" href="/financial-products/interest-rate-swap/">interest rate swap ▸</a>
+  </footer>
+</main>
+
+<footer class="site-footer">
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Practical courses, built by a practitioner
+</footer>
+
+</body>
+</html>
