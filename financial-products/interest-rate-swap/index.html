@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Interest Rate Swap — Financial Products in 5 Minutes</title>
+<meta name="description" content="A 5-minute, hand-drawn visual guide to how an interest rate swap works and why it's one of the largest markets in the world."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/financial-products/style.css"/>
+</head>
+<body>
+
+<div class="masthead">
+  <a href="/">Codifyit</a>
+  <a class="masthead-title" href="/financial-products/">Financial Products in 5 Minutes</a>
+  <span>Module 06 of 09</span>
+</div>
+
+<main>
+  <section class="hero">
+    <span class="kicker">Module 06 · Financial Products in 5 Minutes</span>
+    <h1>The Interest&nbsp;Rate&nbsp;Swap</h1>
+    <span class="subtitle">Pay fixed, receive floating</span>
+    <p class="dek">Two parties agree to swap interest payments on the same imaginary pile of money. Only the difference ever changes hands — the pile itself never moves.</p>
+  </section>
+
+  <section class="diagram-wrap">
+    <figure>
+      <svg class="sketch-figure" viewBox="0 0 900 400" role="img" aria-label="Diagram of an interest rate swap: You pay a fixed 4.20% rate to the Bank along a curved arrow, and receive a floating SOFR plus 1.10% rate back along a wavy arrow, while a 50 million dollar notional sits in the middle as a reference figure that is never actually exchanged.">
+        <defs>
+          <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <marker id="arrowGold" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--gold)"/>
+          </marker>
+          <marker id="arrowTeal" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--teal)"/>
+          </marker>
+        </defs>
+
+        <g class="sketch" filter="url(#sketchy)" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M31,92 L219,89 L221,248 L28,251 Z"/>
+          <path d="M124,128 L84,177 L166,176 Z"/>
+          <path d="M96,176 L96,227 L154,229 L153,175"/>
+          <path d="M112,196 L112,228 L138,229 L137,197 Z"/>
+          <rect x="103" y="184" width="12" height="12"/>
+          <rect x="135" y="184" width="12" height="12"/>
+
+          <path d="M681,90 L871,93 L869,250 L679,247 Z"/>
+          <path d="M775,138 L714,171 L837,170 Z"/>
+          <rect x="705" y="223" width="141" height="9"/>
+          <line x1="723" y1="172" x2="723" y2="222"/>
+          <line x1="749" y1="172" x2="749" y2="222"/>
+          <line x1="775" y1="172" x2="775" y2="222"/>
+          <line x1="801" y1="172" x2="801" y2="222"/>
+          <line x1="827" y1="172" x2="827" y2="222"/>
+
+          <path d="M420,172 C400,220 390,250 388,296" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="1 7"/>
+          <path d="M480,172 C500,220 510,250 512,296" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="1 7"/>
+          <path d="M312,298 L588,295 L591,362 L309,366 Z" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
+        </g>
+
+        <path d="M228,142 C360,112 520,112 670,141" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowGold)"/>
+        <path d="M670,207 C610,236 592,180 532,206 C472,232 454,180 394,206 C350,224 260,192 229,207" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowTeal)"/>
+
+        <text x="450" y="92" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU PAY — FIXED 4.20% / YEAR</text>
+        <text x="450" y="285" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">YOU RECEIVE — FLOATING (SOFR + 1.10%)</text>
+
+        <text x="125" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
+        <text x="125" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">FLOATING-RATE BORROWER</text>
+        <text x="775" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">THE BANK</text>
+        <text x="775" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">SWAP COUNTERPARTY</text>
+
+        <text x="450" y="322" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="600" font-size="14" fill="var(--ink)">NOTIONAL — $50,000,000</text>
+        <text x="450" y="343" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="11" fill="var(--muted)">reference figure only — this amount never changes hands</text>
+
+        <text x="742" y="303" text-anchor="middle" font-family="'Caveat', cursive" font-weight="600" font-size="21" fill="var(--teal)" transform="rotate(-4 742 303)">nobody actually pays this bit!</text>
+        <path d="M705,318 C665,324 620,322 592,328" fill="none" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" marker-end="url(#arrowTeal)"/>
+      </svg>
+    </figure>
+    <figcaption>A vanilla interest rate swap between a corporate borrower and a bank. Two payment streams run on the same $50m notional — one fixed, one floating — and only the notional is imaginary.</figcaption>
+  </section>
+
+  <section class="story-grid">
+    <article>
+      <span class="eyebrow-num">1</span>
+      <h2>What it actually is</h2>
+      <p>An interest rate swap is an agreement between two parties to trade interest payments on the same notional amount, for a set number of years.</p>
+      <p>One side pays a <b>fixed</b> rate agreed today. The other pays a <b>floating</b> rate that resets periodically against a benchmark like SOFR. In practice only the difference is settled each period — the notional is just the number both legs are calculated from.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">2</span>
+      <h2>Why someone would do this</h2>
+      <p>Say a company borrowed $50m at a floating rate. Rates rising would make its loan payments unpredictable — bad for budgeting five years out.</p>
+      <p>Rather than refinance the whole loan, it swaps: pay fixed, receive floating. The floating leg it receives roughly cancels the floating rate it owes on the loan, so its <i>net</i> cost becomes fixed — without ever touching the original loan.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">3</span>
+      <h2>Who's actually doing this</h2>
+      <p>Almost nobody who issues debt wants to sit with the exact rate risk that debt happens to carry. A government that just sold floating-rate bonds would rather know what next year's interest bill looks like. A pension fund would rather its liabilities stop swinging every time a central bank meets. So a swap gets layered on top, quietly doing the rate management off to the side.</p>
+      <p>The loan or bond underneath never has to be touched, refinanced or reissued — which is really the whole point. It's also why swaps trade in such enormous volume: the debt itself moves slowly, but everyone's opinion on where rates are going changes constantly, and a swap is the fastest way to act on that opinion.</p>
+    </article>
+  </section>
+
+  <div class="quickfacts">
+    <span class="chip">Tenor: <b>often 2–10 yrs</b></span>
+    <span class="chip">Benchmark: <b>SOFR, €STR, SONIA…</b></span>
+    <span class="chip">Settlement: <b>net, periodically</b></span>
+    <span class="chip">Notional: <b>never exchanged</b></span>
+  </div>
+
+  <footer class="course-nav">
+    <a class="nav-link" href="/financial-products/fx-swap/">◂ FX swap</a>
+    <span class="module-count">Module 06 of 09</span>
+    <a class="nav-link" href="/financial-products/credit-default-swap/">credit default swap ▸</a>
+  </footer>
+</main>
+
+<footer class="site-footer">
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Practical courses, built by a practitioner
+</footer>
+
+</body>
+</html>

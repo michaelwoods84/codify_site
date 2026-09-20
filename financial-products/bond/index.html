@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Bond — Financial Products in 5 Minutes</title>
+<meta name="description" content="A 5-minute, hand-drawn visual guide to how a bond works and why governments and companies borrow this way."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/financial-products/style.css"/>
+</head>
+<body>
+
+<div class="masthead">
+  <a href="/">Codifyit</a>
+  <a class="masthead-title" href="/financial-products/">Financial Products in 5 Minutes</a>
+  <span>Module 01 of 09</span>
+</div>
+
+<main>
+  <section class="hero">
+    <span class="kicker">Module 01 · Financial Products in 5 Minutes</span>
+    <h1>The Bond</h1>
+    <span class="subtitle">Lend once, get paid on a schedule</span>
+    <p class="dek">You hand over money today. The borrower pays you interest on set dates and gives the original amount back at the end. Everything else about bonds is detail on top of that.</p>
+  </section>
+
+  <section class="diagram-wrap">
+    <figure>
+      <svg class="sketch-figure" viewBox="0 0 900 480" role="img" aria-label="Diagram of a bond: you pay 980 dollars today to the issuer, and receive a 5% coupon every year plus the 1,000 dollar face value back at maturity in year ten. A note explains that today's price moves with interest rates but the face value never does.">
+        <defs>
+          <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="11" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <marker id="arrowGoldB" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--gold)"/>
+          </marker>
+          <marker id="arrowTealB" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--teal)"/>
+          </marker>
+        </defs>
+
+        <g class="sketch" filter="url(#sketchy)" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <!-- investor box + person icon -->
+          <path d="M31,92 L219,89 L221,248 L28,251 Z"/>
+          <circle cx="125" cy="152" r="19"/>
+          <path d="M103,182 L147,182 L157,231 L93,231 Z"/>
+
+          <!-- issuer box + building icon -->
+          <path d="M681,90 L871,93 L869,250 L679,247 Z"/>
+          <path d="M775,138 L714,171 L837,170 Z"/>
+          <rect x="705" y="223" width="141" height="9"/>
+          <line x1="723" y1="172" x2="723" y2="222"/>
+          <line x1="749" y1="172" x2="749" y2="222"/>
+          <line x1="775" y1="172" x2="775" y2="222"/>
+          <line x1="801" y1="172" x2="801" y2="222"/>
+          <line x1="827" y1="172" x2="827" y2="222"/>
+
+          <!-- coupon repeat ticks -->
+          <line x1="560" y1="271" x2="560" y2="281" stroke-width="1.5"/>
+          <line x1="460" y1="286" x2="460" y2="296" stroke-width="1.5"/>
+          <line x1="360" y1="286" x2="360" y2="296" stroke-width="1.5"/>
+          <line x1="280" y1="271" x2="280" y2="281" stroke-width="1.5"/>
+
+          <!-- leaders + insight box -->
+          <path d="M420,346 C405,365 395,380 390,398" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="1 7"/>
+          <path d="M480,346 C495,365 505,380 510,398" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="1 7"/>
+          <path d="M312,400 L588,397 L591,462 L309,466 Z" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
+        </g>
+
+        <!-- price leg: you pay -->
+        <path d="M228,140 C360,112 520,112 670,140" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowGoldB)"/>
+        <!-- coupon leg: small recurring -->
+        <path d="M670,275 C520,297 380,297 228,275" fill="none" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round" marker-end="url(#arrowTealB)"/>
+        <!-- face value leg: big final -->
+        <path d="M670,335 C520,357 380,357 228,335" fill="none" stroke="var(--teal)" stroke-width="4" stroke-linecap="round" marker-end="url(#arrowTealB)"/>
+
+        <text x="450" y="92" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU PAY $980 — TODAY (THE PRICE)</text>
+        <text x="450" y="262" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">COUPON 5% ($50) — EVERY YEAR</text>
+        <text x="450" y="380" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">+ FACE VALUE $1,000 — AT MATURITY (YEAR 10)</text>
+
+        <text x="125" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
+        <text x="125" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">THE BOND INVESTOR</text>
+        <text x="775" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">THE ISSUER</text>
+        <text x="775" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">GOVERNMENT OR COMPANY</text>
+
+        <text x="450" y="424" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="11.5" font-weight="500" fill="var(--ink)">Today's price moves with interest rates —</text>
+        <text x="450" y="440" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="11.5" fill="var(--muted)">the $1,000 face value never does.</text>
+
+        <text x="125" y="300" text-anchor="middle" font-family="'Caveat', cursive" font-weight="600" font-size="20" fill="var(--gold)" transform="rotate(3 125 300)">10 years is a long time to trust someone</text>
+
+      </svg>
+    </figure>
+    <figcaption>A plain-vanilla 10-year bond. You pay $980 today, collect a 5% coupon every year, and get the $1,000 face value back at maturity.</figcaption>
+  </section>
+
+  <section class="story-grid">
+    <article>
+      <span class="eyebrow-num">1</span>
+      <h2>What it actually is</h2>
+      <p>A bond is a loan, just packaged so it can be bought and sold. You hand over money today; the issuer promises a fixed coupon on set dates and the face value back at maturity.</p>
+      <p>The price you pay today isn't always the face value — it moves with interest rates in between. Buy at $980, get $1,000 back, and that gap is part of your return too.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">2</span>
+      <h2>Why someone would do this</h2>
+      <p>For the issuer: borrowing from thousands of investors at once through a bond is usually cheaper and more flexible than one large bank loan.</p>
+      <p>For the investor: a bond is the default place to put money that needs to still be there in 5 or 10 years. The coupon is contractual, and holding to maturity gets your money back regardless of what the price does along the way.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">3</span>
+      <h2>Who's actually doing this</h2>
+      <p>Governments run entire markets in their own bonds to fund deficits and roll over old debt. Companies issue them instead of borrowing everything from a bank.</p>
+      <p>Pension funds and insurers buy huge quantities, because a bond's fixed, dated payments are about the closest thing in finance to a liability that behaves itself.</p>
+    </article>
+  </section>
+
+  <div class="quickfacts">
+    <span class="chip">Tenor: <b>1–30+ yrs</b></span>
+    <span class="chip">Coupon: <b>fixed or floating</b></span>
+    <span class="chip">Price moves <b>opposite to yield</b></span>
+    <span class="chip">Principal returned <b>at maturity</b></span>
+  </div>
+
+  <footer class="course-nav">
+    <a class="nav-link" href="/financial-products/">◂ course overview</a>
+    <span class="module-count">Module 01 of 09</span>
+    <a class="nav-link" href="/financial-products/cash-equity/">cash equity ▸</a>
+  </footer>
+</main>
+
+<footer class="site-footer">
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Practical courses, built by a practitioner
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Swaption — Financial Products in 5 Minutes</title>
+<meta name="description" content="A 5-minute, hand-drawn visual guide to swaptions — an option on an interest rate swap, and the three exercise styles behind it."/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/financial-products/style.css"/>
+</head>
+<body>
+
+<div class="masthead">
+  <a href="/">Codifyit</a>
+  <a class="masthead-title" href="/financial-products/">Financial Products in 5 Minutes</a>
+  <span>Module 09 of 09</span>
+</div>
+
+<main>
+  <section class="hero">
+    <span class="kicker">Module 09 · Financial Products in 5 Minutes</span>
+    <h1>Swaption</h1>
+    <span class="subtitle">An option on a swap</span>
+    <p class="dek">The right to enter an interest rate swap later, on terms agreed today — plus a choice about exactly when that right can be used.</p>
+  </section>
+
+  <section class="diagram-wrap">
+    <figure>
+      <svg class="sketch-figure" viewBox="0 0 900 392" role="img" aria-label="Diagram of a payer swaption: you pay a premium today for the right to enter a 5 year swap paying fixed 4.20 percent versus floating. If rates rose by the exercise date you exercise into that old fixed rate; if rates fell you let the swaption expire and take the better market rate instead.">
+        <defs>
+          <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="47" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+          <marker id="arrowGoldSw" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--gold)"/>
+          </marker>
+          <marker id="arrowTealSw" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <polygon points="0,0 7,3 0,6" fill="var(--teal)"/>
+          </marker>
+        </defs>
+
+        <g class="sketch" filter="url(#sketchy)" fill="none" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M31,72 L219,69 L221,168 L28,171 Z"/>
+          <circle cx="125" cy="103" r="16"/>
+          <path d="M106,128 L144,128 L152,163 L98,163 Z"/>
+
+          <path d="M681,70 L871,73 L869,170 L679,167 Z"/>
+          <path d="M775,90 L730,114 L820,113 Z"/>
+          <rect x="716" y="143" width="118" height="8"/>
+          <line x1="730" y1="114" x2="730" y2="142"/>
+          <line x1="752" y1="114" x2="752" y2="142"/>
+          <line x1="775" y1="114" x2="775" y2="142"/>
+          <line x1="798" y1="114" x2="798" y2="142"/>
+          <line x1="820" y1="114" x2="820" y2="142"/>
+
+          <path d="M450,213 C400,230 360,240 320,250"/>
+          <path d="M450,213 C500,230 540,240 580,250"/>
+
+          <path d="M222,256 L378,254 L380,309 L220,311 Z" stroke="var(--teal)" stroke-dasharray="6 5"/>
+          <path d="M522,256 L678,254 L680,309 L520,311 Z" stroke="var(--muted)" stroke-dasharray="6 5"/>
+        </g>
+
+        <path d="M228,120 C360,98 520,98 670,120" fill="none" stroke="var(--gold)" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrowGoldSw)"/>
+        <path d="M670,155 C520,180 380,180 228,155" fill="none" stroke="var(--teal)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="9 6" marker-end="url(#arrowTealSw)"/>
+
+        <text x="450" y="88" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU PAY PREMIUM — TODAY</text>
+        <text x="450" y="196" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">YOUR RIGHT — ENTER A 5YR SWAP: PAY FIXED 4.20% vs FLOATING</text>
+
+        <text x="125" y="50" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">YOU</text>
+        <text x="125" y="63" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="var(--muted)" letter-spacing="0.04em">SWAPTION BUYER</text>
+        <text x="775" y="50" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">THE BANK</text>
+        <text x="775" y="63" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="var(--muted)" letter-spacing="0.04em">SWAPTION SELLER</text>
+
+        <text x="300" y="278" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--teal)">RATES ROSE</text>
+        <text x="300" y="297" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">→ exercise into 4.20%</text>
+
+        <text x="600" y="278" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--ink)">RATES FELL</text>
+        <text x="600" y="297" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">→ let it expire, take the market rate</text>
+
+        <text x="450" y="352" text-anchor="middle" font-family="'Caveat', cursive" font-weight="600" font-size="18" fill="var(--gold)">insurance on a decision you haven't made yet</text>
+      </svg>
+    </figure>
+    <figcaption>A payer swaption: the right, bought today, to enter a pre-agreed swap later. A receiver swaption is the mirror image — the right to receive fixed instead.</figcaption>
+  </section>
+
+  <section class="diagram-wrap">
+    <figure>
+      <svg class="sketch-figure" viewBox="0 0 900 300" role="img" aria-label="Three timelines comparing exercise styles. European: exercise only at expiry, shown as a single dot at the end. American: exercise any business day up to expiry, shown as a thick continuous line. Bermudan: exercise only on set dates, shown as several discrete dots along the line.">
+        <defs>
+          <filter id="sketchy2" x="-20%" y="-30%" width="140%" height="160%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+
+        <g class="sketch" filter="url(#sketchy2)" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round">
+          <line x1="150" y1="70" x2="810" y2="70"/>
+          <line x1="150" y1="250" x2="810" y2="250"/>
+        </g>
+        <g class="sketch" filter="url(#sketchy2)" fill="none" stroke="var(--teal)" stroke-width="6" stroke-linecap="round">
+          <line x1="150" y1="160" x2="810" y2="160"/>
+        </g>
+
+        <circle cx="810" cy="70" r="6.5" fill="var(--teal)"/>
+        <circle cx="230" cy="250" r="5" fill="var(--teal)"/>
+        <circle cx="370" cy="250" r="5" fill="var(--teal)"/>
+        <circle cx="510" cy="250" r="5" fill="var(--teal)"/>
+        <circle cx="650" cy="250" r="5" fill="var(--teal)"/>
+        <circle cx="790" cy="250" r="5" fill="var(--teal)"/>
+
+        <text x="480" y="46" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="600" fill="var(--ink)" letter-spacing="0.02em">EUROPEAN — EXERCISE ONLY AT EXPIRY</text>
+        <text x="480" y="136" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="600" fill="var(--ink)" letter-spacing="0.02em">AMERICAN — EXERCISE ANY BUSINESS DAY</text>
+        <text x="480" y="226" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" font-weight="600" fill="var(--ink)" letter-spacing="0.02em">BERMUDAN — EXERCISE ON SET DATES ONLY</text>
+
+        <text x="150" y="94" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">TODAY</text>
+        <text x="810" y="94" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">EXPIRY</text>
+        <text x="150" y="184" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">TODAY</text>
+        <text x="810" y="184" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">EXPIRY</text>
+        <text x="150" y="274" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">TODAY</text>
+        <text x="810" y="274" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-size="10.5" fill="var(--muted)">EXPIRY</text>
+      </svg>
+    </figure>
+    <figcaption>The three exercise styles. European gives you one shot, right at expiry. American gives you every day up to it. Bermudan — the common one for swaptions — gives you a handful of set dates, usually matching the underlying swap's coupon dates.</figcaption>
+  </section>
+
+  <section class="story-grid">
+    <article>
+      <span class="eyebrow-num">1</span>
+      <h2>What it actually is</h2>
+      <p>A swaption is an option to enter into an interest rate swap on pre-agreed terms — fixed rate, notional, tenor — at a future date. Buy a "payer" swaption and you get the right to pay fixed; buy a "receiver" swaption and you get the right to receive fixed.</p>
+      <p>Like any option, you pay a premium today for that right, and the terms of the underlying swap are locked in from the start.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">2</span>
+      <h2>Why someone would do this</h2>
+      <p>A company expecting to take out floating-rate debt in six months, but worried rates will have risen by then, can buy a payer swaption now.</p>
+      <p>If rates do rise, it exercises into a swap at the old, better fixed rate; if rates fall, it lets the swaption expire and takes the better market rate instead. It's optional protection on a rate decision that hasn't happened yet.</p>
+    </article>
+    <article>
+      <span class="eyebrow-num">3</span>
+      <h2>Who's actually doing this</h2>
+      <p>Corporates hedging anticipated future borrowing, and banks managing the optionality embedded in things like mortgages — where a borrower can prepay, which behaves like an option the bank is short.</p>
+      <p>The exercise style usually mirrors how the real-world decision actually gets made: a single moment, any time, or a handful of fixed dates.</p>
+    </article>
+  </section>
+
+  <div class="quickfacts">
+    <span class="chip">Payer swaption: <b>right to pay fixed</b></span>
+    <span class="chip">Receiver swaption: <b>right to receive fixed</b></span>
+    <span class="chip">Exercise: <b>European, American or Bermudan</b></span>
+    <span class="chip">Premium <b>paid upfront</b> for the right</span>
+  </div>
+
+  <footer class="course-nav">
+    <a class="nav-link" href="/financial-products/equity-option/">◂ equity option</a>
+    <span class="module-count">Module 09 of 09</span>
+    <a class="nav-link" href="/financial-products/">back to course overview ▸</a>
+  </footer>
+</main>
+
+<footer class="site-footer">
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Practical courses, built by a practitioner
+</footer>
+
+</body>
+</html>
