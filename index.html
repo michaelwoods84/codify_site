@@ -80,10 +80,32 @@
     font-weight: 300;
   }
 
-  .cards {
+  .tracks {
     max-width: 980px;
     margin: 0 auto;
     padding: 8px 48px 96px;
+  }
+
+  .track { margin-bottom: 56px; }
+  .track:last-of-type { margin-bottom: 0; }
+
+  .track-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .track-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .track-rule { flex: 1; height: 1px; background: var(--rule); }
+
+  .cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
@@ -91,6 +113,7 @@
   @media (max-width: 720px) {
     .cards { grid-template-columns: 1fr; }
   }
+  .track.single .cards { grid-template-columns: minmax(0, 1fr); max-width: 460px; }
 
   .card {
     border: 1px solid var(--rule);
@@ -155,11 +178,11 @@
   .card-cta { color: var(--accent, var(--gold)); }
 
   .card.finance { --accent: var(--gold); }
+  .card.markets { --accent: var(--gold); }
   .card.parents { --accent: var(--teal); }
-  .card.markets { --accent: var(--teal); }
 
   .card.more {
-    grid-column: 1 / -1;
+    margin-top: 56px;
     background: transparent;
     border: 1px dashed var(--rule);
     align-items: center;
@@ -199,49 +222,69 @@
   <p class="hero-sub">Self-paced courses that turn complex, technical subjects into something you can actually use — whether you're trying to understand what your kids are learning or modelling in Excel.</p>
 </section>
 
-<div class="cards">
+<div class="tracks">
 
-  <a class="card parents" href="/parents-guide/">
-    <div class="card-top">
-      <span class="card-kicker">For Parents</span>
-      <h2>What Is My Child Actually Learning?</h2>
+  <section class="track">
+    <div class="track-head">
+      <span class="track-label">For Finance Professionals</span>
+      <span class="track-rule"></span>
     </div>
-    <div class="card-body">
-      <p>A parent's guide to data, coding and AI — written in plain English, with no technical background needed. Seven short modules covering what's on the curriculum, the AI-and-homework question, and how to support your child.</p>
-      <div class="card-meta">
-        <span class="card-price">Coming soon</span>
-        <span class="card-cta">Register interest →</span>
-      </div>
-    </div>
-  </a>
+    <div class="cards">
 
-  <a class="card finance" href="/excel-to-python/">
-    <div class="card-top">
-      <span class="card-kicker">For Finance Professionals</span>
-      <h2>Excel to Python for Finance Professionals</h2>
-    </div>
-    <div class="card-body">
-      <p>Replace your spreadsheets with cleaner, faster, more powerful financial models. Six notebook-based modules covering P&amp;L modelling, DCF valuation, and full reporting automation — runs in Google Colab, no install required.</p>
-      <div class="card-meta">
-        <span class="card-price">Coming soon</span>
-        <span class="card-cta">Register interest →</span>
-      </div>
-    </div>
-  </a>
+      <a class="card markets" href="/financial-products/">
+        <div class="card-top">
+          <span class="card-kicker">Free · In Progress</span>
+          <h2>Financial Products in 5 Minutes</h2>
+        </div>
+        <div class="card-body">
+          <p>Hand-drawn, plain-English guides to the instruments that actually make up modern markets — bonds, FX, swaps, options and more. What each one is, how it's used, and why it exists. Nine modules, five minutes each.</p>
+          <div class="card-meta">
+            <span class="card-price">Free · in progress</span>
+            <span class="card-cta">Start the course →</span>
+          </div>
+        </div>
+      </a>
 
-  <a class="card markets" href="/financial-products/">
-    <div class="card-top">
-      <span class="card-kicker">For Finance Professionals</span>
-      <h2>Financial Products in 5 Minutes</h2>
+      <a class="card finance" href="/excel-to-python/">
+        <div class="card-top">
+          <span class="card-kicker">Coming Soon</span>
+          <h2>Excel to Python for Finance Professionals</h2>
+        </div>
+        <div class="card-body">
+          <p>Replace your spreadsheets with cleaner, faster, more powerful financial models. Six notebook-based modules covering P&amp;L modelling, DCF valuation, and full reporting automation — runs in Google Colab, no install required.</p>
+          <div class="card-meta">
+            <span class="card-price">Coming soon</span>
+            <span class="card-cta">Register interest →</span>
+          </div>
+        </div>
+      </a>
+
     </div>
-    <div class="card-body">
-      <p>Hand-drawn, plain-English guides to the instruments that actually make up modern markets — bonds, FX, swaps, options and more. What each one is, how it's used, and why it exists. Nine modules, five minutes each.</p>
-      <div class="card-meta">
-        <span class="card-price">Free · in progress</span>
-        <span class="card-cta">Start the course →</span>
-      </div>
+  </section>
+
+  <section class="track single">
+    <div class="track-head">
+      <span class="track-label">For Parents</span>
+      <span class="track-rule"></span>
     </div>
-  </a>
+    <div class="cards">
+
+      <a class="card parents" href="/parents-guide/">
+        <div class="card-top">
+          <span class="card-kicker">Coming Soon</span>
+          <h2>What Is My Child Actually Learning?</h2>
+        </div>
+        <div class="card-body">
+          <p>A parent's guide to data, coding and AI — written in plain English, with no technical background needed. Seven short modules covering what's on the curriculum, the AI-and-homework question, and how to support your child.</p>
+          <div class="card-meta">
+            <span class="card-price">Coming soon</span>
+            <span class="card-cta">Register interest →</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
 
   <div class="card more">
     <span class="card-kicker">More on the way</span>
