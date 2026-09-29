@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>FX Forward — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to FX forwards — locking in today's exchange rate for money that moves later."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">Same trade as a spot — except you agree the rate today and don't actually exchange the money until a set date months from now.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 400" role="img" aria-label="Diagram of an FX forward: you agree today to sell 1,000,000 dollars and buy 930,000 euros in six months at a locked forward rate of 0.93, which is different from today's spot rate of 0.92 by the interest rate gap between the two currencies.">
         <defs>
@@ -51,8 +52,8 @@
           <path d="M312,298 L588,295 L591,362 L309,366 Z" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
         </g>
 
-        <text x="125" y="178" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="30" fill="var(--gold)">$</text>
-        <text x="775" y="178" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="30" fill="var(--teal)">€</text>
+        <text x="125" y="178" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="900" font-size="30" fill="var(--gold)">$</text>
+        <text x="775" y="178" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="900" font-size="30" fill="var(--teal)">€</text>
 
         <path d="M228,142 C360,112 520,112 670,141" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 6" marker-end="url(#arrowGoldFF)"/>
         <path d="M670,205 C520,230 380,230 228,205" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 6" marker-end="url(#arrowTealFF)"/>
@@ -60,9 +61,9 @@
         <text x="450" y="92" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">AGREE TODAY — SELL $1,000,000 IN 6 MONTHS</text>
         <text x="450" y="243" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">BUY €930,000 IN 6 MONTHS (FWD RATE 0.9300)</text>
 
-        <text x="125" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
+        <text x="125" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
         <text x="125" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">SELLING DOLLARS</text>
-        <text x="775" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOUR BANK</text>
+        <text x="775" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">YOUR BANK</text>
         <text x="775" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">SELLING EUROS</text>
 
         <text x="450" y="316" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="600" font-size="13" fill="var(--ink)">FORWARD 0.9300 ≠ SPOT 0.9200</text>
@@ -77,19 +78,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>An FX forward locks in an exchange rate today for a trade that settles on a future date — commonly anywhere from a week to a year out.</p>
       <p>The forward rate isn't a guess about where spot will be; it's mechanically derived from today's spot rate plus the interest rate gap between the two currencies.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>A company with a euro invoice due in six months doesn't want its dollar cost swinging around with the exchange rate between now and then.</p>
       <p>A forward locks the rate today, so budgeting for it becomes a known number rather than a bet.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>Corporate treasurers hedging future receivables and payables are the classic users, alongside anyone with a known future FX cashflow.</p>
       <p>Asset managers hedge a foreign bond position this way; exporters price a contract months in advance using the same trade.</p>
@@ -97,10 +98,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Settlement: <b>on the agreed future date</b></span>
-    <span class="chip">Rate: <b>locked today (spot + rate gap)</b></span>
-    <span class="chip">No cash moves <b>until settlement</b></span>
-    <span class="chip">Used to <b>hedge a known future FX flow</b></span>
+    <span class="chip rounded-md border-brand-border">Settlement: <b>on the agreed future date</b></span>
+    <span class="chip rounded-md border-brand-border">Rate: <b>locked today (spot + rate gap)</b></span>
+    <span class="chip rounded-md border-brand-border">No cash moves <b>until settlement</b></span>
+    <span class="chip rounded-md border-brand-border">Used to <b>hedge a known future FX flow</b></span>
   </div>
 
   <footer class="course-nav">

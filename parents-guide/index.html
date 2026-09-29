@@ -4,37 +4,35 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>What Is My Child Actually Learning? — A Parent's Guide to Data, Coding &amp; AI</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink:     #1a1a2e;
-    --paper:   #f7f2e9;
-    --cream:   #efe6d5;
-    --teal:    #2b7a78;
-    --teal-lt: #3fa39f;
-    --rule:    #d8cdb4;
-    --muted:   #5c5648;
+    --ink:     var(--text-primary);
+    --paper:   var(--background);
+    --cream:   var(--surface-card);
+    --teal:    var(--primary);
+    --rule:    var(--border-neutral);
+    --muted:   var(--text-muted);
     --mono:    'IBM Plex Mono', monospace;
-    --serif:   'Fraunces', Georgia, serif;
-    --sans:    'IBM Plex Sans', sans-serif;
+    --sans:    'IBM Plex Sans', system-ui, sans-serif;
+    --serif:   var(--sans);
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--paper);
-    color: var(--ink);
     font-family: var(--sans);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
     overflow-x: hidden;
   }
 
   /* ── MASTHEAD ── */
   .masthead {
-    border-bottom: 3px double var(--ink);
+    border-bottom: 1px solid var(--rule);
+    background: var(--cream);
     padding: 12px 48px;
     display: flex;
     justify-content: space-between;
@@ -47,7 +45,7 @@
     flex-wrap: wrap;
     gap: 8px;
   }
-  .masthead-title { color: var(--ink); font-weight: 500; }
+  .masthead-title { color: var(--primary); font-weight: 500; }
 
   /* ── HERO ── */
   .hero {
@@ -70,10 +68,10 @@
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(2.2rem, 5.6vw, 3.8rem);
-    font-weight: 900;
+    font-size: clamp(2.2rem, 5.6vw, 3.6rem);
+    font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     margin-bottom: 12px;
   }
 
@@ -123,40 +121,36 @@
 
   .btn-primary {
     display: inline-block;
-    background: var(--teal);
-    color: var(--paper);
     font-family: var(--mono);
     font-size: 13px;
+    font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 18px 44px;
-    border: 2px solid var(--teal);
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    border-width: 1px;
+    border-style: solid;
     cursor: pointer;
-  }
-  .btn-primary:hover {
-    background: var(--ink);
-    border-color: var(--ink);
   }
 
   .btn-secondary {
     display: inline-block;
     background: transparent;
-    color: var(--ink);
+    color: var(--primary);
     font-family: var(--mono);
     font-size: 13px;
+    font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 18px 44px;
-    border: 2px solid var(--ink);
+    border: 1px solid var(--primary);
     transition: background 0.2s, color 0.2s;
     cursor: pointer;
   }
   .btn-secondary:hover {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--primary);
+    color: #ffffff;
   }
 
   .price-note {
@@ -187,35 +181,38 @@
   h2 {
     font-family: var(--serif);
     font-size: clamp(1.5rem, 3.2vw, 2.2rem);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.25;
+    letter-spacing: -0.02em;
     margin-bottom: 24px;
   }
 
   p { margin-bottom: 16px; color: var(--muted); }
   p strong { color: var(--ink); font-weight: 500; }
   .section p a, .faq-a a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
-  .section p a:hover, .faq-a a:hover { color: var(--ink); }
+  .section p a:hover, .faq-a a:hover { color: var(--primary-hover); }
 
   /* ── FREE MODULE BANNER ── */
   .free-banner {
-    background: var(--teal);
-    color: var(--paper);
+    background: var(--primary);
+    color: #ffffff;
     text-align: center;
     padding: 40px 48px;
   }
-  .free-banner .section-label { color: #cfeae8; }
-  .free-banner h2 { color: var(--paper); }
-  .free-banner p { color: #e3f1f0; max-width: 560px; margin-left: auto; margin-right: auto; }
-  .free-banner .btn-secondary { border-color: var(--paper); color: var(--paper); }
-  .free-banner .btn-secondary:hover { background: var(--paper); color: var(--teal); }
+  .free-banner .section-label { color: #bfd0f5; }
+  .free-banner h2 { color: #ffffff; }
+  .free-banner p { color: #dbe4f8; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .free-banner .btn-secondary { border-color: #ffffff; color: #ffffff; }
+  .free-banner .btn-secondary:hover { background: #ffffff; color: var(--primary); }
 
   /* ── FOR WHO ── */
   .for-who-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    border: 1px solid var(--rule);
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
     margin-top: 32px;
   }
   @media (max-width: 600px) {
@@ -239,7 +236,7 @@
     font-size: 0.92rem;
     color: var(--muted);
     padding: 7px 0;
-    border-bottom: 1px solid var(--cream);
+    border-bottom: 1px solid var(--rule);
     display: flex;
     gap: 10px;
   }
@@ -250,7 +247,7 @@
     font-weight: 700;
     flex-shrink: 0;
   }
-  .for-who-col.not li::before { content: '✗'; color: #b0553f; }
+  .for-who-col.not li::before { content: '✗'; color: var(--muted); }
 
   /* ── MODULES ── */
   .modules { margin-top: 32px; }
@@ -265,7 +262,7 @@
     position: relative;
   }
   .module-item:hover { background: var(--cream); }
-  .module-item.is-free { background: #eaf3f2; }
+  .module-item.is-free { background: #eef2fb; }
 
   .module-num {
     font-family: var(--mono);
@@ -297,10 +294,9 @@
     font-size: 9px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    background: var(--teal);
-    color: var(--paper);
+    background: var(--primary);
+    color: #ffffff;
     padding: 3px 8px;
-    border-radius: 2px;
   }
 
   .module-desc {
@@ -317,7 +313,8 @@
     align-items: flex-start;
     margin-top: 32px;
     padding: 32px;
-    border: 1px solid var(--rule);
+    border-width: 1px;
+    border-style: solid;
     background: var(--cream);
   }
   @media (max-width: 600px) { .author-block { flex-direction: column; } }
@@ -325,16 +322,15 @@
   .author-avatar {
     width: 72px;
     height: 72px;
-    border-radius: 50%;
-    background: var(--teal);
+    background: var(--primary);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--serif);
     font-size: 1.8rem;
-    color: var(--paper);
-    font-style: italic;
+    font-weight: 600;
+    color: #ffffff;
   }
 
   .author-text h3 {
@@ -350,7 +346,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    border: 1px solid var(--rule);
+    border-width: 1px;
+    border-style: solid;
+    background: var(--cream);
+    overflow: hidden;
     margin-top: 32px;
   }
   @media (max-width: 600px) { .get-grid { grid-template-columns: 1fr; } }
@@ -365,7 +364,7 @@
   .get-num {
     font-family: var(--serif);
     font-size: 2.4rem;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--teal);
     display: block;
     line-height: 1;
@@ -381,7 +380,10 @@
 
   /* ── PRICING ── */
   .pricing-card {
-    border: 2px solid var(--ink);
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: inset 0 3px 0 var(--primary);
+    background: var(--cream);
     max-width: 420px;
     margin: 32px auto 0;
     padding: 40px;
@@ -392,7 +394,7 @@
   .pricing-card::before {
     content: 'Coming soon · Register your interest';
     position: absolute;
-    top: -11px;
+    top: -12px;
     left: 50%;
     transform: translateX(-50%);
     background: var(--paper);
@@ -408,7 +410,7 @@
   .price-big {
     font-family: var(--serif);
     font-size: 3.6rem;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--ink);
     line-height: 1;
     margin-bottom: 8px;
@@ -458,7 +460,7 @@
 
   /* ── FOOTER ── */
   footer {
-    border-top: 3px double var(--ink);
+    border-top: 1px solid var(--rule);
     padding: 24px 48px;
     text-align: center;
     font-family: var(--mono);
@@ -479,8 +481,9 @@
   .hero-sub { animation-delay: 0.15s; }
   .cta-wrap { animation-delay: 0.3s; }
 </style>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <!-- MASTHEAD -->
 <div class="masthead">
@@ -498,15 +501,15 @@
   <div class="hero-rule"><span>seven modules · read in an evening</span></div>
 
   <div class="cta-row">
-    <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20the%20Parent%27s%20Guide&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20%22What%20Is%20My%20Child%20Actually%20Learning%3F%22.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary">Register Your Interest</a>
-    <a href="#free-module" class="btn-secondary">Read Module 1 Free</a>
+    <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20the%20Parent%27s%20Guide&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20%22What%20Is%20My%20Child%20Actually%20Learning%3F%22.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary brand-cta bg-brand-cta rounded-md">Register Your Interest</a>
+    <a href="#free-module" class="btn-secondary rounded-md">Read Module 1 Free</a>
   </div>
   <p class="price-note">Currently in development · Register to hear when it launches</p>
 </section>
 
 <!-- WHAT YOU GET (stats) -->
 <section class="section">
-  <div class="get-grid">
+  <div class="get-grid rounded-lg border-brand-border">
     <div class="get-item">
       <span class="get-num">7</span>
       <span class="get-label">Plain-English<br/>Modules</span>
@@ -528,7 +531,7 @@
   <h2>Made for parents.<br/>Not programmers.</h2>
   <p>Your child comes home talking about Scratch, algorithms, or "AI writing my homework for me" — and you nod along without really knowing what any of it means. This guide closes that gap, in the time it takes to read a few chapters before bed.</p>
 
-  <div class="for-who-grid">
+  <div class="for-who-grid rounded-lg border-brand-border">
     <div class="for-who-col">
       <h3>You'll get a lot from this if you…</h3>
       <ul>
@@ -556,7 +559,7 @@
   <span class="section-label">Start here, free</span>
   <h2>Module 1: Why Is My Child Learning This?</h2>
   <p>Before diving into the details, this free module sets the scene — why coding, data and AI are on the curriculum at all, and what to expect from the rest of the guide.</p>
-  <a href="module_01_why_is_my_child_learning_this.pdf" class="btn-secondary">Download Module 1 Free</a>
+  <a href="module_01_why_is_my_child_learning_this.pdf" class="btn-secondary rounded-md">Download Module 1 Free</a>
 </section>
 
 <!-- MODULES -->
@@ -566,49 +569,49 @@
   <p>No lectures, no jargon. Each module is a short, warm read with a practical activity or conversation starter you can use with your child straight away.</p>
 
   <div class="modules">
-    <div class="module-item is-free">
+    <div class="module-item is-free border-brand-border">
       <div class="module-num">01</div>
       <div class="module-body">
-        <div class="module-title">Why Is My Child Learning This? <span class="free-tag">Free</span></div>
+        <div class="module-title">Why Is My Child Learning This? <span class="free-tag rounded-sm">Free</span></div>
         <p class="module-desc">Why coding, data and AI are now part of school life — and what this guide will help you understand.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">02</div>
       <div class="module-body">
         <div class="module-title">What Is Coding, Really?</div>
         <p class="module-desc">Scratch vs Python, the biggest myths about "learning to code," and what a real coding lesson actually looks like.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">03</div>
       <div class="module-body">
         <div class="module-title">What Is Data and Why Does It Matter?</div>
         <p class="module-desc">How the apps your child uses actually work, what data literacy means, and an honest look at their digital footprint.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">04</div>
       <div class="module-body">
         <div class="module-title">What Is AI? (And What It Isn't)</div>
         <p class="module-desc">Pattern recognition explained simply, why AI "hallucinates," and a level-headed take on the AI-and-homework question.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">05</div>
       <div class="module-body">
         <div class="module-title">Digital Skills: Staying Safe and Thinking Critically</div>
         <p class="module-desc">Online safety essentials, spotting misinformation, and teaching your child to "read laterally" before trusting a source.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">06</div>
       <div class="module-body">
         <div class="module-title">How to Support Your Child</div>
         <p class="module-desc">The language to use, the signs of real progress, and conversation starters that don't feel like an interrogation.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">07</div>
       <div class="module-body">
         <div class="module-title">Try It Yourself</div>
@@ -623,8 +626,8 @@
   <span class="section-label">About the author</span>
   <h2>Written by a quant,<br/>for parents.</h2>
 
-  <div class="author-block">
-    <div class="author-avatar">Q</div>
+  <div class="author-block rounded-lg border-brand-border">
+    <div class="author-avatar rounded-md">Q</div>
     <div class="author-text">
       <h3>Quantitative Analyst, Tier 1 Investment Bank</h3>
       <p>I spend my working life inside code, data and machine learning models. As a parent, I found most explanations of "what kids are learning" were either too technical or too vague to be useful. This guide is the one I wished existed — written in plain English, with no assumptions about what you already know.</p>
@@ -671,7 +674,7 @@
   <h2>Be first to know when it launches.</h2>
   <p>The full guide is being finalised now. Register your interest and we'll email you the moment it's ready — no spam, just a single note when it's available.</p>
 
-  <div class="pricing-card">
+  <div class="pricing-card rounded-lg border-brand-border">
     <span class="price-sub" style="margin-bottom:20px">What you'll get</span>
 
     <ul class="pricing-includes">
@@ -683,7 +686,7 @@
     </ul>
 
     <div class="cta-wrap" style="margin:0">
-      <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20the%20Parent%27s%20Guide&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20%22What%20Is%20My%20Child%20Actually%20Learning%3F%22.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary">Register Your Interest</a>
+      <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20the%20Parent%27s%20Guide&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20%22What%20Is%20My%20Child%20Actually%20Learning%3F%22.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary brand-cta bg-brand-cta rounded-md">Register Your Interest</a>
     </div>
     <p class="price-note" style="margin-top:16px">Opens your email app · hello@codifyit.co.uk</p>
   </div>

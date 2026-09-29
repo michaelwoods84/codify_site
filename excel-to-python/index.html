@@ -4,37 +4,35 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Excel to Python for Finance Professionals</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,600;1,700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink:     #0f0f0f;
-    --paper:   #f5f0e8;
-    --cream:   #ede7d9;
-    --gold:    #b8963e;
-    --gold-lt: #d4af6a;
-    --rule:    #c8bfad;
-    --muted:   #6b6357;
+    --ink:     var(--text-primary);
+    --paper:   var(--background);
+    --cream:   var(--surface-card);
+    --gold:    var(--primary);
+    --rule:    var(--border-neutral);
+    --muted:   var(--text-muted);
     --mono:    'IBM Plex Mono', monospace;
-    --serif:   'Playfair Display', Georgia, serif;
-    --sans:    'IBM Plex Sans', sans-serif;
+    --sans:    'IBM Plex Sans', system-ui, sans-serif;
+    --serif:   var(--sans);
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--paper);
-    color: var(--ink);
     font-family: var(--sans);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
     overflow-x: hidden;
   }
 
   /* ── MASTHEAD ── */
   .masthead {
-    border-bottom: 3px double var(--ink);
+    border-bottom: 1px solid var(--rule);
+    background: var(--cream);
     padding: 12px 48px;
     display: flex;
     justify-content: space-between;
@@ -45,7 +43,7 @@
     text-transform: uppercase;
     color: var(--muted);
   }
-  .masthead-title { color: var(--ink); font-weight: 500; }
+  .masthead-title { color: var(--primary); font-weight: 500; }
 
   /* ── HERO ── */
   .hero {
@@ -68,10 +66,10 @@
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(2.4rem, 6vw, 4.2rem);
-    font-weight: 900;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
     line-height: 1.1;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     margin-bottom: 12px;
   }
 
@@ -114,22 +112,16 @@
 
   .btn-primary {
     display: inline-block;
-    background: var(--ink);
-    color: var(--paper);
     font-family: var(--mono);
     font-size: 13px;
+    font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 18px 48px;
-    border: 2px solid var(--ink);
-    transition: background 0.2s, color 0.2s;
+    border-width: 1px;
+    border-style: solid;
     cursor: pointer;
-  }
-  .btn-primary:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--ink);
   }
 
   .price-note {
@@ -160,22 +152,25 @@
   h2 {
     font-family: var(--serif);
     font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
+    letter-spacing: -0.02em;
     margin-bottom: 24px;
   }
 
   p { margin-bottom: 16px; color: var(--muted); }
   p strong { color: var(--ink); font-weight: 500; }
   .section p a, .faq-a a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
-  .section p a:hover, .faq-a a:hover { color: var(--ink); }
+  .section p a:hover, .faq-a a:hover { color: var(--primary-hover); }
 
   /* ── FOR WHO ── */
   .for-who-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    border: 1px solid var(--rule);
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
     margin-top: 32px;
   }
   @media (max-width: 600px) {
@@ -199,7 +194,7 @@
     font-size: 0.92rem;
     color: var(--muted);
     padding: 7px 0;
-    border-bottom: 1px solid var(--cream);
+    border-bottom: 1px solid var(--rule);
     display: flex;
     gap: 10px;
   }
@@ -210,7 +205,7 @@
     font-weight: 700;
     flex-shrink: 0;
   }
-  .for-who-col.not li::before { content: '✗'; color: #c0392b; }
+  .for-who-col.not li::before { content: '✗'; color: var(--muted); }
 
   /* ── MODULES ── */
   .modules { margin-top: 32px; }
@@ -264,7 +259,8 @@
 
   .ba-card {
     background: var(--cream);
-    border: 1px solid var(--rule);
+    border-width: 1px;
+    border-style: solid;
     padding: 28px;
   }
 
@@ -291,31 +287,38 @@
   .ba-card.after ul li { color: var(--ink); }
 
   /* ── CODE BLOCK ── */
-  .code-showcase {
-    background: var(--ink);
-    color: #e8e0d0;
-    font-family: var(--mono);
-    font-size: 0.82rem;
-    line-height: 1.8;
-    padding: 32px 36px;
+  .code-card {
     margin-top: 32px;
-    overflow-x: auto;
-    position: relative;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
   }
-  .code-showcase::before {
-    content: 'Python';
-    position: absolute;
-    top: 12px;
-    right: 20px;
+  .code-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.12);
+    font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: #94a3b8;
   }
-  .code-comment { color: #7a7060; }
-  .code-keyword { color: var(--gold-lt); }
-  .code-string  { color: #a8c49a; }
-  .code-func    { color: #8ec8d8; }
+  .code-card-head b { color: #93c5fd; font-weight: 500; }
+  .code-showcase {
+    margin: 0;
+    color: #e2e8f0;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    line-height: 1.8;
+    padding: 24px 28px 28px;
+    overflow-x: auto;
+  }
+  .code-comment { color: #94a3b8; font-style: italic; }
+  .code-keyword { color: #93c5fd; }
+  .code-string  { color: #86efac; }
+  .code-func    { color: #fcd34d; }
 
   /* ── AUTHOR ── */
   .author-block {
@@ -324,7 +327,8 @@
     align-items: flex-start;
     margin-top: 32px;
     padding: 32px;
-    border: 1px solid var(--rule);
+    border-width: 1px;
+    border-style: solid;
     background: var(--cream);
   }
   @media (max-width: 600px) { .author-block { flex-direction: column; } }
@@ -332,16 +336,15 @@
   .author-avatar {
     width: 72px;
     height: 72px;
-    border-radius: 50%;
-    background: var(--ink);
+    background: var(--primary);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--serif);
     font-size: 1.8rem;
-    color: var(--paper);
-    font-style: italic;
+    font-weight: 600;
+    color: #ffffff;
   }
 
   .author-text h3 {
@@ -357,7 +360,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    border: 1px solid var(--rule);
+    border-width: 1px;
+    border-style: solid;
+    background: var(--cream);
+    overflow: hidden;
     margin-top: 32px;
   }
   @media (max-width: 600px) { .get-grid { grid-template-columns: 1fr; } }
@@ -372,7 +378,7 @@
   .get-num {
     font-family: var(--serif);
     font-size: 2.4rem;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--gold);
     display: block;
     line-height: 1;
@@ -388,7 +394,10 @@
 
   /* ── PRICING ── */
   .pricing-card {
-    border: 2px solid var(--ink);
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: inset 0 3px 0 var(--primary);
+    background: var(--cream);
     max-width: 420px;
     margin: 32px auto 0;
     padding: 40px;
@@ -399,7 +408,7 @@
   .pricing-card::before {
     content: 'Coming soon · Register your interest';
     position: absolute;
-    top: -11px;
+    top: -12px;
     left: 50%;
     transform: translateX(-50%);
     background: var(--paper);
@@ -415,7 +424,7 @@
   .price-big {
     font-family: var(--serif);
     font-size: 3.6rem;
-    font-weight: 900;
+    font-weight: 700;
     color: var(--ink);
     line-height: 1;
     margin-bottom: 8px;
@@ -465,7 +474,7 @@
 
   /* ── FOOTER ── */
   footer {
-    border-top: 3px double var(--ink);
+    border-top: 1px solid var(--rule);
     padding: 24px 48px;
     text-align: center;
     font-family: var(--mono);
@@ -486,8 +495,9 @@
   .hero-sub { animation-delay: 0.15s; }
   .cta-wrap { animation-delay: 0.3s; }
 </style>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <!-- MASTHEAD -->
 <div class="masthead">
@@ -505,14 +515,14 @@
   <div class="hero-rule"><span>six modules · fully self-paced</span></div>
 
   <div class="cta-wrap">
-    <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20Excel%20to%20Python&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20the%20Excel%20to%20Python%20course.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary">Register Your Interest</a>
+    <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20Excel%20to%20Python&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20the%20Excel%20to%20Python%20course.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary brand-cta bg-brand-cta rounded-md">Register Your Interest</a>
   </div>
   <p class="price-note">Currently in development · Register to hear when it launches</p>
 </section>
 
 <!-- WHAT YOU GET (stats) -->
 <section class="section">
-  <div class="get-grid">
+  <div class="get-grid rounded-lg border-brand-border">
     <div class="get-item">
       <span class="get-num">6</span>
       <span class="get-label">Jupyter Notebooks</span>
@@ -534,7 +544,7 @@
   <h2>Made for finance professionals.<br/>Not data scientists.</h2>
   <p>Most Python courses teach you to classify iris flowers and predict house prices. This one teaches you to build DCF models, automate monthly P&L reports, and replace VLOOKUPs — because that's what you actually do at work.</p>
 
-  <div class="for-who-grid">
+  <div class="for-who-grid rounded-lg border-brand-border">
     <div class="for-who-col">
       <h3>You'll get a lot from this if you…</h3>
       <ul>
@@ -563,7 +573,7 @@
   <h2>Before and after.</h2>
 
   <div class="ba-grid">
-    <div class="ba-card before">
+    <div class="ba-card before rounded-lg border-brand-border">
       <h3>Your Excel workflow today</h3>
       <ul>
         <li>Open last month's model, save as "model_v2_FINAL.xlsx"</li>
@@ -574,7 +584,7 @@
         <li>Repeat in 30 days</li>
       </ul>
     </div>
-    <div class="ba-card after">
+    <div class="ba-card after rounded-lg border-brand-border">
       <h3>After this course</h3>
       <ul>
         <li>Drop in the updated data file</li>
@@ -594,8 +604,9 @@
   <h2>Real code. Real finance.</h2>
   <p>Every notebook builds something you'd actually use at work. Here's a slice from Module 4 — a DCF sensitivity table that used to take an afternoon in Excel.</p>
 
-  <div class="code-showcase">
-<span class="code-comment"># Sensitivity: implied share price vs WACC and terminal growth</span>
+  <div class="code-card bg-brand-codebg rounded-lg border-brand-border">
+    <div class="code-card-head"><span>module_04_dcf.ipynb</span><b>Python</b></div>
+<pre class="code-showcase"><code><span class="code-comment"># Sensitivity: implied share price vs WACC and terminal growth</span>
 waccs    = [0.08, 0.09, 0.10, 0.11, 0.12]
 tgrowths = [0.015, 0.020, 0.025, 0.030, 0.035]
 
@@ -607,7 +618,7 @@ tgrowths = [0.015, 0.020, 0.025, 0.030, 0.035]
         sensitivity.loc[w, tg] = <span class="code-func">round</span>(price, 2)
 
 <span class="code-comment"># Output: a colour-coded heatmap, automatically</span>
-<span class="code-func">plot_heatmap</span>(sensitivity, title=<span class="code-string">"Implied Share Price (£)"</span>)
+<span class="code-func">plot_heatmap</span>(sensitivity, title=<span class="code-string">"Implied Share Price (£)"</span>)</code></pre>
   </div>
 </section>
 
@@ -618,42 +629,42 @@ tgrowths = [0.015, 0.020, 0.025, 0.030, 0.035]
   <p>No fluff. No toy examples. Every module is a Jupyter notebook with working code and a real financial deliverable at the end.</p>
 
   <div class="modules">
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">01</div>
       <div class="module-body">
         <div class="module-title">Why Python? Setting Up &amp; Your First P&amp;L</div>
         <p class="module-desc">The honest Excel vs Python comparison. Environment setup (Colab or local). Load a P&L from Excel, calculate margins, produce a dual-axis chart — in 20 lines of code.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">02</div>
       <div class="module-body">
         <div class="module-title">Finance Fundamentals: The Excel-to-Python Translation</div>
         <p class="module-desc">VLOOKUP → merge(). SUMIF → groupby(). Pivot tables, date handling, month-over-month growth, rolling averages, and conditional logic. Every function you use daily, translated.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">03</div>
       <div class="module-body">
         <div class="module-title">P&amp;L Modelling with Dynamic Assumptions</div>
         <p class="module-desc">Build a full 3-year income statement. All assumptions in one place. Sensitivity tables (no Excel Data Tables). Bear / base / bull scenario analysis with a single function call.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">04</div>
       <div class="module-body">
         <div class="module-title">DCF Valuation: End-to-End in Python</div>
         <p class="module-desc">5-year FCF projection, WACC calculation, Gordon Growth terminal value, equity bridge to implied share price. Sensitivity heatmap: price vs WACC and terminal growth rate.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">05</div>
       <div class="module-body">
         <div class="module-title">Best Practices: Build Models That Last</div>
         <p class="module-desc">The three-layer model structure (inputs / engine / outputs). Validation functions that catch errors automatically. Git version control — no more filename suffixes. Reusable templates across companies.</p>
       </div>
     </div>
-    <div class="module-item">
+    <div class="module-item border-brand-border">
       <div class="module-num">06</div>
       <div class="module-body">
         <div class="module-title">Automation: The Monthly Report Pipeline</div>
@@ -668,8 +679,8 @@ tgrowths = [0.015, 0.020, 0.025, 0.030, 0.035]
   <span class="section-label">About the author</span>
   <h2>Built by a practitioner,<br/>for practitioners.</h2>
 
-  <div class="author-block">
-    <div class="author-avatar">Q</div>
+  <div class="author-block rounded-lg border-brand-border">
+    <div class="author-avatar rounded-md">Q</div>
     <div class="author-text">
       <h3>Quantitative Analyst, Tier 1 Investment Bank</h3>
       <p>I've spent years building pricing models, risk analytics, and financial reports — first in Excel, then in Python. I built this course because every Python tutorial I found assumed you wanted to become a software engineer. You don't. You want to do your finance job faster and more reliably. That's what this course teaches.</p>
@@ -716,7 +727,7 @@ tgrowths = [0.015, 0.020, 0.025, 0.030, 0.035]
   <h2>Be first to know when it launches.</h2>
   <p>The course is being finalised now. Register your interest and we'll email you the moment it's ready — no spam, just a single note when it's available.</p>
 
-  <div class="pricing-card">
+  <div class="pricing-card rounded-lg border-brand-border">
     <span class="price-sub" style="margin-bottom:20px">What you'll get</span>
 
     <ul class="pricing-includes">
@@ -728,7 +739,7 @@ tgrowths = [0.015, 0.020, 0.025, 0.030, 0.035]
     </ul>
 
     <div class="cta-wrap" style="margin:0">
-      <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20Excel%20to%20Python&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20the%20Excel%20to%20Python%20course.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary">Register Your Interest</a>
+      <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20Excel%20to%20Python&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20the%20Excel%20to%20Python%20course.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary brand-cta bg-brand-cta rounded-md">Register Your Interest</a>
     </div>
     <p class="price-note" style="margin-top:16px">Opens your email app · hello@codifyit.co.uk</p>
   </div>

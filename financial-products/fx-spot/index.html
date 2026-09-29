@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>FX Spot — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to FX spot trading — the simplest trade in the world's largest market."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">Two currencies change hands at today's rate, settled almost immediately. Every other FX trade in this course is a variation on this one.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 400" role="img" aria-label="Diagram of an FX spot trade: you sell 1,000,000 dollars and receive 920,000 euros in return at today's rate of 0.92, settling two business days later.">
         <defs>
@@ -51,8 +52,8 @@
           <path d="M312,298 L588,295 L591,362 L309,366 Z" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 5"/>
         </g>
 
-        <text x="125" y="178" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="30" fill="var(--gold)">$</text>
-        <text x="775" y="178" text-anchor="middle" font-family="'Fraunces', serif" font-weight="900" font-size="30" fill="var(--teal)">€</text>
+        <text x="125" y="178" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="900" font-size="30" fill="var(--gold)">$</text>
+        <text x="775" y="178" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="900" font-size="30" fill="var(--teal)">€</text>
 
         <path d="M228,142 C360,112 520,112 670,141" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowGoldF)"/>
         <path d="M670,205 C520,230 380,230 228,205" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" marker-end="url(#arrowTealF)"/>
@@ -60,9 +61,9 @@
         <text x="450" y="92" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU SELL — $1,000,000</text>
         <text x="450" y="243" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">YOU BUY — €920,000 (AT 0.9200)</text>
 
-        <text x="125" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
+        <text x="125" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
         <text x="125" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">SELLING DOLLARS</text>
-        <text x="775" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOUR BANK</text>
+        <text x="775" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">YOUR BANK</text>
         <text x="775" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">SELLING EUROS</text>
 
         <text x="450" y="322" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="600" font-size="14" fill="var(--ink)">SETTLES T+2</text>
@@ -76,19 +77,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>An FX spot trade is a straight swap of one currency for another at today's exchange rate, settled almost immediately — typically two business days later, known as "T+2".</p>
       <p>No forward-looking commitment, no notional trick — the full amounts on both sides actually move.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>A US company paying a European supplier needs euros, so it sells dollars and buys euros spot. A trader who thinks the euro is about to strengthen buys it outright.</p>
       <p>It's the simplest way to convert value from one currency into another, right now.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>It's the largest, most liquid market in the world by a wide margin — importers and exporters converting real trade flows, travellers changing cash, and trading desks moving trillions of dollars a day.</p>
       <p>Almost every other FX product in this course — forwards, swaps — is built from this trade plus a date.</p>
@@ -96,10 +97,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Settlement: <b>T+2</b></span>
-    <span class="chip">Rate: <b>today's spot rate</b></span>
-    <span class="chip">Full amounts <b>exchanged</b></span>
-    <span class="chip"><b>Largest market</b> in the world by volume</span>
+    <span class="chip rounded-md border-brand-border">Settlement: <b>T+2</b></span>
+    <span class="chip rounded-md border-brand-border">Rate: <b>today's spot rate</b></span>
+    <span class="chip rounded-md border-brand-border">Full amounts <b>exchanged</b></span>
+    <span class="chip rounded-md border-brand-border"><b>Largest market</b> in the world by volume</span>
   </div>
 
   <footer class="course-nav">
