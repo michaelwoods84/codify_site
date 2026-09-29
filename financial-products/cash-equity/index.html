@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Cash Equity — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to buying an actual share, and why every derivative in finance builds on this trade."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">You hand over cash today and get a small, permanent slice of a company in return — no expiry date, no contract to unwind later.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 400" role="img" aria-label="Diagram of a cash equity trade: you pay 142.50 dollars per share to the seller via the exchange, and receive one share of ownership in return, settling one business day later.">
         <defs>
@@ -72,9 +73,9 @@
         <text x="450" y="158" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU PAY — $142.50 PER SHARE</text>
         <text x="450" y="245" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">YOU RECEIVE — 1 SHARE, OWNERSHIP TRANSFERS</text>
 
-        <text x="125" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
+        <text x="125" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
         <text x="125" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">THE BUYER</text>
-        <text x="775" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">SELLER</text>
+        <text x="775" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">SELLER</text>
         <text x="775" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">GIVES UP THE SHARE</text>
 
         <text x="450" y="322" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="600" font-size="14" fill="var(--ink)">SETTLES T+1</text>
@@ -89,19 +90,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>Cash equity just means buying an actual share of a company for cash, settled almost immediately — as opposed to a derivative that only references the share's price.</p>
       <p>You own it outright: no expiry, no counterparty who owes you anything once the trade settles. It's the plainest trade in finance.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>You buy a share because you think the company will be worth more later, because it pays dividends, or because you want a vote at the AGM.</p>
       <p>There's no clever structuring here — it's the most direct way to own a piece of a business, which is exactly why it's most people's first trade.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>Pretty much everyone with a pension or a brokerage account owns cash equity somewhere. Index funds hold it in bulk to track a market; active managers pick individual names; companies buy back their own stock.</p>
       <p>Every derivative later in this course — the option, the swap — exists because this trade did first.</p>
@@ -109,10 +110,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Settlement: <b>T+1</b></span>
-    <span class="chip">Ownership: <b>outright, no expiry</b></span>
-    <span class="chip">Rights: <b>dividends + vote</b></span>
-    <span class="chip">The <b>building block</b> for every equity derivative</span>
+    <span class="chip rounded-md border-brand-border">Settlement: <b>T+1</b></span>
+    <span class="chip rounded-md border-brand-border">Ownership: <b>outright, no expiry</b></span>
+    <span class="chip rounded-md border-brand-border">Rights: <b>dividends + vote</b></span>
+    <span class="chip rounded-md border-brand-border">The <b>building block</b> for every equity derivative</span>
   </div>
 
   <footer class="course-nav">

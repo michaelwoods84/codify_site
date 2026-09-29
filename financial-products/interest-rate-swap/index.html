@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Interest Rate Swap — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to how an interest rate swap works and why it's one of the largest markets in the world."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">Two parties agree to swap interest payments on the same imaginary pile of money. Only the difference ever changes hands — the pile itself never moves.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 400" role="img" aria-label="Diagram of an interest rate swap: You pay a fixed 4.20% rate to the Bank along a curved arrow, and receive a floating SOFR plus 1.10% rate back along a wavy arrow, while a 50 million dollar notional sits in the middle as a reference figure that is never actually exchanged.">
         <defs>
@@ -68,9 +69,9 @@
         <text x="450" y="92" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU PAY — FIXED 4.20% / YEAR</text>
         <text x="450" y="285" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">YOU RECEIVE — FLOATING (SOFR + 1.10%)</text>
 
-        <text x="125" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
+        <text x="125" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">YOU</text>
         <text x="125" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">FLOATING-RATE BORROWER</text>
-        <text x="775" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="17" fill="var(--ink)">THE BANK</text>
+        <text x="775" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="17" fill="var(--ink)">THE BANK</text>
         <text x="775" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">SWAP COUNTERPARTY</text>
 
         <text x="450" y="322" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="600" font-size="14" fill="var(--ink)">NOTIONAL — $50,000,000</text>
@@ -85,19 +86,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>An interest rate swap is an agreement between two parties to trade interest payments on the same notional amount, for a set number of years.</p>
       <p>One side pays a <b>fixed</b> rate agreed today. The other pays a <b>floating</b> rate that resets periodically against a benchmark like SOFR. In practice only the difference is settled each period — the notional is just the number both legs are calculated from.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>Say a company borrowed $50m at a floating rate. Rates rising would make its loan payments unpredictable — bad for budgeting five years out.</p>
       <p>Rather than refinance the whole loan, it swaps: pay fixed, receive floating. The floating leg it receives roughly cancels the floating rate it owes on the loan, so its <i>net</i> cost becomes fixed — without ever touching the original loan.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>Almost nobody who issues debt wants to sit with the exact rate risk that debt happens to carry. A government that just sold floating-rate bonds would rather know what next year's interest bill looks like. A pension fund would rather its liabilities stop swinging every time a central bank meets. So a swap gets layered on top, quietly doing the rate management off to the side.</p>
       <p>The loan or bond underneath never has to be touched, refinanced or reissued — which is really the whole point. It's also why swaps trade in such enormous volume: the debt itself moves slowly, but everyone's opinion on where rates are going changes constantly, and a swap is the fastest way to act on that opinion.</p>
@@ -105,10 +106,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Tenor: <b>often 2–10 yrs</b></span>
-    <span class="chip">Benchmark: <b>SOFR, €STR, SONIA…</b></span>
-    <span class="chip">Settlement: <b>net, periodically</b></span>
-    <span class="chip">Notional: <b>never exchanged</b></span>
+    <span class="chip rounded-md border-brand-border">Tenor: <b>often 2–10 yrs</b></span>
+    <span class="chip rounded-md border-brand-border">Benchmark: <b>SOFR, €STR, SONIA…</b></span>
+    <span class="chip rounded-md border-brand-border">Settlement: <b>net, periodically</b></span>
+    <span class="chip rounded-md border-brand-border">Notional: <b>never exchanged</b></span>
   </div>
 
   <footer class="course-nav">

@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Credit Default Swap — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to credit default swaps — insurance on a bond or a loan."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">You pay a small premium every quarter. If the company it's written on actually defaults, you get paid a large sum. If it doesn't, you've just paid for insurance.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 410" role="img" aria-label="Diagram of a credit default swap: you, the protection buyer, pay a 1.5% quarterly premium to the protection seller, and the seller pays you par minus recovery only if the reference entity, XYZ Corp, actually defaults on its bond.">
         <defs>
@@ -79,9 +80,9 @@
         <text x="450" y="98" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">PAY PREMIUM — 1.5% / YR, QUARTERLY</text>
         <text x="450" y="245" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">IF DEFAULT: SELLER PAYS (PAR − RECOVERY)</text>
 
-        <text x="125" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">YOU</text>
+        <text x="125" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="16" fill="var(--ink)">YOU</text>
         <text x="125" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">PROTECTION BUYER</text>
-        <text x="775" y="65" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">THE SELLER</text>
+        <text x="775" y="65" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="16" fill="var(--ink)">THE SELLER</text>
         <text x="775" y="80" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="var(--muted)" letter-spacing="0.04em">PROTECTION SELLER</text>
 
         <text x="450" y="312" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-weight="600" font-size="12" fill="var(--ink)">REFERENCES</text>
@@ -96,19 +97,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>A CDS is insurance on debt. The protection buyer pays the seller a regular premium (the "spread"); in exchange, if the reference entity — the company or country the contract is written on — has a credit event, the seller pays the buyer for the loss.</p>
       <p>"Credit event" usually means default, but can also cover a restructuring or a missed payment, depending on how the contract is written.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>A bank holding a company's bonds can buy CDS on that company instead of selling the bonds outright — it keeps the position but removes the default risk.</p>
       <p>Others buy CDS with no underlying bond at all, purely as a bet that a company's credit is about to deteriorate — or sell it purely to collect premium from a company they think is safe.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>Banks hedging loan books, bond investors managing credit risk without trading the bond itself, and hedge funds taking outright views on which companies — or countries — are headed for trouble.</p>
       <p>CDS spreads are watched closely because they tend to move faster than credit ratings do.</p>
@@ -116,10 +117,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Premium: <b>paid quarterly (bps/yr)</b></span>
-    <span class="chip">Payout: <b>only on a credit event</b></span>
-    <span class="chip">Reference: <b>a specific issuer's debt</b></span>
-    <span class="chip">Can be bought with <b>no underlying bond</b></span>
+    <span class="chip rounded-md border-brand-border">Premium: <b>paid quarterly (bps/yr)</b></span>
+    <span class="chip rounded-md border-brand-border">Payout: <b>only on a credit event</b></span>
+    <span class="chip rounded-md border-brand-border">Reference: <b>a specific issuer's debt</b></span>
+    <span class="chip rounded-md border-brand-border">Can be bought with <b>no underlying bond</b></span>
   </div>
 
   <footer class="course-nav">

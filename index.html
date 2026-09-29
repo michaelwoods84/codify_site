@@ -5,34 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Codifyit — Practical courses in code, data &amp; AI</title>
 <meta name="description" content="Courses built by a quant. Excel to Python and Financial Products in 5 Minutes for finance professionals, and a parent's guide to data, coding and AI." />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink:     #14141f;
-    --paper:   #f6f1e7;
-    --cream:   #ede4d2;
-    --rule:    #d6cbb3;
-    --muted:   #5c5648;
-    --gold:    #b8963e;
-    --teal:    #2b7a78;
+    --ink:     var(--text-primary);
+    --muted:   var(--text-muted);
+    --rule:    var(--border-neutral);
     --mono:    'IBM Plex Mono', monospace;
-    --serif:   'Fraunces', Georgia, serif;
-    --sans:    'IBM Plex Sans', sans-serif;
+    --sans:    'IBM Plex Sans', system-ui, sans-serif;
   }
 
   body {
-    background: var(--paper);
-    color: var(--ink);
     font-family: var(--sans);
-    font-weight: 300;
+    font-weight: 400;
     line-height: 1.7;
   }
 
   .masthead {
-    border-bottom: 3px double var(--ink);
-    padding: 12px 48px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--surface-card);
+    padding: 14px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,7 +38,7 @@
     flex-wrap: wrap;
     gap: 8px;
   }
-  .masthead-title { color: var(--ink); font-weight: 500; }
+  .masthead-title { color: var(--primary); font-weight: 500; }
 
   .hero {
     max-width: 780px;
@@ -58,17 +52,16 @@
     font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--primary);
     display: block;
     margin-bottom: 24px;
   }
 
   .hero h1 {
-    font-family: var(--serif);
     font-size: clamp(2.2rem, 5.4vw, 3.6rem);
-    font-weight: 900;
+    font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     margin-bottom: 16px;
   }
 
@@ -77,13 +70,26 @@
     color: var(--muted);
     max-width: 540px;
     margin: 0 auto;
-    font-weight: 300;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    margin-top: 36px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 40px;
+    border: 1px solid;
   }
 
   .tracks {
     max-width: 980px;
     margin: 0 auto;
     padding: 8px 48px 96px;
+    scroll-margin-top: 24px;
   }
 
   .track { margin-bottom: 56px; }
@@ -116,22 +122,25 @@
   .track.single .cards { grid-template-columns: minmax(0, 1fr); max-width: 460px; }
 
   .card {
-    border: 1px solid var(--rule);
-    background: var(--cream);
+    border-width: 1px;
+    border-style: solid;
+    background: var(--surface-card);
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.15s, box-shadow 0.15s;
+    overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
   }
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(20, 20, 31, 0.12);
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
   }
 
   .card-top {
     padding: 36px 32px 0;
-    border-top: 4px solid var(--accent, var(--gold));
+    border-top: 3px solid var(--primary);
   }
 
   .card-kicker {
@@ -139,16 +148,16 @@
     font-size: 10px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent, var(--gold));
+    color: var(--primary);
     display: block;
     margin-bottom: 16px;
   }
 
   .card h2 {
-    font-family: var(--serif);
-    font-size: 1.7rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: 1.55rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
     margin-bottom: 10px;
     color: var(--ink);
   }
@@ -175,29 +184,25 @@
   }
 
   .card-price { color: var(--ink); font-weight: 500; }
-  .card-cta { color: var(--accent, var(--gold)); }
-
-  .card.finance { --accent: var(--gold); }
-  .card.markets { --accent: var(--gold); }
-  .card.parents { --accent: var(--teal); }
+  .card-cta { color: var(--primary); font-weight: 500; }
 
   .card.more {
     margin-top: 56px;
     background: transparent;
-    border: 1px dashed var(--rule);
+    border-style: dashed;
     align-items: center;
     text-align: center;
     padding: 34px 32px;
   }
-  .card.more:hover { transform: none; box-shadow: none; }
+  .card.more:hover { transform: none; box-shadow: none; border-color: var(--rule); }
   .card.more .card-kicker { color: var(--muted); margin-bottom: 12px; }
-  .card.more h2 { font-size: 1.35rem; margin-bottom: 8px; }
+  .card.more h2 { font-size: 1.3rem; margin-bottom: 8px; }
   .card.more p { font-size: 0.9rem; margin-bottom: 0; max-width: 480px; }
-  .card.more a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
-  .card.more a:hover { color: var(--ink); }
+  .card.more a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+  .card.more a:hover { color: var(--primary-hover); }
 
   footer {
-    border-top: 3px double var(--ink);
+    border-top: 1px solid var(--rule);
     padding: 24px 48px;
     text-align: center;
     font-family: var(--mono);
@@ -207,8 +212,9 @@
     color: var(--muted);
   }
 </style>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <span>Built by a Quant</span>
@@ -220,9 +226,10 @@
   <span class="kicker">codifyit.co.uk</span>
   <h1>Practical courses, built by a quant.</h1>
   <p class="hero-sub">Self-paced courses that turn complex, technical subjects into something you can actually use — whether you're trying to understand what your kids are learning or modelling in Excel.</p>
+  <a class="btn-cta brand-cta bg-brand-cta rounded-md" href="#courses">View Courses</a>
 </section>
 
-<div class="tracks">
+<div class="tracks" id="courses">
 
   <section class="track">
     <div class="track-head">
@@ -231,7 +238,7 @@
     </div>
     <div class="cards">
 
-      <a class="card markets" href="/financial-products/">
+      <a class="card rounded-lg border-brand-border" href="/financial-products/">
         <div class="card-top">
           <span class="card-kicker">Free · In Progress</span>
           <h2>Financial Products in 5 Minutes</h2>
@@ -245,7 +252,7 @@
         </div>
       </a>
 
-      <a class="card finance" href="/excel-to-python/">
+      <a class="card rounded-lg border-brand-border" href="/excel-to-python/">
         <div class="card-top">
           <span class="card-kicker">Coming Soon</span>
           <h2>Excel to Python for Finance Professionals</h2>
@@ -269,7 +276,7 @@
     </div>
     <div class="cards">
 
-      <a class="card parents" href="/parents-guide/">
+      <a class="card rounded-lg border-brand-border" href="/parents-guide/">
         <div class="card-top">
           <span class="card-kicker">Coming Soon</span>
           <h2>What Is My Child Actually Learning?</h2>
@@ -286,7 +293,7 @@
     </div>
   </section>
 
-  <div class="card more">
+  <div class="card more rounded-lg border-brand-border">
     <span class="card-kicker">More on the way</span>
     <h2>New courses in development</h2>
     <p>More practical courses in code, data and AI are in the works. Is there one you'd like to see? Email <a href="mailto:hello@codifyit.co.uk?subject=Course%20suggestion">hello@codifyit.co.uk</a>.</p>

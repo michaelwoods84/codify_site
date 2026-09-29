@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Swaption — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to swaptions — an option on an interest rate swap, and the three exercise styles behind it."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">The right to enter an interest rate swap later, on terms agreed today — plus a choice about exactly when that right can be used.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 392" role="img" aria-label="Diagram of a payer swaption: you pay a premium today for the right to enter a 5 year swap paying fixed 4.20 percent versus floating. If rates rose by the exercise date you exercise into that old fixed rate; if rates fell you let the swaption expire and take the better market rate instead.">
         <defs>
@@ -67,9 +68,9 @@
         <text x="450" y="88" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU PAY PREMIUM — TODAY</text>
         <text x="450" y="196" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">YOUR RIGHT — ENTER A 5YR SWAP: PAY FIXED 4.20% vs FLOATING</text>
 
-        <text x="125" y="50" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">YOU</text>
+        <text x="125" y="50" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="16" fill="var(--ink)">YOU</text>
         <text x="125" y="63" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="var(--muted)" letter-spacing="0.04em">SWAPTION BUYER</text>
-        <text x="775" y="50" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">THE BANK</text>
+        <text x="775" y="50" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="16" fill="var(--ink)">THE BANK</text>
         <text x="775" y="63" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="var(--muted)" letter-spacing="0.04em">SWAPTION SELLER</text>
 
         <text x="300" y="278" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--teal)">RATES ROSE</text>
@@ -84,7 +85,7 @@
     <figcaption>A payer swaption: the right, bought today, to enter a pre-agreed swap later. A receiver swaption is the mirror image — the right to receive fixed instead.</figcaption>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 300" role="img" aria-label="Three timelines comparing exercise styles. European: exercise only at expiry, shown as a single dot at the end. American: exercise any business day up to expiry, shown as a thick continuous line. Bermudan: exercise only on set dates, shown as several discrete dots along the line.">
         <defs>
@@ -126,19 +127,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>A swaption is an option to enter into an interest rate swap on pre-agreed terms — fixed rate, notional, tenor — at a future date. Buy a "payer" swaption and you get the right to pay fixed; buy a "receiver" swaption and you get the right to receive fixed.</p>
       <p>Like any option, you pay a premium today for that right, and the terms of the underlying swap are locked in from the start.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>A company expecting to take out floating-rate debt in six months, but worried rates will have risen by then, can buy a payer swaption now.</p>
       <p>If rates do rise, it exercises into a swap at the old, better fixed rate; if rates fall, it lets the swaption expire and takes the better market rate instead. It's optional protection on a rate decision that hasn't happened yet.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>Corporates hedging anticipated future borrowing, and banks managing the optionality embedded in things like mortgages — where a borrower can prepay, which behaves like an option the bank is short.</p>
       <p>The exercise style usually mirrors how the real-world decision actually gets made: a single moment, any time, or a handful of fixed dates.</p>
@@ -146,10 +147,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Payer swaption: <b>right to pay fixed</b></span>
-    <span class="chip">Receiver swaption: <b>right to receive fixed</b></span>
-    <span class="chip">Exercise: <b>European, American or Bermudan</b></span>
-    <span class="chip">Premium <b>paid upfront</b> for the right</span>
+    <span class="chip rounded-md border-brand-border">Payer swaption: <b>right to pay fixed</b></span>
+    <span class="chip rounded-md border-brand-border">Receiver swaption: <b>right to receive fixed</b></span>
+    <span class="chip rounded-md border-brand-border">Exercise: <b>European, American or Bermudan</b></span>
+    <span class="chip rounded-md border-brand-border">Premium <b>paid upfront</b> for the right</span>
   </div>
 
   <footer class="course-nav">

@@ -1,0 +1,41 @@
+/* codifyit.co.uk brand tokens + Tailwind utilities.
+   Source for assets/brand.css — see tailwind.config.js for the build command. */
+
+@tailwind utilities;
+
+:root {
+  /* Crisp, stark light background */
+  --background: #f8f9fa;
+
+  /* Ink Navy for commanding text & primary structural elements */
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+
+  /* Deep Royal Blue for main branding, links, and headers */
+  --primary: #0a369d;
+  --primary-hover: #072670;
+
+  /* Vibrant Coral/Amber - restricted STRICTLY to main CTAs */
+  --accent-cta: #ff6b35;
+  --accent-cta-hover: #e0531e;
+
+  /* Cold, crisp grays for code blocks, cards, and neat borders */
+  --surface-card: #ffffff;
+  --surface-code: #1e293b;
+  --border-neutral: #e2e8f0;
+
+  /* Sharp, modern layout rules */
+  --radius-default: 4px;
+}
+
+/* Shared CTA behaviour: pair with bg-brand-cta on the element itself. */
+.brand-cta {
+  color: var(--text-primary);
+  border-color: var(--accent-cta);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.brand-cta:hover {
+  background-color: var(--accent-cta-hover);
+  border-color: var(--accent-cta-hover);
+  color: var(--text-primary);
+}

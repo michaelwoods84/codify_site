@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>FX Swap — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to FX swaps — a spot trade and a forward trade glued together into a funding tool."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">You exchange currencies now, and agree — in the very same contract — to swap them straight back on a set date later.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 440" role="img" aria-label="Diagram comparing the near leg and far leg of an FX swap. Near leg, today: you give 1,000,000 dollars and get 920,000 euros at the spot rate. Far leg, in three months: you give back 920,000 euros and get back 1,003,000 dollars at the forward rate, the extra 3,000 dollars reflecting the interest rate gap between the two currencies.">
         <defs>
@@ -60,10 +61,10 @@
         <text x="175" y="40" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--ink)" letter-spacing="0.03em">NEAR LEG — TODAY (SPOT)</text>
         <text x="725" y="40" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--ink)" letter-spacing="0.03em">FAR LEG — IN 3 MONTHS (FORWARD)</text>
 
-        <text x="175" y="93" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">YOU</text>
-        <text x="175" y="373" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">THE BANK</text>
-        <text x="725" y="93" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">YOU</text>
-        <text x="725" y="373" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="15" fill="var(--ink)">THE BANK</text>
+        <text x="175" y="93" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="15" fill="var(--ink)">YOU</text>
+        <text x="175" y="373" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="15" fill="var(--ink)">THE BANK</text>
+        <text x="725" y="93" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="15" fill="var(--ink)">YOU</text>
+        <text x="725" y="373" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="15" fill="var(--ink)">THE BANK</text>
 
         <text x="60" y="205" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" font-weight="600" fill="var(--gold)" letter-spacing="0.01em" transform="rotate(-90 60 205)">GIVE $1,000,000</text>
         <text x="290" y="255" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10.5" font-weight="600" fill="var(--teal)" letter-spacing="0.01em" transform="rotate(-90 290 255)">GET €920,000 — SPOT 0.9200</text>
@@ -79,19 +80,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>An FX swap bundles two trades into one: you exchange currencies today at the spot rate (the "near leg"), and simultaneously agree to swap them back on a future date at a pre-agreed forward rate (the "far leg").</p>
       <p>Nobody is making a directional bet on the currency — the whole point is that the two legs cancel each other's currency exposure out.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>A bank that needs euros for three months but doesn't want to hold euro risk borrows dollars, swaps them into euros now, uses the euros, then swaps back to dollars in three months exactly as agreed.</p>
       <p>It's really a funding tool dressed up as an FX trade — a way to borrow one currency using another as collateral.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>Banks and central banks use FX swaps constantly to manage short-term funding across currencies.</p>
       <p>It's one of the largest corners of the entire FX market by volume, even though almost none of it is directional currency speculation.</p>
@@ -99,10 +100,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Two legs: <b>near + far date</b></span>
-    <span class="chip">Near leg: <b>spot rate</b></span>
-    <span class="chip">Far leg: <b>forward rate</b></span>
-    <span class="chip">Mainly a <b>funding tool</b>, not a currency bet</span>
+    <span class="chip rounded-md border-brand-border">Two legs: <b>near + far date</b></span>
+    <span class="chip rounded-md border-brand-border">Near leg: <b>spot rate</b></span>
+    <span class="chip rounded-md border-brand-border">Far leg: <b>forward rate</b></span>
+    <span class="chip rounded-md border-brand-border">Mainly a <b>funding tool</b>, not a currency bet</span>
   </div>
 
   <footer class="course-nav">

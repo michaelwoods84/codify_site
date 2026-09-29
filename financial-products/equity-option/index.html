@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Equity Option — Financial Products in 5 Minutes</title>
 <meta name="description" content="A 5-minute, hand-drawn visual guide to equity options — the right, not the obligation, to buy or sell a stock."/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/financial-products/style.css"/>
+<link rel="stylesheet" href="/assets/brand.css"/>
 </head>
-<body>
+<body class="bg-brand-bg text-brand-text">
 
 <div class="masthead">
   <a href="/">Codifyit</a>
@@ -24,7 +25,7 @@
     <p class="dek">You pay a small premium upfront for the right — not the obligation — to buy a stock at a fixed price, any time before it expires.</p>
   </section>
 
-  <section class="diagram-wrap">
+  <section class="diagram-wrap rounded-lg border-brand-border">
     <figure>
       <svg class="sketch-figure" viewBox="0 0 900 392" role="img" aria-label="Diagram of an equity call option: you pay a 3.20 dollar per share premium today for the right to buy 100 shares at a 50 dollar strike by expiry. If the stock is above 50 dollars at expiry, you exercise; if it's at or below 50 dollars, you walk away and only lose the premium.">
         <defs>
@@ -71,9 +72,9 @@
         <text x="450" y="88" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" fill="var(--gold)" letter-spacing="0.02em">YOU PAY PREMIUM — $3.20 / SHARE, TODAY</text>
         <text x="450" y="196" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" fill="var(--teal)" letter-spacing="0.02em">YOUR RIGHT — BUY 100 SHARES @ $50, BY EXPIRY</text>
 
-        <text x="125" y="50" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">YOU</text>
+        <text x="125" y="50" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="16" fill="var(--ink)">YOU</text>
         <text x="125" y="63" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="var(--muted)" letter-spacing="0.04em">OPTION BUYER</text>
-        <text x="775" y="50" text-anchor="middle" font-family="'Fraunces', serif" font-weight="700" font-size="16" fill="var(--ink)">THE WRITER</text>
+        <text x="775" y="50" text-anchor="middle" font-family="'IBM Plex Sans', sans-serif" font-weight="700" font-size="16" fill="var(--ink)">THE WRITER</text>
         <text x="775" y="63" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="9.5" fill="var(--muted)" letter-spacing="0.04em">OPTION SELLER</text>
 
         <text x="300" y="278" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="600" fill="var(--teal)">STOCK &gt; $50</text>
@@ -90,19 +91,19 @@
 
   <section class="story-grid">
     <article>
-      <span class="eyebrow-num">1</span>
+      <span class="eyebrow-num rounded-md">1</span>
       <h2>What it actually is</h2>
       <p>An option gives the buyer the right, but not the obligation, to buy (a call) or sell (a put) a stock at a fixed price — the strike — on or before a set expiry date.</p>
       <p>The buyer pays a premium upfront for that right; the seller (the "writer") collects the premium and takes on the obligation if the buyer chooses to exercise.</p>
     </article>
     <article>
-      <span class="eyebrow-num">2</span>
+      <span class="eyebrow-num rounded-md">2</span>
       <h2>Why someone would do this</h2>
       <p>A buyer who thinks a stock is going higher can control 100 shares' worth of upside for a fraction of the price of owning them outright — and the most they can ever lose is the premium.</p>
       <p>A seller who already owns the stock can sell calls against it to collect premium as income, effectively getting paid to agree to sell at a price they're happy with anyway.</p>
     </article>
     <article>
-      <span class="eyebrow-num">3</span>
+      <span class="eyebrow-num rounded-md">3</span>
       <h2>Who's actually doing this</h2>
       <p>Retail investors use options to speculate cheaply or to generate income against stock they hold; institutional desks use them to hedge portfolios against a sharp move.</p>
       <p>Market makers quote both sides constantly, which is what keeps the whole options market liquid.</p>
@@ -110,10 +111,10 @@
   </section>
 
   <div class="quickfacts">
-    <span class="chip">Buyer's max loss: <b>the premium</b></span>
-    <span class="chip">Seller's max loss: <b>can be large</b></span>
-    <span class="chip">Call = <b>right to buy</b> · Put = <b>right to sell</b></span>
-    <span class="chip">Style: <b>American</b> (most US equity options)</span>
+    <span class="chip rounded-md border-brand-border">Buyer's max loss: <b>the premium</b></span>
+    <span class="chip rounded-md border-brand-border">Seller's max loss: <b>can be large</b></span>
+    <span class="chip rounded-md border-brand-border">Call = <b>right to buy</b> · Put = <b>right to sell</b></span>
+    <span class="chip rounded-md border-brand-border">Style: <b>American</b> (most US equity options)</span>
   </div>
 
   <footer class="course-nav">
