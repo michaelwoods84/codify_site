@@ -13,6 +13,7 @@ module.exports = {
       './excel-to-python/**/*.html',
       './parents-guide/**/*.html',
       './financial-products/**/*.html',
+      './privacy/**/*.html',
     ],
     // Only read class="…" attributes, so ordinary words in the page copy
     // ("fixed", "table", "hidden") don't turn into stray utilities.
