@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Codifyit — Practical courses in code, data &amp; AI</title>
-<meta name="description" content="Courses built by a quant. Excel to Python and Financial Products in 5 Minutes for finance professionals, and a parent's guide to data, coding and AI." />
+<meta name="description" content="Technical subjects explained plainly, built by a quant. Plain-English guides to coding, data and AI for parents, and practical courses for finance professionals." />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -85,121 +85,112 @@
     border: 1px solid;
   }
 
-  .tracks {
-    max-width: 980px;
+  .paths {
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 8px 48px 96px;
-    scroll-margin-top: 24px;
-  }
-
-  .track { margin-bottom: 56px; }
-  .track:last-of-type { margin-bottom: 0; }
-
-  .track-head {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
-  }
-  .track-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-  .track-rule { flex: 1; height: 1px; background: var(--rule); }
-
-  .cards {
+    padding: 8px 48px 72px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 28px;
+    scroll-margin-top: 24px;
   }
-  @media (max-width: 720px) {
-    .cards { grid-template-columns: 1fr; }
+  @media (max-width: 800px) {
+    .paths { grid-template-columns: 1fr; padding: 8px 20px 56px; }
+    .hero { padding: 64px 20px 40px; }
+    .masthead { padding: 12px 20px; }
   }
-  .track.single .cards { grid-template-columns: minmax(0, 1fr); max-width: 460px; }
 
-  .card {
+  .path {
+    background: var(--surface-card);
     border-width: 1px;
     border-style: solid;
-    background: var(--surface-card);
+    box-shadow: inset 0 3px 0 var(--primary);
+    padding: 36px 34px 30px;
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-    overflow: hidden;
-    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
   }
-  .card:hover {
-    transform: translateY(-3px);
-    border-color: var(--primary);
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-  }
-
-  .card-top {
-    padding: 36px 32px 0;
-    border-top: 3px solid var(--primary);
-  }
-
-  .card-kicker {
+  .path-label {
     font-family: var(--mono);
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--primary);
-    display: block;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
+  .path h2 {
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .path > p { color: var(--muted); font-size: 0.98rem; margin-bottom: 20px; }
 
-  .card h2 {
-    font-size: 1.55rem;
-    font-weight: 600;
-    line-height: 1.25;
-    letter-spacing: -0.015em;
-    margin-bottom: 10px;
+  .path-points { list-style: none; margin-bottom: 26px; }
+  .path-points li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 0.93rem;
     color: var(--ink);
   }
-
-  .card p {
-    color: var(--muted);
-    font-size: 0.94rem;
-    margin-bottom: 24px;
+  .path-points li::before {
+    content: '✓';
+    color: var(--primary);
+    font-weight: 700;
+    flex-shrink: 0;
   }
 
-  .card-body { padding: 0 32px 32px; flex: 1; display: flex; flex-direction: column; }
-
-  .card-meta {
+  .path-courses {
     margin-top: auto;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+  .path-courses-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .path-course {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid var(--rule);
+    align-items: baseline;
+    gap: 16px;
+    padding: 10px 0;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 0.98rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .path-course:last-child { border-bottom: none; }
+  .path-course:hover { color: var(--primary); }
+  .path-course span {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 10.5px;
+    font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    color: var(--primary);
+    white-space: nowrap;
   }
 
-  .card-price { color: var(--ink); font-weight: 500; }
-  .card-cta { color: var(--primary); font-weight: 500; }
-
-  .card.more {
-    margin-top: 56px;
-    background: transparent;
+  .more {
+    max-width: 984px;
+    margin: 0 auto 88px;
+    padding: 28px 32px;
+    border-width: 1px;
     border-style: dashed;
-    align-items: center;
     text-align: center;
-    padding: 34px 32px;
   }
-  .card.more:hover { transform: none; box-shadow: none; border-color: var(--rule); }
-  .card.more .card-kicker { color: var(--muted); margin-bottom: 12px; }
-  .card.more h2 { font-size: 1.3rem; margin-bottom: 8px; }
-  .card.more p { font-size: 0.9rem; margin-bottom: 0; max-width: 480px; }
-  .card.more a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
-  .card.more a:hover { color: var(--primary-hover); }
+  @media (max-width: 800px) { .more { margin: 0 20px 64px; } }
+  .more h2 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
+  .more p { color: var(--muted); font-size: 0.92rem; }
+  .more a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+  .more a:hover { color: var(--primary-hover); }
 
   footer {
     border-top: 1px solid var(--rule);
@@ -223,86 +214,54 @@
 </div>
 
 <section class="hero">
-  <span class="kicker">codifyit.co.uk</span>
-  <h1>Practical courses, built by a quant.</h1>
-  <p class="hero-sub">Self-paced courses that turn complex, technical subjects into something you can actually use — whether you're trying to understand what your kids are learning or modelling in Excel.</p>
-  <a class="btn-cta brand-cta bg-brand-cta rounded-md" href="#courses">View Courses</a>
+  <span class="kicker">Built by a quant · Written for non-technical people</span>
+  <h1>Technical subjects, explained plainly.</h1>
+  <p class="hero-sub">I work with code, data and financial models every day. Codifyit turns that into short, practical courses for people who don't — whether you're a parent or you work in finance.</p>
+  <a class="btn-cta brand-cta bg-brand-cta rounded-md" href="#paths">View Courses</a>
 </section>
 
-<div class="tracks" id="courses">
+<div class="paths" id="paths">
 
-  <section class="track">
-    <div class="track-head">
-      <span class="track-label">For Finance Professionals</span>
-      <span class="track-rule"></span>
-    </div>
-    <div class="cards">
-
-      <a class="card rounded-lg border-brand-border" href="/financial-products/">
-        <div class="card-top">
-          <span class="card-kicker">Free · In Progress</span>
-          <h2>Financial Products in 5 Minutes</h2>
-        </div>
-        <div class="card-body">
-          <p>Hand-drawn, plain-English guides to the instruments that actually make up modern markets — bonds, FX, swaps, options and more. What each one is, how it's used, and why it exists. Nine modules, five minutes each.</p>
-          <div class="card-meta">
-            <span class="card-price">Free · in progress</span>
-            <span class="card-cta">Start the course →</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="card rounded-lg border-brand-border" href="/excel-to-python/">
-        <div class="card-top">
-          <span class="card-kicker">Coming Soon</span>
-          <h2>Excel to Python for Finance Professionals</h2>
-        </div>
-        <div class="card-body">
-          <p>Replace your spreadsheets with cleaner, faster, more powerful financial models. Six notebook-based modules covering P&amp;L modelling, DCF valuation, and full reporting automation — runs in Google Colab, no install required.</p>
-          <div class="card-meta">
-            <span class="card-price">Coming soon</span>
-            <span class="card-cta">Register interest →</span>
-          </div>
-        </div>
-      </a>
-
+  <section class="path rounded-lg border-brand-border">
+    <span class="path-label">For parents</span>
+    <h2>Understand what your child is actually learning</h2>
+    <p>Coding, data and AI are now part of school life. These guides explain what's on the curriculum and why it matters, so you can follow along and support your child.</p>
+    <ul class="path-points">
+      <li>Plain English, no jargon</li>
+      <li>No tech experience needed</li>
+      <li>Covers ages 7–16, including AI and homework</li>
+    </ul>
+    <div class="path-courses">
+      <div class="path-courses-label">Courses</div>
+      <a class="path-course" href="/parents-guide/">What Is My Child Actually Learning? <span>Module 1 free →</span></a>
     </div>
   </section>
 
-  <section class="track single">
-    <div class="track-head">
-      <span class="track-label">For Parents</span>
-      <span class="track-rule"></span>
-    </div>
-    <div class="cards">
-
-      <a class="card rounded-lg border-brand-border" href="/parents-guide/">
-        <div class="card-top">
-          <span class="card-kicker">Coming Soon</span>
-          <h2>What Is My Child Actually Learning?</h2>
-        </div>
-        <div class="card-body">
-          <p>A parent's guide to data, coding and AI — written in plain English, with no technical background needed. Seven short modules covering what's on the curriculum, the AI-and-homework question, and how to support your child.</p>
-          <div class="card-meta">
-            <span class="card-price">Coming soon</span>
-            <span class="card-cta">Register interest →</span>
-          </div>
-        </div>
-      </a>
-
+  <section class="path rounded-lg border-brand-border">
+    <span class="path-label">For finance professionals</span>
+    <h2>Put code and markets to work</h2>
+    <p>Finance-first material from someone who builds pricing and risk models for a living. Aimed at people who live in Excel, not in code.</p>
+    <ul class="path-points">
+      <li>Real finance examples, not toy datasets</li>
+      <li>Starts from what you already know in Excel</li>
+      <li>Short, self-paced modules</li>
+    </ul>
+    <div class="path-courses">
+      <div class="path-courses-label">Courses</div>
+      <a class="path-course" href="/financial-products/">Financial Products in 5 Minutes <span>Free →</span></a>
+      <a class="path-course" href="/excel-to-python/">Excel to Python for Finance Professionals <span>Coming soon →</span></a>
     </div>
   </section>
-
-  <div class="card more rounded-lg border-brand-border">
-    <span class="card-kicker">More on the way</span>
-    <h2>New courses in development</h2>
-    <p>More practical courses in code, data and AI are in the works. Is there one you'd like to see? Email <a href="mailto:hello@codifyit.co.uk?subject=Course%20suggestion">hello@codifyit.co.uk</a>.</p>
-  </div>
 
 </div>
 
+<div class="more rounded-lg border-brand-border">
+  <h2>More courses on the way</h2>
+  <p>Is there a topic you'd like explained plainly? Email <a href="mailto:hello@codifyit.co.uk?subject=Course%20suggestion">hello@codifyit.co.uk</a>.</p>
+</div>
+
 <footer>
-  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Practical courses, built by a practitioner
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Built by a quant, for non-technical people
 </footer>
 
 </body>
