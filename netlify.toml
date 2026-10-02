@@ -1,0 +1,7 @@
+# The site is plain static files at the repo root; the only server code is the
+# course unlock function in netlify/functions/.
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"

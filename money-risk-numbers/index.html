@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="A plain-English guide for parents: teach your child about money, chance, interest, risk and misleading numbers, with fun activities to do together. Coming soon."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Money, Risk &amp; Numbers — Codifyit</title>
+<link rel="stylesheet" href="/assets/fonts.css"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     var(--text-primary);
+    --paper:   var(--background);
+    --cream:   var(--surface-card);
+    --teal:    var(--primary);
+    --rule:    var(--border-neutral);
+    --muted:   var(--text-muted);
+    --mono:    'IBM Plex Mono', monospace;
+    --sans:    'IBM Plex Sans', system-ui, sans-serif;
+    --serif:   var(--sans);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    background: var(--cream);
+    padding: 12px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .masthead-title { color: var(--primary); font-weight: 500; }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 48px 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5.6vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 20px auto 0;
+    font-weight: 300;
+  }
+
+  .hero-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px auto;
+    max-width: 440px;
+  }
+  .hero-rule::before, .hero-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .hero-rule span {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── CTA BUTTONS ── */
+  .cta-wrap { text-align: center; margin: 0 0 16px; }
+  .cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 0 16px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 44px;
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--primary);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 44px;
+    border: 1px solid var(--primary);
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    background: var(--primary);
+    color: #ffffff;
+  }
+
+  .price-note {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── SECTION LAYOUT ── */
+  .section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 64px 48px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  p { margin-bottom: 16px; color: var(--muted); }
+  p strong { color: var(--ink); font-weight: 500; }
+  .section p a, .faq-a a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+  .section p a:hover, .faq-a a:hover { color: var(--primary-hover); }
+
+  /* ── FREE MODULE BANNER ── */
+  .free-banner {
+    background: var(--primary);
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 48px;
+  }
+  .free-banner .section-label { color: #bfd0f5; }
+  .free-banner h2 { color: #ffffff; }
+  .free-banner p { color: #dbe4f8; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .free-banner .btn-secondary { border-color: #ffffff; color: #ffffff; }
+  .free-banner .btn-secondary:hover { background: #ffffff; color: var(--primary); }
+  .free-banner .pdf-link { margin: 18px auto 0; font-size: 0.88rem; }
+  .free-banner .pdf-link a { color: #ffffff; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ── FOR WHO ── */
+  .for-who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-width: 1px;
+    border-style: solid;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  @media (max-width: 600px) {
+    .for-who-grid { grid-template-columns: 1fr; }
+  }
+
+  .for-who-col { padding: 32px; }
+  .for-who-col:first-child { border-right: 1px solid var(--rule); }
+
+  .for-who-col h3 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+
+  .for-who-col ul { list-style: none; }
+  .for-who-col ul li {
+    font-size: 0.92rem;
+    color: var(--muted);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 10px;
+  }
+  .for-who-col ul li:last-child { border-bottom: none; }
+  .for-who-col ul li::before {
+    content: '✓';
+    color: var(--teal);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .for-who-col.not li::before { content: '✗'; color: var(--muted); }
+
+  /* ── MODULES ── */
+  .modules { margin-top: 32px; }
+
+  .module-item {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-bottom: -1px;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .module-item:hover { background: var(--cream); }
+  .module-item.is-free { background: #eef2fb; }
+
+  .module-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--rule);
+    padding: 20px 0;
+  }
+
+  .module-body { padding: 20px 24px; }
+
+  .module-title {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .free-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--primary);
+    color: #ffffff;
+    padding: 3px 8px;
+  }
+
+  .module-desc {
+    font-size: 0.87rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ── AUTHOR ── */
+  .author-block {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 32px;
+    padding: 32px;
+    border-width: 1px;
+    border-style: solid;
+    background: var(--cream);
+  }
+  @media (max-width: 600px) { .author-block { flex-direction: column; } }
+
+  .author-avatar {
+    width: 72px;
+    height: 72px;
+    background: var(--primary);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .author-text h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .author-text p { font-size: 0.9rem; margin: 0; }
+
+  /* ── WHAT YOU GET ── */
+  .get-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-width: 1px;
+    border-style: solid;
+    background: var(--cream);
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  @media (max-width: 600px) { .get-grid { grid-template-columns: 1fr; } }
+
+  .get-item {
+    padding: 28px 24px;
+    border-right: 1px solid var(--rule);
+    text-align: center;
+  }
+  .get-item:last-child { border-right: none; }
+
+  .get-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--teal);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .get-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── PRICING ── */
+  .pricing-card {
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: inset 0 3px 0 var(--primary);
+    background: var(--cream);
+    max-width: 420px;
+    margin: 32px auto 0;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .pricing-card::before {
+    content: 'Coming soon · Register your interest';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--paper);
+    padding: 0 12px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    white-space: nowrap;
+  }
+
+  .price-big {
+    font-family: var(--serif);
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .price-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .pricing-includes {
+    list-style: none;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+  .pricing-includes li {
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--cream);
+    display: flex;
+    gap: 10px;
+    color: var(--muted);
+  }
+  .pricing-includes li:last-child { border-bottom: none; }
+  .pricing-includes li::before { content: '—'; color: var(--teal); }
+
+  /* ── FAQ ── */
+  .faq { margin-top: 32px; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--rule);
+    padding: 24px 0;
+  }
+  .faq-q {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .faq-a { font-size: 0.92rem; color: var(--muted); margin: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 24px 48px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero h1, .hero-sub, .cta-wrap {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-sub { animation-delay: 0.15s; }
+  .cta-wrap { animation-delay: 0.3s; }
+</style>
+<link rel="stylesheet" href="/assets/brand.css"/>
+</head>
+<body class="bg-brand-bg text-brand-text">
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <span>A Guide for Parents</span>
+  <a class="masthead-title" href="/" style="text-decoration:none">Codifyit</a>
+  <span>Coming Soon</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="kicker">A Plain-English Guide for Parents</span>
+  <h1>Help your child grow up<br/><em>money-smart.</em></h1>
+  <p class="hero-sub">Money has become invisible: contactless taps, in-app purchases, loot boxes. This friendly, plain-English guide gives you the few big ideas that matter — chance, saving, risk and a healthy suspicion of numbers — with simple activities to share with your child at the kitchen table.</p>
+
+  <div class="hero-rule"><span>seven modules · ages 7–16</span></div>
+
+  <div class="cta-row">
+    <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20Money%2C%20Risk%20%26%20Numbers&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20%22Money%2C%20Risk%20%26%20Numbers%22.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary brand-cta bg-brand-cta rounded-md">Register Your Interest</a>
+    <a href="#modules" class="btn-secondary rounded-md">See What's Inside</a>
+  </div>
+  <p class="price-note">Coming soon · Register to hear when it launches</p>
+</section>
+
+<!-- STATS -->
+<section class="section">
+  <div class="get-grid rounded-lg border-brand-border">
+    <div class="get-item">
+      <span class="get-num">7</span>
+      <span class="get-label">Plain-English<br/>Modules</span>
+    </div>
+    <div class="get-item">
+      <span class="get-num">0</span>
+      <span class="get-label">Maths or Finance<br/>Background Needed</span>
+    </div>
+    <div class="get-item">
+      <span class="get-num">7–16</span>
+      <span class="get-label">Ages<br/>Covered</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="section">
+  <span class="section-label">Who this is for</span>
+  <h2>Made for parents.<br/>Not accountants.</h2>
+  <p>You don't need to be good at maths. If you can count sweets and read a price tag, you can teach every idea in this guide — and your child will be much harder to fool with numbers.</p>
+
+  <div class="for-who-grid rounded-lg border-brand-border">
+    <div class="for-who-col">
+      <h3>You'll get a lot from this if you…</h3>
+      <ul>
+        <li>Have a child who games, spends online or is getting their first bank card</li>
+        <li>Want them to understand loot boxes, scams and “too good to be true”</li>
+        <li>Feel unsure about your own maths and want simple explanations</li>
+        <li>Want practical activities rather than lectures</li>
+      </ul>
+    </div>
+    <div class="for-who-col not">
+      <h3>This probably isn't for you if…</h3>
+      <ul>
+        <li>You want investment or financial-product advice</li>
+        <li>You’re looking for exam-style maths revision</li>
+        <li>Your child is outside the 7–16 age range</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="section" id="modules">
+  <span class="section-label">What's inside</span>
+  <h2>Seven modules. All practical.</h2>
+  <p>Each module is a short read with a hands-on activity to try with your child that week — from a sweet-bag probability experiment to a month of pretend investing.</p>
+
+  <div class="modules">
+    <div class="module-item is-free border-brand-border">
+      <div class="module-num">01</div>
+      <div class="module-body">
+        <div class="module-title">Why Money Feels Invisible Now <span class="free-tag rounded-sm">Free sample</span></div>
+        <p class="module-desc">Cashless money, in-app spending and game currencies — and why children need a mental model of money more than ever.</p>
+      </div>
+    </div>
+    <div class="module-item border-brand-border">
+      <div class="module-num">02</div>
+      <div class="module-body">
+        <div class="module-title">Chance in Everyday Life</div>
+        <p class="module-desc">Probability through games, loot boxes and “near misses”, and why the house always wins.</p>
+      </div>
+    </div>
+    <div class="module-item border-brand-border">
+      <div class="module-num">03</div>
+      <div class="module-body">
+        <div class="module-title">Interest: The Most Useful Idea in Finance</div>
+        <p class="module-desc">Saving, borrowing and compounding, explained with sweets and a jar.</p>
+      </div>
+    </div>
+    <div class="module-item border-brand-border">
+      <div class="module-num">04</div>
+      <div class="module-body">
+        <div class="module-title">Risk and Reward</div>
+        <p class="module-desc">Why the safest choice isn’t always the best — and how to judge a decision, not just its outcome.</p>
+      </div>
+    </div>
+    <div class="module-item border-brand-border">
+      <div class="module-num">05</div>
+      <div class="module-body">
+        <div class="module-title">Spotting Dodgy Numbers</div>
+        <p class="module-desc">“Up to 70% off”, misleading averages and stretched charts — the tricks used in ads, news and social media.</p>
+      </div>
+    </div>
+    <div class="module-item border-brand-border">
+      <div class="module-num">06</div>
+      <div class="module-body">
+        <div class="module-title">Scams and “Too Good to Be True”</div>
+        <p class="module-desc">The four levers every scam pulls, money-mule “jobs”, and the habits that protect your child.</p>
+      </div>
+    </div>
+    <div class="module-item border-brand-border">
+      <div class="module-num">07</div>
+      <div class="module-body">
+        <div class="module-title">Family Project: A Month of Pretend Investing</div>
+        <p class="module-desc">A hands-on project that pulls the whole guide together — no real money involved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="section">
+  <span class="section-label">About the author</span>
+  <h2>Written by a quant,<br/>for parents.</h2>
+
+  <div class="author-block rounded-lg border-brand-border">
+    <div class="author-avatar rounded-md">Q</div>
+    <div class="author-text">
+      <h3>Quantitative Analyst, Tier 1 Investment Bank</h3>
+      <p>I spend my working life pricing risk and thinking about probability. As a parent, I watched my children grow up with money they never see — taps, apps and loot boxes — and realised the ideas that protect them are the ones I use at work every day. This guide passes them on in plain English, with no assumptions about what you already know.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <span class="section-label">Common questions</span>
+  <h2>FAQ</h2>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">Do I need to be good at maths?</div>
+      <p class="faq-a">No. Every idea is explained from scratch with everyday examples — sweets, dice, pocket money. If you can work out a price in a shop, you have all the maths you need.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is this financial advice?</div>
+      <p class="faq-a">No. The guide explains ideas, not products. It doesn't recommend any account, fund or provider, and nothing in it is financial advice.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What ages is it for?</div>
+      <p class="faq-a">Children aged roughly 7–16. Each activity has simpler and more advanced versions so you can pitch it at your child’s level.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does it cover gaming and loot boxes?</div>
+      <p class="faq-a">Yes — Module 2 explains exactly what a loot box costs in real money and how “near misses” are designed to keep children playing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER INTEREST -->
+<section class="section" id="register">
+  <span class="section-label">Register your interest</span>
+  <h2>Be first to know when it launches.</h2>
+  <p>This course is being written now. Register your interest and we'll email you the moment it's ready — no spam, just a single note when it's available.</p>
+
+  <div class="pricing-card rounded-lg border-brand-border">
+    <span class="price-sub" style="margin-bottom:20px">What you'll get</span>
+    <ul class="pricing-includes">
+      <li>All 7 modules in the interactive online course (Module 1 free)</li>
+      <li>Plain-English explanations — no jargon, no formulas to memorise</li>
+      <li>A practical activity in every module</li>
+      <li>A short quiz at the end of each module</li>
+      <li>Works on phone, tablet or computer</li>
+      <li>Email support if you have questions</li>
+    </ul>
+    <div class="cta-wrap" style="margin:0">
+      <a href="mailto:hello@codifyit.co.uk?subject=Interest%20in%20Money%2C%20Risk%20%26%20Numbers&amp;body=Hi%2C%20I%27d%20like%20to%20register%20my%20interest%20in%20%22Money%2C%20Risk%20%26%20Numbers%22.%20Please%20let%20me%20know%20when%20it%27s%20available." class="btn-primary brand-cta bg-brand-cta rounded-md">Register Your Interest</a>
+    </div>
+    <p class="price-note" style="margin-top:16px">Opens your email app · hello@codifyit.co.uk</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Built by a quant, for parents &nbsp;·&nbsp; <a href="/privacy/">Privacy</a>
+</footer>
+
+</body>
+</html>
