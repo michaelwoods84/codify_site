@@ -3,204 +3,171 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Codifyit — Practical courses in code, data &amp; AI</title>
-<meta name="description" content="Technical subjects explained plainly, built by a quant. Plain-English guides to coding, data and AI for parents, and practical courses for finance professionals." />
+<title>Codifyit — Understand code, data &amp; AI without becoming technical</title>
+<meta name="description" content="Practical, plain-English courses for parents and finance professionals who want to understand code, data and AI without the jargon. Built by a quant. Start free." />
+<link rel="canonical" href="https://codifyit.co.uk/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Codifyit" />
+<meta property="og:url" content="https://codifyit.co.uk/" />
+<meta property="og:title" content="Understand code, data &amp; AI — without becoming technical" />
+<meta property="og:description" content="Plain-English courses for parents and finance professionals, built by a quant. Start with a free course." />
 <link rel="stylesheet" href="/assets/fonts.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Codifyit courses",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "item": {"@type": "Course", "name": "Financial Products in 5 Minutes", "url": "https://codifyit.co.uk/financial-products/", "description": "Plain-English, 5-minute guides to bonds, equities, FX, swaps and options.", "isAccessibleForFree": true, "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}},
+    {"@type": "ListItem", "position": 2, "item": {"@type": "Course", "name": "What Is My Child Actually Learning?", "url": "https://codifyit.co.uk/parents-guide/", "description": "A plain-English course for parents on the coding, data and AI their child learns at school, ages 7–16.", "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}},
+    {"@type": "ListItem", "position": 3, "item": {"@type": "Course", "name": "Excel to Python for Finance Professionals", "url": "https://codifyit.co.uk/excel-to-python/", "description": "Replace repetitive Excel workflows with Python, using real finance examples.", "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}}
+  ]
+}
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink:     var(--text-primary);
-    --muted:   var(--text-muted);
-    --rule:    var(--border-neutral);
-    --mono:    'IBM Plex Mono', monospace;
-    --sans:    'IBM Plex Sans', system-ui, sans-serif;
+    --ink:   var(--text-primary);
+    --muted: var(--text-muted);
+    --rule:  var(--border-neutral);
+    --mono:  'IBM Plex Mono', monospace;
+    --sans:  'IBM Plex Sans', system-ui, sans-serif;
   }
 
-  body {
-    font-family: var(--sans);
-    font-weight: 400;
-    line-height: 1.7;
-  }
+  body { font-family: var(--sans); font-weight: 400; line-height: 1.7; }
+  a { color: inherit; }
+  .card { border-width: 1px; border-style: solid; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+  @media (max-width: 800px) { .wrap { padding: 0 16px; } }
 
   .masthead {
     border-bottom: 1px solid var(--rule);
     background: var(--surface-card);
     padding: 14px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    flex-wrap: wrap;
-    gap: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); flex-wrap: wrap; gap: 8px;
   }
   .masthead-title { color: var(--primary); font-weight: 500; }
+  .masthead nav { display: flex; gap: 20px; }
+  .masthead nav a { text-decoration: none; }
+  .masthead nav a:hover { color: var(--primary); }
+  @media (max-width: 800px) { .masthead { padding: 12px 16px; } .masthead > span:first-child { display: none; } }
 
-  .hero {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 88px 48px 56px;
-    text-align: center;
+  .label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--primary); display: block; margin-bottom: 14px;
   }
-
-  .kicker {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--primary);
-    display: block;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.2rem, 5.4vw, 3.6rem);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    margin-bottom: 16px;
-  }
-
-  .hero-sub {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 540px;
-    margin: 0 auto;
-  }
-
-  .btn-cta {
-    display: inline-block;
-    margin-top: 36px;
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 16px 40px;
-    border: 1px solid;
-  }
-
-  .paths {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 8px 48px 72px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    scroll-margin-top: 24px;
-  }
-  @media (max-width: 800px) {
-    .paths { grid-template-columns: 1fr; padding: 8px 20px 56px; }
-    .hero { padding: 64px 20px 40px; }
-    .masthead { padding: 12px 20px; }
-  }
-
-  .path {
-    background: var(--surface-card);
-    border-width: 1px;
-    border-style: solid;
-    box-shadow: inset 0 3px 0 var(--primary);
-    padding: 36px 34px 30px;
-    display: flex;
-    flex-direction: column;
-  }
-  .path-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: 14px;
-  }
-  .path h2 {
-    font-size: 1.65rem;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  .section { padding-top: 72px; padding-bottom: 72px; }
+  .section + .section { border-top: 1px solid var(--rule); }
+  @media (max-width: 800px) { .section { padding-top: 52px; padding-bottom: 52px; } }
+  .section-head { max-width: 680px; margin-bottom: 36px; }
+  .section-head h2 {
+    font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em;
     margin-bottom: 12px;
   }
-  .path > p { color: var(--muted); font-size: 0.98rem; margin-bottom: 20px; }
+  .section-head p { color: var(--muted); font-size: 1.02rem; }
 
-  .path-points { list-style: none; margin-bottom: 26px; }
-  .path-points li {
-    display: flex;
-    gap: 10px;
-    padding: 6px 0;
-    font-size: 0.93rem;
-    color: var(--ink);
+  /* Buttons: coral fill is reserved for the main "start" actions. */
+  .btn {
+    display: inline-block; font-family: var(--mono); font-size: 12.5px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    padding: 14px 26px; border: 1px solid; text-align: center;
   }
-  .path-points li::before {
-    content: '✓';
-    color: var(--primary);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
+  .btn-line { color: var(--primary); border-color: var(--primary); background: transparent; }
+  .btn-line:hover { background: var(--primary); color: #fff; }
 
-  .path-courses {
-    margin-top: auto;
-    border-top: 1px solid var(--rule);
-    padding-top: 16px;
+  /* Hero */
+  .hero { padding-top: 88px; padding-bottom: 64px; text-align: center; }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5.6vw, 3.7rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;
+    max-width: 860px; margin: 0 auto 20px;
   }
-  .path-courses-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-  .path-course {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 16px;
-    padding: 10px 0;
-    text-decoration: none;
-    color: var(--ink);
-    font-weight: 600;
-    font-size: 0.98rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .path-course:last-child { border-bottom: none; }
-  .path-course:hover { color: var(--primary); }
-  .path-course span {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--primary);
-    white-space: nowrap;
-  }
+  .hero h1 em { font-style: italic; color: var(--primary); }
+  .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 36px; }
+  @media (max-width: 800px) { .hero { padding-top: 56px; padding-bottom: 40px; } }
 
-  .more {
-    max-width: 984px;
-    margin: 0 auto 88px;
-    padding: 28px 32px;
-    border-width: 1px;
-    border-style: dashed;
-    text-align: center;
+  /* Who are you? */
+  .who-q { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .who { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 860px; margin: 0 auto; text-align: left; }
+  @media (max-width: 800px) { .who { grid-template-columns: 1fr; } }
+  .who a {
+    display: block; text-decoration: none; background: var(--surface-card);
+    box-shadow: inset 0 3px 0 var(--primary); padding: 26px 28px;
+    transition: transform .15s, box-shadow .15s;
   }
-  @media (max-width: 800px) { .more { margin: 0 20px 64px; } }
+  .who a:hover { transform: translateY(-2px); box-shadow: inset 0 3px 0 var(--primary), 0 8px 24px rgba(15,23,42,.08); }
+  .who strong { display: block; font-size: 1.35rem; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .who span { display: block; color: var(--muted); font-size: 0.97rem; }
+  .who i { display: inline-block; margin-top: 14px; font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--primary); }
+
+  /* Start here — free */
+  .free { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 800px) { .free { grid-template-columns: 1fr; } }
+  .free-card { background: var(--surface-card); padding: 34px 32px; display: flex; flex-direction: column; }
+  .free-tag {
+    align-self: flex-start; font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--primary); background: #eef2fa; padding: 4px 10px; margin-bottom: 18px;
+  }
+  .free-card h3 { font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px; }
+  .free-card p { color: var(--muted); margin-bottom: 18px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--mono); font-size: 11.5px; color: var(--ink); margin-bottom: 26px; }
+  .meta span::before { content: '·'; color: var(--muted); margin-right: 16px; }
+  .meta span:first-child::before { content: none; }
+  .free-card .btn { margin-top: auto; align-self: flex-start; }
+
+  /* Course catalogue */
+  .audience { scroll-margin-top: 16px; }
+  .courses { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  @media (max-width: 800px) { .courses { grid-template-columns: 1fr; } }
+  .course { background: var(--surface-card); padding: 30px 30px 28px; display: flex; flex-direction: column; }
+  .course-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .course h3 { font-size: 1.28rem; line-height: 1.25; letter-spacing: -0.01em; }
+  .status {
+    flex-shrink: 0; font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    padding: 4px 8px; border: 1px solid var(--rule); color: var(--muted); white-space: nowrap;
+  }
+  .status.live { color: var(--primary); border-color: var(--primary); }
+  .course > p { color: var(--muted); font-size: 0.96rem; margin-bottom: 18px; }
+  .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 0.9rem; margin-bottom: 18px; }
+  .facts dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+  .outcome { font-size: 0.93rem; border-left: 3px solid var(--primary); padding: 2px 0 2px 14px; margin-bottom: 24px; }
+  .outcome b { color: var(--primary); }
+  .course-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; }
+
+  /* Why Codifyit */
+  .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  @media (max-width: 900px) { .why { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .why { grid-template-columns: 1fr; } }
+  .why div { background: var(--surface-card); padding: 26px 24px; }
+  .why b { display: block; font-family: var(--mono); font-size: 12px; color: var(--primary); margin-bottom: 10px; }
+  .why h3 { font-size: 1.08rem; line-height: 1.3; margin-bottom: 8px; }
+  .why p { color: var(--muted); font-size: 0.93rem; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 800px) { .about { grid-template-columns: 1fr; gap: 24px; } }
+  .about-card { background: var(--surface-card); padding: 26px 24px; }
+  .about-card .mark {
+    width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
+    background: var(--primary); color: #fff; font-weight: 700; font-size: 1.6rem; margin-bottom: 16px;
+  }
+  .about-card dl { font-size: 0.9rem; }
+  .about-card dt { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+  .about-text h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .about-text p { color: var(--muted); font-size: 1.02rem; margin-bottom: 14px; max-width: 640px; }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+
+  .more { padding: 28px 32px; border-width: 1px; border-style: dashed; text-align: center; margin: 0 0 88px; }
   .more h2 { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; }
   .more p { color: var(--muted); font-size: 0.92rem; }
-  .more a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
-  .more a:hover { color: var(--primary-hover); }
+  .more a { color: var(--primary); text-underline-offset: 2px; }
 
   footer {
-    border-top: 1px solid var(--rule);
-    padding: 24px 48px;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
+    border-top: 1px solid var(--rule); padding: 24px 48px; text-align: center;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
   }
 </style>
 <link rel="stylesheet" href="/assets/brand.css"/>
@@ -210,59 +177,196 @@
 <div class="masthead">
   <span>Built by a Quant</span>
   <span class="masthead-title">Codifyit</span>
-  <span>Practical Courses in Code, Data &amp; AI</span>
+  <nav aria-label="Main">
+    <a href="#parents">Parents</a>
+    <a href="#finance">Finance</a>
+    <a href="#about">About</a>
+  </nav>
 </div>
 
-<section class="hero">
-  <span class="kicker">Built by a quant · Written for non-technical people</span>
-  <h1>Technical subjects, explained plainly.</h1>
-  <p class="hero-sub">I work with code, data and financial models every day. Codifyit turns that into short, practical courses for people who don't — whether you're a parent or you work in finance.</p>
-  <a class="btn-cta brand-cta bg-brand-cta rounded-md" href="#paths">View Courses</a>
+<main>
+
+<section class="hero wrap">
+  <span class="label">Built by a quant · Written for non-technical people</span>
+  <h1>Understand code, data &amp; AI — <em>without becoming technical.</em></h1>
+  <p class="hero-sub">Practical, plain-English courses for parents and finance professionals who want to understand the technology around them, without the jargon.</p>
+
+  <p class="who-q">Who are you?</p>
+  <div class="who">
+    <a href="#parents" class="card rounded-lg border-brand-border">
+      <strong>I'm a parent</strong>
+      <span>Understand AI, coding and data well enough to help your child — without becoming a programmer.</span>
+      <i>Courses for parents →</i>
+    </a>
+    <a href="#finance" class="card rounded-lg border-brand-border">
+      <strong>I work in finance</strong>
+      <span>Turn your Excel skills into practical Python and data skills you can actually use at work.</span>
+      <i>Courses for finance →</i>
+    </a>
+  </div>
 </section>
 
-<div class="paths" id="paths">
+<section class="section wrap" id="start">
+  <div class="section-head">
+    <span class="label">Start here — free</span>
+    <h2>Try a course before you decide.</h2>
+    <p>Two free starting points, one for each audience. No sign-up, no payment details.</p>
+  </div>
+  <div class="free">
+    <article class="free-card card rounded-lg border-brand-border">
+      <span class="free-tag rounded-md">Free · For finance</span>
+      <h3>Financial Products in 5 Minutes</h3>
+      <p>Understand bonds, equities, FX, swaps and options without a finance degree. Hand-drawn, plain-English guides to what each instrument is, how it's used and why it exists.</p>
+      <div class="meta"><span>9 guides</span><span>5 minutes each</span><span>No maths required</span></div>
+      <a class="btn brand-cta bg-brand-cta rounded-md" href="/financial-products/">Start learning →</a>
+    </article>
+    <article class="free-card card rounded-lg border-brand-border">
+      <span class="free-tag rounded-md">Free · For parents</span>
+      <h3>Why Is My Child Learning This?</h3>
+      <p>Module 1 of the parents' course: why coding, data and AI are on the school timetable, and what's genuinely at stake. With a 3-minute video introduction.</p>
+      <div class="meta"><span>1 module</span><span>About 12 minutes</span><span>No tech experience needed</span></div>
+      <a class="btn brand-cta bg-brand-cta rounded-md" href="/course/module/1">Start reading →</a>
+    </article>
+  </div>
+</section>
 
-  <section class="path rounded-lg border-brand-border">
-    <span class="path-label">For parents</span>
-    <h2>Understand what your child is actually learning</h2>
-    <p>Coding, data, AI and money are part of every child's life now. These guides explain them in plain English, so you can follow along, support your child and build things together.</p>
-    <ul class="path-points">
-      <li>Plain English, no jargon</li>
-      <li>No tech experience needed</li>
-      <li>Covers ages 7–16, including AI and homework</li>
-    </ul>
-    <div class="path-courses">
-      <div class="path-courses-label">Courses</div>
-      <a class="path-course" href="/parents-guide/">What Is My Child Actually Learning? <span>About the guide →</span></a>
-      <a class="path-course" href="/course/module/1">Read Module 1 now <span>Free · online →</span></a>
-      <a class="path-course" href="/money-risk-numbers/">Money, Risk &amp; Numbers <span>Coming soon →</span></a>
-      <a class="path-course" href="/build-it-together/">Build It Together <span>Coming soon →</span></a>
-      <a class="path-course" href="/ai-for-parents/">AI for Parents <span>Coming soon →</span></a>
-    </div>
-  </section>
+<section class="section wrap audience" id="parents">
+  <div class="section-head">
+    <span class="label">For parents</span>
+    <h2>Help your child with AI, coding and data — without becoming a programmer.</h2>
+    <p>Children are learning things at school that most of us never did. These courses explain them in plain English, with activities to share at home.</p>
+  </div>
+  <div class="courses">
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>What Is My Child Actually Learning?</h3><span class="status live rounded-md">Module 1 free</span></div>
+      <p>What coding, data, AI and algorithms actually mean, and what your child is doing when they sit down to code.</p>
+      <dl class="facts">
+        <dt>For</dt><dd>Parents of children aged 7–16</dd>
+        <dt>Level</dt><dd>Beginner, no tech background</dd>
+        <dt>Format</dt><dd>Online, self-paced · 7 modules, each with a short video and quiz</dd>
+        <dt>Price</dt><dd>£29 for the full course (launching soon) · Module 1 free now</dd>
+      </dl>
+      <p class="outcome"><b>You'll be able to</b> follow what your child is learning, ask better questions, and handle the AI-and-homework conversation with confidence.</p>
+      <div class="course-actions">
+        <a class="btn btn-line rounded-md" href="/course/module/1">Read Module 1 free</a>
+        <a class="btn btn-line rounded-md" href="/parents-guide/">About the course</a>
+      </div>
+    </article>
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>Money, Risk &amp; Numbers</h3><span class="status rounded-md">Coming soon</span></div>
+      <p>Help your child grow up money-smart: chance, saving, risk, scams and a healthy suspicion of numbers.</p>
+      <dl class="facts">
+        <dt>For</dt><dd>Parents of children aged 7–16</dd>
+        <dt>Level</dt><dd>Beginner, no maths background</dd>
+        <dt>Format</dt><dd>Online, self-paced · 7 modules with activities</dd>
+        <dt>Price</dt><dd>To be announced</dd>
+      </dl>
+      <p class="outcome"><b>You'll be able to</b> explain loot boxes, interest and risk at the kitchen table, and help your child spot a scam.</p>
+      <div class="course-actions"><a class="btn btn-line rounded-md" href="/money-risk-numbers/">See what's inside</a></div>
+    </article>
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>Build It Together</h3><span class="status rounded-md">Coming soon</span></div>
+      <p>Six small projects to make with your child: a game, a chatbot, a computer that sees, Python drawings and a gadget.</p>
+      <dl class="facts">
+        <dt>For</dt><dd>Parents and children aged 7–14</dd>
+        <dt>Level</dt><dd>No coding experience needed</dd>
+        <dt>Format</dt><dd>6 step-by-step projects · 30–60 minutes each · free tools</dd>
+        <dt>Price</dt><dd>To be announced</dd>
+      </dl>
+      <p class="outcome"><b>You'll be able to</b> build real things together, and get unstuck together when they don't work.</p>
+      <div class="course-actions"><a class="btn btn-line rounded-md" href="/build-it-together/">See what's inside</a></div>
+    </article>
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>AI for Parents</h3><span class="status rounded-md">Coming soon</span></div>
+      <p>Use ChatGPT, Gemini and other AI tools safely and well yourself, and help your child use them as a tutor, not a shortcut.</p>
+      <dl class="facts">
+        <dt>For</dt><dd>Parents new to AI tools</dd>
+        <dt>Level</dt><dd>Beginner, no technical background</dd>
+        <dt>Format</dt><dd>Online, self-paced · 7 modules</dd>
+        <dt>Price</dt><dd>To be announced</dd>
+      </dl>
+      <p class="outcome"><b>You'll be able to</b> check what AI tells you, protect your family's information, and agree your own family AI rules.</p>
+      <div class="course-actions"><a class="btn btn-line rounded-md" href="/ai-for-parents/">See what's inside</a></div>
+    </article>
+  </div>
+</section>
 
-  <section class="path rounded-lg border-brand-border">
-    <span class="path-label">For finance professionals</span>
-    <h2>Put code and markets to work</h2>
+<section class="section wrap audience" id="finance">
+  <div class="section-head">
+    <span class="label">For finance professionals</span>
+    <h2>Turn your Excel skills into Python and data skills you can use at work.</h2>
     <p>Finance-first material from someone who builds pricing and risk models for a living. Aimed at people who live in Excel, not in code.</p>
-    <ul class="path-points">
-      <li>Real finance examples, not toy datasets</li>
-      <li>Starts from what you already know in Excel</li>
-      <li>Short, self-paced modules</li>
-    </ul>
-    <div class="path-courses">
-      <div class="path-courses-label">Courses</div>
-      <a class="path-course" href="/financial-products/">Financial Products in 5 Minutes <span>Free →</span></a>
-      <a class="path-course" href="/excel-to-python/">Excel to Python for Finance Professionals <span>Coming soon →</span></a>
+  </div>
+  <div class="courses">
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>Financial Products in 5 Minutes</h3><span class="status live rounded-md">Free · Available now</span></div>
+      <p>The instruments that make up modern markets, explained mostly in pictures: bonds, cash equity, FX spot, forwards and swaps, interest rate swaps, credit default swaps, options and swaptions.</p>
+      <dl class="facts">
+        <dt>For</dt><dd>Anyone working in or around finance</dd>
+        <dt>Level</dt><dd>Beginner, no maths required</dd>
+        <dt>Format</dt><dd>9 illustrated guides · 5 minutes each</dd>
+        <dt>Price</dt><dd>Free</dd>
+      </dl>
+      <p class="outcome"><b>You'll be able to</b> explain what each product is, who uses it and why, in a sentence or two.</p>
+      <div class="course-actions"><a class="btn btn-line rounded-md" href="/financial-products/">Start learning</a></div>
+    </article>
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>Excel to Python for Finance Professionals</h3><span class="status rounded-md">Coming soon</span></div>
+      <p>Replace your most painful Excel workflows with clean, automated Python, using real finance examples: P&amp;Ls, DCF models and monthly reports.</p>
+      <dl class="facts">
+        <dt>For</dt><dd>FP&amp;A, corporate finance and banking</dd>
+        <dt>Level</dt><dd>Confident in Excel, new to code</dd>
+        <dt>Format</dt><dd>6 Jupyter notebooks · runs in your browser, nothing to install</dd>
+        <dt>Price</dt><dd>To be announced</dd>
+      </dl>
+      <p class="outcome"><b>You'll be able to</b> turn a monthly reporting chore into one function that runs in seconds.</p>
+      <div class="course-actions"><a class="btn btn-line rounded-md" href="/excel-to-python/">See what's inside</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="section wrap" id="why">
+  <div class="section-head">
+    <span class="label">Why Codifyit?</span>
+    <h2>Technical subjects, explained for people who aren't technical.</h2>
+  </div>
+  <div class="why">
+    <div class="card rounded-lg border-brand-border"><b>01</b><h3>Starts from what you know</h3><p>Excel, the school run, the kitchen table. Every idea is built on something familiar.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>02</b><h3>Plain English, no jargon</h3><p>No assumed knowledge. When a technical word matters, it's explained the first time it appears.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>03</b><h3>Short and practical</h3><p>Every module ends with something to do this week, not just something to read.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>04</b><h3>Written by a practitioner</h3><p>The author uses this material at work every day, not just in a classroom.</p></div>
+  </div>
+</section>
+
+<section class="section wrap" id="about">
+  <div class="about">
+    <aside class="about-card card rounded-lg border-brand-border" aria-label="About the author">
+      <div class="mark rounded-md">Q</div>
+      <dl>
+        <dt>Role</dt><dd>Quantitative analyst</dd>
+        <dt>Works at</dt><dd>A tier 1 investment bank</dd>
+        <dt>Works with</dt><dd>Code, data, pricing and risk models</dd>
+        <dt>Also</dt><dd>A parent</dd>
+      </dl>
+    </aside>
+    <div class="about-text">
+      <span class="label">About the author</span>
+      <h2>Built by someone who actually works with this stuff.</h2>
+      <p>I'm a <strong>quantitative analyst at a tier 1 investment bank</strong>. I work with code, data and financial models every day, and I built Codifyit to share that with people who don't.</p>
+      <p>As a parent, I found most explanations of what children learn were either too technical or too vague. At work, I saw talented colleagues held back by tools nobody had explained to them properly.</p>
+      <p>The goal isn't to turn you into a programmer. It's to explain the technical ideas that increasingly affect your work and your family, <strong>clearly and practically</strong>.</p>
     </div>
-  </section>
+  </div>
+</section>
 
+<div class="wrap">
+  <div class="more rounded-lg border-brand-border">
+    <h2>More courses on the way</h2>
+    <p>Is there a topic you'd like explained plainly? Email <a href="mailto:hello@codifyit.co.uk?subject=Course%20suggestion">hello@codifyit.co.uk</a>.</p>
+  </div>
 </div>
 
-<div class="more rounded-lg border-brand-border">
-  <h2>More courses on the way</h2>
-  <p>Is there a topic you'd like explained plainly? Email <a href="mailto:hello@codifyit.co.uk?subject=Course%20suggestion">hello@codifyit.co.uk</a>.</p>
-</div>
+</main>
 
 <footer>
   © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Built by a quant, for non-technical people &nbsp;·&nbsp; <a href="/privacy/">Privacy</a>

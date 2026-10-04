@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /marketing/
+
+Sitemap: https://codifyit.co.uk/sitemap.xml
