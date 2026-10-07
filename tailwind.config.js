@@ -17,6 +17,7 @@ module.exports = {
       './money-risk-numbers/**/*.html',
       './build-it-together/**/*.html',
       './ai-for-parents/**/*.html',
+      './feedback/**/*.html',
     ],
     // Only read class="…" attributes, so ordinary words in the page copy
     // ("fixed", "table", "hidden") don't turn into stray utilities.
