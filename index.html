@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Codifyit — Understand code, data &amp; AI without becoming technical</title>
-<meta name="description" content="Practical, plain-English courses for parents and finance professionals who want to understand code, data and AI without the jargon. Built by a quant. Start free." />
+<title>Codifyit — Help your child with AI, coding and data</title>
+<meta name="description" content="Plain-English courses for parents of 7–16 year olds: understand the coding, data and AI your child learns at school, without becoming a programmer. Built by a quant. Start with a free module." />
 <link rel="canonical" href="https://codifyit.co.uk/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Codifyit" />
 <meta property="og:url" content="https://codifyit.co.uk/" />
-<meta property="og:title" content="Understand code, data &amp; AI — without becoming technical" />
-<meta property="og:description" content="Plain-English courses for parents and finance professionals, built by a quant. Start with a free course." />
+<meta property="og:title" content="Help your child with AI, coding and data — without becoming a programmer" />
+<meta property="og:description" content="Plain-English courses for parents of 7–16 year olds, built by a quant. Start with a free module and 3-minute video." />
 <link rel="stylesheet" href="/assets/fonts.css"/>
 <script type="application/ld+json">
 {
@@ -18,8 +18,8 @@
   "@type": "ItemList",
   "name": "Codifyit courses",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "item": {"@type": "Course", "name": "Financial Products in 5 Minutes", "url": "https://codifyit.co.uk/financial-products/", "description": "Plain-English, 5-minute guides to bonds, equities, FX, swaps and options.", "isAccessibleForFree": true, "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}},
-    {"@type": "ListItem", "position": 2, "item": {"@type": "Course", "name": "What Is My Child Actually Learning?", "url": "https://codifyit.co.uk/parents-guide/", "description": "A plain-English course for parents on the coding, data and AI their child learns at school, ages 7–16.", "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}},
+    {"@type": "ListItem", "position": 1, "item": {"@type": "Course", "name": "What Is My Child Actually Learning?", "url": "https://codifyit.co.uk/parents-guide/", "description": "A plain-English course for parents on the coding, data and AI their child learns at school, ages 7–16.", "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}},
+    {"@type": "ListItem", "position": 2, "item": {"@type": "Course", "name": "Financial Products in 5 Minutes", "url": "https://codifyit.co.uk/financial-products/", "description": "Plain-English, 5-minute guides to bonds, equities, FX, swaps and options.", "isAccessibleForFree": true, "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}},
     {"@type": "ListItem", "position": 3, "item": {"@type": "Course", "name": "Excel to Python for Finance Professionals", "url": "https://codifyit.co.uk/excel-to-python/", "description": "Replace repetitive Excel workflows with Python, using real finance examples.", "provider": {"@type": "Organization", "name": "Codifyit", "url": "https://codifyit.co.uk/"}}}
   ]
 }
@@ -137,6 +137,34 @@
   .outcome b { color: var(--primary); }
   .course-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; }
 
+  /* Hero extras */
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .hero-points { display: flex; gap: 8px 22px; justify-content: center; flex-wrap: wrap; margin-top: 26px;
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; color: var(--muted); }
+  .hero-points span::before { content: '✓ '; color: var(--primary); font-weight: 700; }
+  .hero-finance { margin-top: 22px; font-size: 0.92rem; color: var(--muted); }
+  .hero-finance a { color: var(--primary); text-underline-offset: 2px; }
+
+  /* Featured course */
+  .feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; background: var(--surface-card); }
+  @media (max-width: 860px) { .feature { grid-template-columns: 1fr; } }
+  .feature-main { padding: 40px 38px; }
+  .feature-main h3 { font-size: clamp(1.5rem, 3vw, 1.9rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .feature-main > p { color: var(--muted); margin-bottom: 20px; }
+  .feature-side { padding: 40px 38px; background: #f3f6fb; border-left: 1px solid var(--rule); }
+  @media (max-width: 860px) { .feature-side { border-left: 0; border-top: 1px solid var(--rule); } }
+  .modules { list-style: none; counter-reset: m; }
+  .modules li { counter-increment: m; display: flex; gap: 14px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 0.95rem; }
+  .modules li:last-child { border-bottom: 0; }
+  .modules li::before { content: counter(m, decimal-leading-zero); font-family: var(--mono); font-size: 12px; color: var(--primary); padding-top: 3px; }
+  .modules em { font-style: normal; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--primary); margin-left: 8px; }
+  .feature-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+
+  @media (min-width: 960px) { #parents .courses { grid-template-columns: repeat(3, 1fr); } }
+  /* Finance, kept smaller */
+  .also .course { padding: 24px 26px; }
+  .also .course h3 { font-size: 1.12rem; }
+
   /* Why Codifyit */
   .why { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   @media (max-width: 900px) { .why { grid-template-columns: 1fr 1fr; } }
@@ -178,88 +206,76 @@
   <span>Built by a Quant</span>
   <span class="masthead-title">Codifyit</span>
   <nav aria-label="Main">
-    <a href="#parents">Parents</a>
-    <a href="#finance">Finance</a>
+    <a href="#course">The course</a>
     <a href="#about">About</a>
+    <a href="#finance">Finance</a>
   </nav>
 </div>
 
 <main>
 
 <section class="hero wrap">
-  <span class="label">Built by a quant · Written for non-technical people</span>
-  <h1>Understand code, data &amp; AI — <em>without becoming technical.</em></h1>
-  <p class="hero-sub">Practical, plain-English courses for parents and finance professionals who want to understand the technology around them, without the jargon.</p>
-
-  <p class="who-q">Who are you?</p>
-  <div class="who">
-    <a href="#parents" class="card rounded-lg border-brand-border">
-      <strong>I'm a parent</strong>
-      <span>Understand AI, coding and data well enough to help your child — without becoming a programmer.</span>
-      <i>Courses for parents →</i>
-    </a>
-    <a href="#finance" class="card rounded-lg border-brand-border">
-      <strong>I work in finance</strong>
-      <span>Turn your Excel skills into practical Python and data skills you can actually use at work.</span>
-      <i>Courses for finance →</i>
-    </a>
+  <span class="label">For parents of 7–16 year olds · Built by a quant</span>
+  <h1>Help your child with AI, coding and data — <em>without becoming a programmer.</em></h1>
+  <p class="hero-sub">Plain-English courses that explain what your child is learning at school, so you can ask better questions, spot real progress, and handle the AI-and-homework conversation with confidence.</p>
+  <div class="hero-actions">
+    <a class="btn brand-cta bg-brand-cta rounded-md" href="/course/module/1">Start the free module →</a>
+    <a class="btn btn-line rounded-md" href="#course">See the full course</a>
   </div>
+  <div class="hero-points"><span>No tech experience needed</span><span>Short videos and activities</span><span>Module 1 free, no sign-up</span></div>
+  <p class="hero-finance">Work in finance? <a href="#finance">See our courses for finance professionals ↓</a></p>
 </section>
 
-<section class="section wrap" id="start">
+<section class="section wrap" id="course">
   <div class="section-head">
-    <span class="label">Start here — free</span>
-    <h2>Try a course before you decide.</h2>
-    <p>Two free starting points, one for each audience. No sign-up, no payment details.</p>
+    <span class="label">The course</span>
+    <h2>What is my child actually learning?</h2>
+    <p>Seven short modules on the coding, data and AI children meet at school today, written for parents with no technical background.</p>
   </div>
-  <div class="free">
-    <article class="free-card card rounded-lg border-brand-border">
-      <span class="free-tag rounded-md">Free · For finance</span>
-      <h3>Financial Products in 5 Minutes</h3>
-      <p>Understand bonds, equities, FX, swaps and options without a finance degree. Hand-drawn, plain-English guides to what each instrument is, how it's used and why it exists.</p>
-      <div class="meta"><span>9 guides</span><span>5 minutes each</span><span>No maths required</span></div>
-      <a class="btn brand-cta bg-brand-cta rounded-md" href="/financial-products/">Start learning →</a>
-    </article>
-    <article class="free-card card rounded-lg border-brand-border">
-      <span class="free-tag rounded-md">Free · For parents</span>
-      <h3>Why Is My Child Learning This?</h3>
-      <p>Module 1 of the parents' course: why coding, data and AI are on the school timetable, and what's genuinely at stake. With a 3-minute video introduction.</p>
-      <div class="meta"><span>1 module</span><span>About 12 minutes</span><span>No tech experience needed</span></div>
-      <a class="btn brand-cta bg-brand-cta rounded-md" href="/course/module/1">Start reading →</a>
-    </article>
-  </div>
+  <article class="feature card rounded-lg border-brand-border">
+    <div class="feature-main">
+      <h3>Understand it well enough to help, in an evening or two.</h3>
+      <p>Each module opens with a 3-minute video, explains one big idea in plain English, and ends with a short quiz and something to try with your child that week.</p>
+      <dl class="facts">
+        <dt>For</dt><dd>Parents of children aged 7–16</dd>
+        <dt>Level</dt><dd>Beginner, no tech background</dd>
+        <dt>Format</dt><dd>Online, self-paced · 7 modules with videos, quizzes and activities · a certificate when you finish</dd>
+        <dt>Price</dt><dd>£29 for the full course (launching soon) · Module 1 free now</dd>
+      </dl>
+      <p class="outcome"><b>You'll be able to</b> follow what your child is learning, ask questions that open up a conversation, and judge when AI is helping their homework and when it's doing it for them.</p>
+      <div class="feature-actions">
+        <a class="btn brand-cta bg-brand-cta rounded-md" href="/course/module/1">Start the free module →</a>
+        <a class="btn btn-line rounded-md" href="/parents-guide/">About the course</a>
+      </div>
+    </div>
+    <div class="feature-side">
+      <span class="label">Inside the course</span>
+      <ol class="modules">
+        <li>Why is my child learning this?<em>Free</em></li>
+        <li>What is coding, really?</li>
+        <li>What is data, and why does it matter?</li>
+        <li>What is AI? (And what it isn't)</li>
+        <li>Staying safe and thinking critically</li>
+        <li>How to support your child</li>
+        <li>Try it yourself: a 30-minute Scratch activity</li>
+      </ol>
+    </div>
+  </article>
 </section>
 
 <section class="section wrap audience" id="parents">
   <div class="section-head">
-    <span class="label">For parents</span>
-    <h2>Help your child with AI, coding and data — without becoming a programmer.</h2>
-    <p>Children are learning things at school that most of us never did. These courses explain them in plain English, with activities to share at home.</p>
+    <span class="label">More for parents · coming soon</span>
+    <h2>Next: money, making things, and AI at home.</h2>
+    <p>Three more plain-English courses are being written now, each with activities to share with your child.</p>
   </div>
   <div class="courses">
-    <article class="course card rounded-lg border-brand-border">
-      <div class="course-top"><h3>What Is My Child Actually Learning?</h3><span class="status live rounded-md">Module 1 free</span></div>
-      <p>What coding, data, AI and algorithms actually mean, and what your child is doing when they sit down to code.</p>
-      <dl class="facts">
-        <dt>For</dt><dd>Parents of children aged 7–16</dd>
-        <dt>Level</dt><dd>Beginner, no tech background</dd>
-        <dt>Format</dt><dd>Online, self-paced · 7 modules, each with a short video and quiz</dd>
-        <dt>Price</dt><dd>£29 for the full course (launching soon) · Module 1 free now</dd>
-      </dl>
-      <p class="outcome"><b>You'll be able to</b> follow what your child is learning, ask better questions, and handle the AI-and-homework conversation with confidence.</p>
-      <div class="course-actions">
-        <a class="btn btn-line rounded-md" href="/course/module/1">Read Module 1 free</a>
-        <a class="btn btn-line rounded-md" href="/parents-guide/">About the course</a>
-      </div>
-    </article>
     <article class="course card rounded-lg border-brand-border">
       <div class="course-top"><h3>Money, Risk &amp; Numbers</h3><span class="status rounded-md">Coming soon</span></div>
       <p>Help your child grow up money-smart: chance, saving, risk, scams and a healthy suspicion of numbers.</p>
       <dl class="facts">
         <dt>For</dt><dd>Parents of children aged 7–16</dd>
-        <dt>Level</dt><dd>Beginner, no maths background</dd>
-        <dt>Format</dt><dd>Online, self-paced · 7 modules with activities</dd>
-        <dt>Price</dt><dd>To be announced</dd>
+        <dt>Format</dt><dd>7 modules with activities</dd>
       </dl>
       <p class="outcome"><b>You'll be able to</b> explain loot boxes, interest and risk at the kitchen table, and help your child spot a scam.</p>
       <div class="course-actions"><a class="btn btn-line rounded-md" href="/money-risk-numbers/">See what's inside</a></div>
@@ -269,9 +285,7 @@
       <p>Six small projects to make with your child: a game, a chatbot, a computer that sees, Python drawings and a gadget.</p>
       <dl class="facts">
         <dt>For</dt><dd>Parents and children aged 7–14</dd>
-        <dt>Level</dt><dd>No coding experience needed</dd>
-        <dt>Format</dt><dd>6 step-by-step projects · 30–60 minutes each · free tools</dd>
-        <dt>Price</dt><dd>To be announced</dd>
+        <dt>Format</dt><dd>6 projects · 30–60 minutes each · free tools</dd>
       </dl>
       <p class="outcome"><b>You'll be able to</b> build real things together, and get unstuck together when they don't work.</p>
       <div class="course-actions"><a class="btn btn-line rounded-md" href="/build-it-together/">See what's inside</a></div>
@@ -281,9 +295,7 @@
       <p>Use ChatGPT, Gemini and other AI tools safely and well yourself, and help your child use them as a tutor, not a shortcut.</p>
       <dl class="facts">
         <dt>For</dt><dd>Parents new to AI tools</dd>
-        <dt>Level</dt><dd>Beginner, no technical background</dd>
-        <dt>Format</dt><dd>Online, self-paced · 7 modules</dd>
-        <dt>Price</dt><dd>To be announced</dd>
+        <dt>Format</dt><dd>7 modules</dd>
       </dl>
       <p class="outcome"><b>You'll be able to</b> check what AI tells you, protect your family's information, and agree your own family AI rules.</p>
       <div class="course-actions"><a class="btn btn-line rounded-md" href="/ai-for-parents/">See what's inside</a></div>
@@ -291,50 +303,16 @@
   </div>
 </section>
 
-<section class="section wrap audience" id="finance">
-  <div class="section-head">
-    <span class="label">For finance professionals</span>
-    <h2>Turn your Excel skills into Python and data skills you can use at work.</h2>
-    <p>Finance-first material from someone who builds pricing and risk models for a living. Aimed at people who live in Excel, not in code.</p>
-  </div>
-  <div class="courses">
-    <article class="course card rounded-lg border-brand-border">
-      <div class="course-top"><h3>Financial Products in 5 Minutes</h3><span class="status live rounded-md">Free · Available now</span></div>
-      <p>The instruments that make up modern markets, explained mostly in pictures: bonds, cash equity, FX spot, forwards and swaps, interest rate swaps, credit default swaps, options and swaptions.</p>
-      <dl class="facts">
-        <dt>For</dt><dd>Anyone working in or around finance</dd>
-        <dt>Level</dt><dd>Beginner, no maths required</dd>
-        <dt>Format</dt><dd>9 illustrated guides · 5 minutes each</dd>
-        <dt>Price</dt><dd>Free</dd>
-      </dl>
-      <p class="outcome"><b>You'll be able to</b> explain what each product is, who uses it and why, in a sentence or two.</p>
-      <div class="course-actions"><a class="btn btn-line rounded-md" href="/financial-products/">Start learning</a></div>
-    </article>
-    <article class="course card rounded-lg border-brand-border">
-      <div class="course-top"><h3>Excel to Python for Finance Professionals</h3><span class="status rounded-md">Coming soon</span></div>
-      <p>Replace your most painful Excel workflows with clean, automated Python, using real finance examples: P&amp;Ls, DCF models and monthly reports.</p>
-      <dl class="facts">
-        <dt>For</dt><dd>FP&amp;A, corporate finance and banking</dd>
-        <dt>Level</dt><dd>Confident in Excel, new to code</dd>
-        <dt>Format</dt><dd>6 Jupyter notebooks · runs in your browser, nothing to install</dd>
-        <dt>Price</dt><dd>To be announced</dd>
-      </dl>
-      <p class="outcome"><b>You'll be able to</b> turn a monthly reporting chore into one function that runs in seconds.</p>
-      <div class="course-actions"><a class="btn btn-line rounded-md" href="/excel-to-python/">See what's inside</a></div>
-    </article>
-  </div>
-</section>
-
 <section class="section wrap" id="why">
   <div class="section-head">
     <span class="label">Why Codifyit?</span>
-    <h2>Technical subjects, explained for people who aren't technical.</h2>
+    <h2>Written for parents, not programmers.</h2>
   </div>
   <div class="why">
-    <div class="card rounded-lg border-brand-border"><b>01</b><h3>Starts from what you know</h3><p>Excel, the school run, the kitchen table. Every idea is built on something familiar.</p></div>
-    <div class="card rounded-lg border-brand-border"><b>02</b><h3>Plain English, no jargon</h3><p>No assumed knowledge. When a technical word matters, it's explained the first time it appears.</p></div>
-    <div class="card rounded-lg border-brand-border"><b>03</b><h3>Short and practical</h3><p>Every module ends with something to do this week, not just something to read.</p></div>
-    <div class="card rounded-lg border-brand-border"><b>04</b><h3>Written by a practitioner</h3><p>The author uses this material at work every day, not just in a classroom.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>01</b><h3>No jargon</h3><p>When a technical word matters, it's explained the first time it appears, with an everyday example.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>02</b><h3>Short and practical</h3><p>A 3-minute video, a short read, and one thing to try with your child that week.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>03</b><h3>Honest about AI</h3><p>Neither hype nor panic: what it's good at, where it goes wrong, and what that means for homework.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>04</b><h3>Written by a practitioner</h3><p>The author works with code, data and AI every day, and is a parent too.</p></div>
   </div>
 </section>
 
@@ -352,10 +330,30 @@
     <div class="about-text">
       <span class="label">About the author</span>
       <h2>Built by someone who actually works with this stuff.</h2>
-      <p>I'm a <strong>quantitative analyst at a tier 1 investment bank</strong>. I work with code, data and financial models every day, and I built Codifyit to share that with people who don't.</p>
-      <p>As a parent, I found most explanations of what children learn were either too technical or too vague. At work, I saw talented colleagues held back by tools nobody had explained to them properly.</p>
-      <p>The goal isn't to turn you into a programmer. It's to explain the technical ideas that increasingly affect your work and your family, <strong>clearly and practically</strong>.</p>
+      <p>I'm a <strong>quantitative analyst at a tier 1 investment bank</strong>. I work with code, data and financial models every day, and I'm also a parent.</p>
+      <p>As a parent, I found most explanations of what children learn were either too technical or too vague to be useful. So I wrote the guide I wished existed: plain English, with no assumptions about what you already know.</p>
+      <p>The goal isn't to turn you into a programmer. It's to help you understand what your child is learning, <strong>clearly and practically</strong>, so you can support them with confidence.</p>
     </div>
+  </div>
+</section>
+
+<section class="section wrap audience also" id="finance">
+  <div class="section-head">
+    <span class="label">Also from Codifyit · For finance professionals</span>
+    <h2>Turn your Excel skills into Python and data skills you can use at work.</h2>
+    <p>Finance-first material from someone who builds pricing and risk models for a living.</p>
+  </div>
+  <div class="courses">
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>Financial Products in 5 Minutes</h3><span class="status live rounded-md">Free</span></div>
+      <p>Bonds, equities, FX, swaps and options, explained mostly in pictures. 9 guides, 5 minutes each, no maths required.</p>
+      <div class="course-actions"><a class="btn btn-line rounded-md" href="/financial-products/">Start learning</a></div>
+    </article>
+    <article class="course card rounded-lg border-brand-border">
+      <div class="course-top"><h3>Excel to Python for Finance Professionals</h3><span class="status rounded-md">Coming soon</span></div>
+      <p>Replace repetitive Excel workflows with automated Python, using real finance examples. 6 notebooks that run in your browser.</p>
+      <div class="course-actions"><a class="btn btn-line rounded-md" href="/excel-to-python/">See what's inside</a></div>
+    </article>
   </div>
 </section>
 
@@ -369,7 +367,7 @@
 </main>
 
 <footer>
-  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Built by a quant, for non-technical people &nbsp;·&nbsp; <a href="/privacy/">Privacy</a>
+  © 2026 Codifyit &nbsp;·&nbsp; codifyit.co.uk &nbsp;·&nbsp; Built by a quant, for parents &nbsp;·&nbsp; <a href="/privacy/">Privacy</a>
 </footer>
 
 </body>
