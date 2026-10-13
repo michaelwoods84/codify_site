@@ -186,16 +186,7 @@
   .why p { color: var(--muted); font-size: 0.93rem; }
 
   /* About */
-  .about { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
-  @media (max-width: 800px) { .about { grid-template-columns: 1fr; gap: 24px; } }
-  .about-card { background: var(--surface-card); padding: 26px 24px; }
-  .about-card .mark {
-    width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
-    background: var(--primary); color: #fff; font-weight: 700; font-size: 1.6rem; margin-bottom: 16px;
-  }
-  .about-card dl { font-size: 0.9rem; }
-  .about-card dt { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
-  .about-text h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .about-text h2 { max-width: 760px; font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; }
   .about-text p { color: var(--muted); font-size: 1.02rem; margin-bottom: 14px; max-width: 640px; }
   .about-text p strong { color: var(--ink); font-weight: 600; }
 
@@ -341,15 +332,6 @@
 
 <section class="section wrap" id="about">
   <div class="about">
-    <aside class="about-card card rounded-lg border-brand-border" aria-label="About the author">
-      <div class="mark rounded-md">Q</div>
-      <dl>
-        <dt>Role</dt><dd>Quantitative analyst</dd>
-        <dt>Works at</dt><dd>A tier 1 investment bank</dd>
-        <dt>Works with</dt><dd>Code, data, pricing and risk models</dd>
-        <dt>Also</dt><dd>A parent</dd>
-      </dl>
-    </aside>
     <div class="about-text">
       <span class="label">About the author</span>
       <h2>Written by someone who works with code, data and AI every day.</h2>
