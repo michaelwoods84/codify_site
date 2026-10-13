@@ -145,6 +145,19 @@
   .hero-finance { margin-top: 22px; font-size: 0.92rem; color: var(--muted); }
   .hero-finance a { color: var(--primary); text-underline-offset: 2px; }
 
+  /* Photos */
+  .photo { margin: 0; }
+  .photo img { display: block; width: 100%; height: auto; }
+  .hero-photo { max-width: 980px; margin: 44px auto 0; }
+  .family-photo { margin: 0 0 28px; }
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0 0 28px; }
+  @media (max-width: 560px) { .photo-strip { grid-template-columns: 1fr 1fr; gap: 12px; } .photo-strip .photo:first-child { grid-column: 1 / -1; } }
+  @media (max-width: 800px) { .hero-photo { margin-top: 32px; } }
+
+  /* Course preview image */
+  .preview { margin: 0 0 28px; }
+  .preview img { display: block; width: 100%; height: auto; }
+
   /* Featured course */
   .feature { display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; background: var(--surface-card); }
   @media (max-width: 860px) { .feature { grid-template-columns: 1fr; } }
@@ -175,16 +188,7 @@
   .why p { color: var(--muted); font-size: 0.93rem; }
 
   /* About */
-  .about { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
-  @media (max-width: 800px) { .about { grid-template-columns: 1fr; gap: 24px; } }
-  .about-card { background: var(--surface-card); padding: 26px 24px; }
-  .about-card .mark {
-    width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;
-    background: var(--primary); color: #fff; font-weight: 700; font-size: 1.6rem; margin-bottom: 16px;
-  }
-  .about-card dl { font-size: 0.9rem; }
-  .about-card dt { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
-  .about-text h2 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .about-text h2 { max-width: 760px; font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 18px; }
   .about-text p { color: var(--muted); font-size: 1.02rem; margin-bottom: 14px; max-width: 640px; }
   .about-text p strong { color: var(--ink); font-weight: 600; }
 
@@ -206,7 +210,7 @@
   <span>Built by a Quant</span>
   <span class="masthead-title">Codifyit</span>
   <nav aria-label="Main">
-    <a href="#course">The course</a>
+    <a href="#course">Starter course</a>
     <a href="#about">About</a>
     <a href="#finance">Finance</a>
   </nav>
@@ -220,18 +224,26 @@
   <p class="hero-sub">Plain-English courses that explain what your child is learning at school, so you can ask better questions, spot real progress, and handle the AI-and-homework conversation with confidence.</p>
   <div class="hero-actions">
     <a class="btn brand-cta bg-brand-cta rounded-md" href="/course/module/1">Start the free module →</a>
-    <a class="btn btn-line rounded-md" href="#course">See the full course</a>
+    <a class="btn btn-line rounded-md" href="#course">See the starter course</a>
   </div>
   <div class="hero-points"><span>No tech experience needed</span><span>Short videos and activities</span><span>Module 1 free, no sign-up</span></div>
   <p class="hero-finance">Work in finance? <a href="#finance">See our courses for finance professionals ↓</a></p>
+  <figure class="photo hero-photo">
+    <img class="rounded-lg" src="/assets/img/home-hero-1600.webp" srcset="/assets/img/home-hero-800.webp 800w, /assets/img/home-hero-1600.webp 1600w" sizes="(max-width: 1012px) 100vw, 980px" width="1600" height="800" fetchpriority="high"
+      alt="A child's hands arranging colourful code blocks on a tablet, with small robot building cubes on the table.">
+  </figure>
 </section>
 
 <section class="section wrap" id="course">
   <div class="section-head">
-    <span class="label">The course</span>
+    <span class="label">The starter course</span>
     <h2>What is my child actually learning?</h2>
     <p>Seven short modules on the coding, data and AI children meet at school today, written for parents with no technical background.</p>
   </div>
+  <figure class="preview">
+    <img src="/assets/img/course-preview.webp" width="1600" height="982" loading="lazy"
+         alt="Module 1 of the starter course on a laptop and a phone: the module list with progress on the left, and the 3-minute introduction video at the top of the page." />
+  </figure>
   <article class="feature card rounded-lg border-brand-border">
     <div class="feature-main">
       <h3>Understand it well enough to help, in an evening or two.</h3>
@@ -240,16 +252,16 @@
         <dt>For</dt><dd>Parents of children aged 7–16</dd>
         <dt>Level</dt><dd>Beginner, no tech background</dd>
         <dt>Format</dt><dd>Online, self-paced · 7 modules with videos, quizzes and activities · a certificate when you finish</dd>
-        <dt>Price</dt><dd>£29 for the full course (launching soon) · Module 1 free now</dd>
+        <dt>Price</dt><dd>£29 for all 7 modules (launching soon) · Module 1 free now</dd>
       </dl>
       <p class="outcome"><b>You'll be able to</b> follow what your child is learning, ask questions that open up a conversation, and judge when AI is helping their homework and when it's doing it for them.</p>
       <div class="feature-actions">
         <a class="btn brand-cta bg-brand-cta rounded-md" href="/course/module/1">Start the free module →</a>
-        <a class="btn btn-line rounded-md" href="/parents-guide/">About the course</a>
+        <a class="btn btn-line rounded-md" href="/parents-guide/">Full course details</a>
       </div>
     </div>
     <div class="feature-side">
-      <span class="label">Inside the course</span>
+      <span class="label">What's inside</span>
       <ol class="modules">
         <li>Why is my child learning this?<em>Free</em></li>
         <li>What is coding, really?</li>
@@ -269,6 +281,10 @@
     <h2>Next: money, making things, and AI at home.</h2>
     <p>Three more plain-English courses are being written now, each with activities to share with your child.</p>
   </div>
+  <figure class="photo family-photo">
+    <img class="rounded-lg" src="/assets/img/home-family-1600.webp" srcset="/assets/img/home-family-800.webp 800w, /assets/img/home-family-1600.webp 1600w" sizes="(max-width: 1080px) 100vw, 984px" width="1600" height="667" loading="lazy"
+      alt="A dad leans over a laptop at the breakfast table, smiling, while his young son watches the screen.">
+  </figure>
   <div class="courses">
     <article class="course card rounded-lg border-brand-border">
       <div class="course-top"><h3>Money, Risk &amp; Numbers</h3><span class="status rounded-md">Coming soon</span></div>
@@ -308,28 +324,27 @@
     <span class="label">Why Codifyit?</span>
     <h2>Written for parents, not programmers.</h2>
   </div>
+  <div class="photo-strip">
+    <figure class="photo"><img class="rounded-lg" src="/assets/img/home-together-1-600.webp" srcset="/assets/img/home-together-1-600.webp 600w, /assets/img/home-together-1-1200.webp 1200w" sizes="(max-width: 560px) 100vw, (max-width: 1080px) 33vw, 315px" width="1200" height="900" loading="lazy"
+      alt="A parent and a young child drawing together with felt-tip pens at a small table."></figure>
+    <figure class="photo"><img class="rounded-lg" src="/assets/img/home-together-2-600.webp" srcset="/assets/img/home-together-2-600.webp 600w, /assets/img/home-together-2-1200.webp 1200w" sizes="(max-width: 560px) 50vw, (max-width: 1080px) 33vw, 315px" width="1200" height="900" loading="lazy"
+      alt="A mother looks on as her daughter shows her a piece of schoolwork at the kitchen table."></figure>
+    <figure class="photo"><img class="rounded-lg" src="/assets/img/home-together-3-600.webp" srcset="/assets/img/home-together-3-600.webp 600w, /assets/img/home-together-3-1200.webp 1200w" sizes="(max-width: 560px) 50vw, (max-width: 1080px) 33vw, 315px" width="1200" height="900" loading="lazy"
+      alt="A grandfather helps his grandson with homework at a desk beside a laptop."></figure>
+  </div>
   <div class="why">
     <div class="card rounded-lg border-brand-border"><b>01</b><h3>No jargon</h3><p>When a technical word matters, it's explained the first time it appears, with an everyday example.</p></div>
     <div class="card rounded-lg border-brand-border"><b>02</b><h3>Short and practical</h3><p>A 3-minute video, a short read, and one thing to try with your child that week.</p></div>
     <div class="card rounded-lg border-brand-border"><b>03</b><h3>Honest about AI</h3><p>Neither hype nor panic: what it's good at, where it goes wrong, and what that means for homework.</p></div>
-    <div class="card rounded-lg border-brand-border"><b>04</b><h3>Written by a practitioner</h3><p>The author works with code, data and AI every day, and is a parent too.</p></div>
+    <div class="card rounded-lg border-brand-border"><b>04</b><h3>Written by a practitioner</h3><p>A quantitative analyst at a leading bank who is also a parent, so it is both expert and practical.</p></div>
   </div>
 </section>
 
 <section class="section wrap" id="about">
   <div class="about">
-    <aside class="about-card card rounded-lg border-brand-border" aria-label="About the author">
-      <div class="mark rounded-md">Q</div>
-      <dl>
-        <dt>Role</dt><dd>Quantitative analyst</dd>
-        <dt>Works at</dt><dd>A tier 1 investment bank</dd>
-        <dt>Works with</dt><dd>Code, data, pricing and risk models</dd>
-        <dt>Also</dt><dd>A parent</dd>
-      </dl>
-    </aside>
     <div class="about-text">
       <span class="label">About the author</span>
-      <h2>Built by someone who actually works with this stuff.</h2>
+      <h2>Written by someone who works with code, data and AI every day.</h2>
       <p>I'm a <strong>quantitative analyst at a tier 1 investment bank</strong>. I work with code, data and financial models every day, and I'm also a parent.</p>
       <p>As a parent, I found most explanations of what children learn were either too technical or too vague to be useful. So I wrote the guide I wished existed: plain English, with no assumptions about what you already know.</p>
       <p>The goal isn't to turn you into a programmer. It's to help you understand what your child is learning, <strong>clearly and practically</strong>, so you can support them with confidence.</p>
