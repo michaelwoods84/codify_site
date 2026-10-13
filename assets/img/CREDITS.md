@@ -6,7 +6,7 @@ attribution required; credited here as a courtesy).
 
 | File | Photo | Photographer |
 |---|---|---|
-| `home-hero-*.webp` | [Father and son using a laptop on the couch](https://unsplash.com/photos/father-and-son-using-a-laptop-on-the-couch-JO4RmPyqkRY) | Vitaly Gariev |
-| `home-family-*.webp` | [Mother and daughter looking at laptop together](https://unsplash.com/photos/mother-and-daughter-looking-at-laptop-together-QIhcMKkrDAw) | Vitaly Gariev |
+| `home-hero-*.webp` | [Woman in blue shirt beside girl in pink shirt](https://unsplash.com/photos/woman-in-blue-shirt-beside-girl-in-pink-shirt-ec3SJoypVKM) | sofatutor |
+| `home-family-*.webp` | [Person holding white iPad on white table](https://unsplash.com/photos/hLvQ4-QEBAE) | Robo Wunderkind |
 
 `course-preview.webp` is a screenshot mockup of the course itself.
