@@ -150,6 +150,8 @@
   .photo img { display: block; width: 100%; height: auto; }
   .hero-photo { max-width: 980px; margin: 44px auto 0; }
   .family-photo { margin: 0 0 28px; }
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0 0 28px; }
+  @media (max-width: 560px) { .photo-strip { grid-template-columns: 1fr 1fr; gap: 12px; } .photo-strip .photo:first-child { grid-column: 1 / -1; } }
   @media (max-width: 800px) { .hero-photo { margin-top: 32px; } }
 
   /* Course preview image */
@@ -228,7 +230,7 @@
   <p class="hero-finance">Work in finance? <a href="#finance">See our courses for finance professionals ↓</a></p>
   <figure class="photo hero-photo">
     <img class="rounded-lg" src="/assets/img/home-hero-1600.webp" srcset="/assets/img/home-hero-800.webp 800w, /assets/img/home-hero-1600.webp 1600w" sizes="(max-width: 1012px) 100vw, 980px" width="1600" height="800" fetchpriority="high"
-      alt="A mother and father sit at the kitchen table with their child, smiling over an exercise book and a laptop.">
+      alt="A dad leans over a laptop at the breakfast table, smiling, while his young son watches the screen.">
   </figure>
 </section>
 
@@ -321,6 +323,14 @@
   <div class="section-head">
     <span class="label">Why Codifyit?</span>
     <h2>Written for parents, not programmers.</h2>
+  </div>
+  <div class="photo-strip">
+    <figure class="photo"><img class="rounded-lg" src="/assets/img/home-together-1-600.webp" srcset="/assets/img/home-together-1-600.webp 600w, /assets/img/home-together-1-1200.webp 1200w" sizes="(max-width: 560px) 100vw, (max-width: 1080px) 33vw, 315px" width="1200" height="900" loading="lazy"
+      alt="A parent and a young child drawing together with felt-tip pens at a small table."></figure>
+    <figure class="photo"><img class="rounded-lg" src="/assets/img/home-together-2-600.webp" srcset="/assets/img/home-together-2-600.webp 600w, /assets/img/home-together-2-1200.webp 1200w" sizes="(max-width: 560px) 50vw, (max-width: 1080px) 33vw, 315px" width="1200" height="900" loading="lazy"
+      alt="A mother looks on as her daughter shows her a piece of schoolwork at the kitchen table."></figure>
+    <figure class="photo"><img class="rounded-lg" src="/assets/img/home-together-3-600.webp" srcset="/assets/img/home-together-3-600.webp 600w, /assets/img/home-together-3-1200.webp 1200w" sizes="(max-width: 560px) 50vw, (max-width: 1080px) 33vw, 315px" width="1200" height="900" loading="lazy"
+      alt="A grandfather helps his grandson with homework at a desk beside a laptop."></figure>
   </div>
   <div class="why">
     <div class="card rounded-lg border-brand-border"><b>01</b><h3>No jargon</h3><p>When a technical word matters, it's explained the first time it appears, with an everyday example.</p></div>
