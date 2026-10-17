@@ -6,10 +6,13 @@ attribution required; credited here as a courtesy).
 
 | File | Photo | Photographer |
 |---|---|---|
-| `home-family-*.webp` | [Man in white dress shirt sitting beside boy](https://unsplash.com/photos/man-in-white-dress-shirt-sitting-beside-boy-in-white-dress-shirt-8c_xFMZDi4E) (laptop logo retouched out) | Jimmy Dean |
 | `home-hero-*.webp` | [Person holding white iPad on white table](https://unsplash.com/photos/hLvQ4-QEBAE) | Robo Wunderkind |
-| `home-together-1-*.webp` | [Adult and child coloring at table](https://unsplash.com/photos/adult-and-child-coloring-at-table-mLqWFEtlIEs) | Gabe Pierce |
-| `home-together-2-*.webp` | [A woman standing next to a little girl in a kitchen](https://unsplash.com/photos/a-woman-standing-next-to-a-little-girl-in-a-kitchen-0vWMHOtXnao) (sweatshirt logo retouched out) | Tim Mossholder |
-| `home-together-3-*.webp` | [Grandfather helps grandson with homework at desk](https://unsplash.com/photos/grandfather-helps-grandson-with-homework-at-desk-PVQqzGEF5UI) | Vitaly Gariev |
+| `home-family-*.webp` | [Hands building with bricks](https://images.unsplash.com/photo-1669224863633-0e736d51af69) | Sebastien Bonneval |
+| `home-together-1-*.webp` | [A child is drawing on a piece of paper](https://unsplash.com/photos/a-child-is-drawing-on-a-piece-of-paper-RtzoJMsn8F8) | Teo Zac |
+| `home-together-2-*.webp` | [A child is doing something on a sheet of paper](https://unsplash.com/photos/a-child-is-doing-something-on-a-sheet-of-paper-_KrhUJRCW4Y) | ManuelTheLensman |
+| `home-together-3-*.webp` | [Boy writes on his book on the desk](https://unsplash.com/photos/boy-writes-on-his-book-on-the-desk-JexAuNCfefs) | Annie Spratt |
+
+All photos show hands, desks or the backs of heads rather than identifiable
+faces, so no child can be recognised.
 
 `course-preview.webp` is a screenshot mockup of the course itself.
